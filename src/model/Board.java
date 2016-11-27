@@ -19,7 +19,16 @@ public class Board {
 		return selectedTiles.addAll(tiles);
 	}
 	
-	public Board applyGravity() {
+	public Board removeSelectedWord() {
+		for(Tile tile : selectedTiles.selectedTiles) {
+			tiles[tile.getX()] [tile.getY()].removeLetter();
+		}
+		selectedTiles = new Word();
+		applyGravity();
+		return this;
+	}
+	
+	protected Board applyGravity() {
 		// Float up tiles
 		for(int i=0; i<6; i++) {
 			tiles[i][0].receiveFloatUpLetter();
@@ -27,7 +36,7 @@ public class Board {
 		return this;
 	}
 	
-	/** Usually call after <code>applyGravity()</code> */
+	/** Usually call after <code>removeSelectedWord()</code> */
 	public Board populateEmptyTiles() {
 		for(int i=0; i<6; i++) {
 			for(int j=0; j<6; j++) {
