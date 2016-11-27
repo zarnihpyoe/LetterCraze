@@ -1,12 +1,15 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class LetterBank {
 	// using singleton
 	private static LetterBank letterBank;
 	private HashMap<String, Letter> letters = new HashMap<>();
 	private final String[] chars;
+	
+	private static final Letter EMPTY = new Letter("", 0);
 	
 	private LetterBank() {
 		letters.put("E", new Letter("E", 1));
@@ -46,16 +49,22 @@ public class LetterBank {
 		return letterBank;
 	}
 	
+	public static Letter getEmpty() {
+		return EMPTY;
+	}
+	
 	public Letter getLetter(String str) {
 		return letters.getOrDefault(str, null);
 	}
 	
 	public Letter genRandLetter() {
-		int rand = 0;
-		// TODO : generate random number 0 to 26 and set it to rand
-		return letters.get(chars[rand]);
+		int n = 0;
+		// generate random number 0 to 25 and set it to n
+		Random rand = new Random();
+		n = rand.nextInt(26);
+		
+		return letters.get(chars[n]);
 	}
-	
 	
 
 }
