@@ -20,7 +20,7 @@ public class Board {
 	}
 	
 	public Board removeSelectedWord() {
-		for(Tile tile : selectedTiles.selectedTiles) {
+		for(Tile tile : selectedTiles.getSelectedTiles()) {
 			tiles[tile.getX()] [tile.getY()].removeLetter();
 		}
 		selectedTiles = new Word();
