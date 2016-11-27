@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Theme extends Level {
 
-	String theme;
-	ArrayList<String> wordList;
+	private final String theme;
+	private final ArrayList<String> wordList;
 	
 	public Theme(Board board, ScoreBoard scoreBoard, 
 			String theme, ArrayList<String> wordList) {
@@ -17,6 +17,14 @@ public class Theme extends Level {
 	@Override
 	public int updateScore() {
 		return scoreBoard.updateScore(+1);
+	}
+
+	public String getTheme() {
+		return theme;
+	}
+
+	public ArrayList<String> getWordList() {
+		return wordList;
 	}
 	
 }

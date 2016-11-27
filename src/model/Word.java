@@ -3,10 +3,14 @@ package model;
 import java.util.ArrayList;
 
 public class Word {
-	ArrayList<Tile> selectedTiles;
+	private ArrayList<Tile> selectedTiles;
 	
 	public Word() {
 		selectedTiles = new ArrayList<>();
+	}
+
+	public ArrayList<Tile> getSelectedTiles() {
+		return selectedTiles;
 	}
 
 	public Word add(Tile newTile) {
