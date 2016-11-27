@@ -16,24 +16,26 @@ public class Tile {
 
 	public int getY() { return y; }
 
-	public boolean setLetter(Letter letter) {
+	public void setLetter(Letter letter) {
 		this.letter = letter;
-		return false;
 	}
 
-	public boolean setLetter(String character) {
-		// TODO : Get Letter from LetterBank and set it to letter attribute
-		return false;
+	public void setLetter(String character) {
+		letter = LetterBank.getInstance().getLetter(character);
 	}
 	
-	public boolean setRandLetter() {
-		// TODO : Get randomLetter from LetterBank and set it to letter attribute
-		return false;
+	public void setRandLetter() {
+		letter = LetterBank.getInstance().genRandLetter();
 	}
 	
-	public boolean removeLetter() {
+	public void removeLetter() {
 		letter = new Letter(" ", 0);
-		return false;
+	}
+	
+	public Letter extractLetter() {
+		Letter oldLet = letter;
+		removeLetter();
+		return oldLet;
 	}
 	
 	public String getCharacter() {
@@ -41,8 +43,10 @@ public class Tile {
 	}
 	
 	public boolean isAdjacent(Tile otherTile) {
-		// TODO : Check if otherTile is within +/- 1 of x and y
-		return false;
+		// Check if otherTile is within +/- 1 of x and y but not itself
+		return Math.abs(x-otherTile.getX()) == 1 && y-otherTile.getY() == 0 ||	// left right cells
+						Math.abs(y-otherTile.getY()) == 1 && x-otherTile.getX() == 0 ||	// top bottom cells
+							(Math.abs(x-otherTile.getX()) == 1 && Math.abs(y-otherTile.getY()) == 1);	// diagonal cells
 	}
 	
 }
