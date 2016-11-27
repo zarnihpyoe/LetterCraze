@@ -9,7 +9,7 @@ public class LetterBank {
 	private HashMap<String, Letter> letters = new HashMap<>();
 	private final String[] chars;
 	
-	private static final Letter EMPTY = new Letter("", 0);
+	public static final Letter EMPTY = new Letter("", 0);
 	
 	private LetterBank() {
 		letters.put("E", new Letter("E", 1));
@@ -47,10 +47,6 @@ public class LetterBank {
 			letterBank = new LetterBank();
 		}
 		return letterBank;
-	}
-	
-	public static Letter getEmpty() {
-		return EMPTY;
 	}
 	
 	public Letter getLetter(String str) {

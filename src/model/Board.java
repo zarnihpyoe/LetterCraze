@@ -3,10 +3,10 @@ package model;
 import java.util.ArrayList;
 
 public class Board {
-	Tile[] [] tiles = new Tile[6] [6];
+	Tile[][] tiles = new Tile[6][6];
 	Word selectedTiles;
 	
-	public Board(Tile[] [] tiles) {
+	public Board(Tile[][] tiles) {
 		this.tiles = tiles;
 		selectedTiles = new Word();
 	}
@@ -20,12 +20,21 @@ public class Board {
 	}
 	
 	public Board applyGravity() {
-		// TODO : Float up tiles
+		// Float up tiles
+		for(int i=0; i<6; i++) {
+			tiles[i][0].receiveFloatUpLetter();
+		}
 		return this;
 	}
 	
+	/** Usually call after <code>applyGravity()</code> */
 	public Board populateEmptyTiles() {
-		// TODO : Fill up the empty tiles with random letters
+		for(int i=0; i<6; i++) {
+			for(int j=0; j<6; j++) {
+				Tile tile = tiles[i][j];
+				if(tile.isEmpty()) { tile.setRandLetter(); }
+			}
+		}
 		return this;
 	}
 	
