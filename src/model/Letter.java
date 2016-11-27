@@ -14,8 +14,7 @@ public class Letter {
 	public int getWeight() { return weight; }
 
 	public boolean isEqual(Letter letter) {
-		// TODO : if the given letter is equal to this
-		return false;
+		return character.equalsIgnoreCase(letter.getCharacter());
 	}
 	
 }
