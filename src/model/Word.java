@@ -41,7 +41,7 @@ public class Word {
 		// count them
 		int points = 0;
 		for(Tile tile : selectedTiles) {
-			points += tile.getLetter().getWeight(); 
+			points += tile.getLetter().getWeight();
 		}
 		return points;
 	}
@@ -51,19 +51,26 @@ public class Word {
 	}
 
 	private boolean isValidPos() {
-		// TODO : Check the position of the tiles according to the order
-		return false;
+		// Check the position of the tiles according to the order
+		for(int i=1; i<selectedTiles.size(); i++) {
+			Tile prev = selectedTiles.get(i-1);
+			Tile curr = selectedTiles.get(i);
+			if(!prev.isAdjacent(curr)) { return false; }
+		}
+		return true;
 	}
 
 	private boolean isValidWord() {
-		String word = getString();
+		String theWord = getString();
 		// TODO : Check word with the dictionary
-		return false;
+		return true;
 	}
 
 	private boolean isInWordList(ArrayList<String> wordList) {
-		String word = getString();
-		// TODO : Check word in the wordList
+		String theWord = getString();
+		for (String word : wordList) {
+			if(theWord.equalsIgnoreCase(word)) { return true; }
+		}
 		return false;
 	}
 
