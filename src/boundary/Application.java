@@ -40,39 +40,29 @@ public class Application {
 	}
 	
 	
+	public void displayMainMenu() {
+		LevelSelectPanel menuView = new LevelSelectPanel();
+		switchPanel(menuView);
+		modifyFrameSize(100, 100, 600, 500);
+		frame.setVisible(true);
+		
+	}
+	
 	public static void main (String []args) {		
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				Model m = new Model();
-				Timer timer = new Timer();
-				
-				try {
-					final Application window = new Application(m);
-					BuilderSplashPanel splashView = new BuilderSplashPanel();
-					window.switchPanel(splashView);
-					window.modifyFrameSize(100, 100, 718, 445);
-					
-					
-					timer.schedule(new TimerTask() {
-						  @Override
-						  public void run() {
-							  window.frame.setVisible(true);
-						  }
-						}, 3000);
-					window.frame.setVisible(false);
-					
-					LevelSelectPanel menuView = new LevelSelectPanel();
-					window.switchPanel(menuView);
-					window.modifyFrameSize(100, 100, 600, 500);
-					window.frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				Model m = new Model();	
+				Application window = new Application(m);
+				PlayerSplashPanel splashView = new PlayerSplashPanel(window);
+				window.frame.setLocationRelativeTo(null);
+				window.switchPanel(splashView);
+				window.modifyFrameSize(100, 100, 718, 445);
 			}
 		});
 	}
+
+	
 	
 	
 	
