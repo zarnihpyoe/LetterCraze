@@ -3,7 +3,7 @@ import javax.swing.JPanel;
 
 import javax.swing.border.EmptyBorder;
 
-import controller.ToMainMenuController;
+import controllers.ToMainMenuController;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -13,7 +13,6 @@ import java.awt.GridLayout;
 import javax.swing.JToggleButton;
 import java.awt.Color;
 import javax.swing.ImageIcon;
-
 public class LightningPlayerPanel extends JPanel {
 
 	/**
