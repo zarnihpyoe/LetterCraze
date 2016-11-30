@@ -1,0 +1,145 @@
+import java.awt.BorderLayout;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.SwingConstants;
+import javax.swing.JProgressBar;
+import java.awt.Color;
+import java.awt.GridLayout;
+
+public class GUIDELETELEVEL extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUIDELETELEVEL frame = new GUIDELETELEVEL();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GUIDELETELEVEL() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 350, 330);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panel.setBounds(0, 0, 514, 311);
+		contentPane.add(panel);
+		
+		JLabel lblDeleteLevel = new JLabel("DELETE LEVEL");
+		lblDeleteLevel.setFont(new Font("Comic Sans MS", Font.BOLD, 34));
+		lblDeleteLevel.setBounds(10, 11, 259, 46);
+		panel.add(lblDeleteLevel);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(20, 61, 300, 222);
+		panel.add(scrollPane);
+		
+		JPanel panel_1 = new JPanel();
+		scrollPane.setViewportView(panel_1);
+		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JButton button = new JButton("Level 1: Puzzle");
+		button.setHorizontalAlignment(SwingConstants.LEFT);
+		button.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button);
+		
+		JButton button_1 = new JButton("Level 2: Lightning");
+		button_1.setHorizontalAlignment(SwingConstants.LEFT);
+		button_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_1);
+		
+		JButton button_2 = new JButton("Level 3: Theme");
+		button_2.setHorizontalAlignment(SwingConstants.LEFT);
+		button_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_2);
+		
+		JButton button_3 = new JButton("Level 4: Puzzle");
+		button_3.setHorizontalAlignment(SwingConstants.LEFT);
+		button_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_3);
+		
+		JButton btnLevelLightning = new JButton("Level 5: Lightning");
+		btnLevelLightning.setHorizontalAlignment(SwingConstants.LEFT);
+		btnLevelLightning.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(btnLevelLightning);
+		
+		JButton button_5 = new JButton("Level 6: Theme");
+		button_5.setHorizontalAlignment(SwingConstants.LEFT);
+		button_5.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_5);
+		
+		JButton button_6 = new JButton("Level 7: Puzzle");
+		button_6.setHorizontalAlignment(SwingConstants.LEFT);
+		button_6.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_6);
+		
+		JButton button_7 = new JButton("Level 8: Lightning");
+		button_7.setHorizontalAlignment(SwingConstants.LEFT);
+		button_7.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_7);
+		
+		JButton button_8 = new JButton("Level 9: Theme");
+		button_8.setHorizontalAlignment(SwingConstants.LEFT);
+		button_8.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_8);
+		
+		JButton button_9 = new JButton("Level 10: Puzzle");
+		button_9.setHorizontalAlignment(SwingConstants.LEFT);
+		button_9.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_9);
+		
+		JButton button_10 = new JButton("Level 11: Lightning");
+		button_10.setHorizontalAlignment(SwingConstants.LEFT);
+		button_10.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_10);
+		
+		JButton button_11 = new JButton("Level 12: Theme");
+		button_11.setHorizontalAlignment(SwingConstants.LEFT);
+		button_11.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_11);
+		
+		JButton button_12 = new JButton("Level 13: Puzzle");
+		button_12.setHorizontalAlignment(SwingConstants.LEFT);
+		button_12.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_12);
+		
+		JButton button_13 = new JButton("Level 14: Lightning");
+		button_13.setHorizontalAlignment(SwingConstants.LEFT);
+		button_13.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_13);
+		
+		JButton button_14 = new JButton("Level 15: Theme");
+		button_14.setHorizontalAlignment(SwingConstants.LEFT);
+		button_14.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		panel_1.add(button_14);
+	}
+}

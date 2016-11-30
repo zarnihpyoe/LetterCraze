@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;GUIDELETELEVEL.java&apos; to &apos;LetterCraze/src/view&apos;&#x0D;&#x0A;- Original project: &apos;GUI&apos;&#x0D;&#x0A;- Destination element: &apos;LetterCraze/src/view&apos;&#x0D;&#x0A;- Original element: &apos;GUIDELETELEVEL.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=LetterCraze/src&lt;view" element1="/src&lt;{GUIDELETELEVEL.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1480394513768" units="1" version="1.0"/>
+</session>

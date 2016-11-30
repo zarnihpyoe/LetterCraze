@@ -1,0 +1,460 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextPane;
+import javax.swing.SpringLayout;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.SwingConstants;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.JProgressBar;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+
+public class GUITEST extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUITEST frame = new GUITEST();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GUITEST() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 520, 380);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblMainMenu = new JLabel("MAIN MENU");
+		lblMainMenu.setFont(new Font("Comic Sans MS", Font.BOLD, 34));
+		lblMainMenu.setBounds(10, 11, 259, 46);
+		contentPane.add(lblMainMenu);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(20, 61, 469, 258);
+		contentPane.add(scrollPane);
+		
+		JPanel panel = new JPanel();
+		scrollPane.setViewportView(panel);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[] {285, 150, 0};
+		gbl_panel.rowHeights = new int[]{53, 0, 53, 0, 53, 0, 53, 0, 53, 0, 53, 0, 53, 0, 53, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
+		
+		JButton btnLevelPuzzle = new JButton("Level 1: Puzzle");
+		btnLevelPuzzle.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelPuzzle.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelPuzzle = new GridBagConstraints();
+		gbc_btnLevelPuzzle.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelPuzzle.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelPuzzle.gridx = 0;
+		gbc_btnLevelPuzzle.gridy = 0;
+		panel.add(btnLevelPuzzle, gbc_btnLevelPuzzle);
+		
+		JPanel panel_1 = new JPanel();
+		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_1.fill = GridBagConstraints.BOTH;
+		gbc_panel_1.gridx = 1;
+		gbc_panel_1.gridy = 0;
+		panel.add(panel_1, gbc_panel_1);
+		panel_1.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("D:\\111aaaaaa.png"));
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(label);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon("D:\\111aaaaaa.png"));
+		label_1.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(label_1);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon("D:\\111aaaaaa.png"));
+		label_2.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(label_2);
+		
+		JButton btnLevelLightning = new JButton("Level 2: Lightning");
+		btnLevelLightning.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelLightning.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelLightning = new GridBagConstraints();
+		gbc_btnLevelLightning.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelLightning.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelLightning.gridx = 0;
+		gbc_btnLevelLightning.gridy = 1;
+		panel.add(btnLevelLightning, gbc_btnLevelLightning);
+		btnLevelLightning.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		JPanel panel_2 = new JPanel();
+		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+		gbc_panel_2.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_2.fill = GridBagConstraints.BOTH;
+		gbc_panel_2.gridx = 1;
+		gbc_panel_2.gridy = 1;
+		panel.add(panel_2, gbc_panel_2);
+		panel_2.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon("D:\\111aaaaaa.png"));
+		label_3.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_2.add(label_3);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon("D:\\111aaaaaa.png"));
+		label_4.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_2.add(label_4);
+		
+		JLabel label_5 = new JLabel("");
+		label_5.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_2.add(label_5);
+		
+		JButton button_3 = new JButton("Level 3: Theme");
+		button_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		button_3.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_button_3 = new GridBagConstraints();
+		gbc_button_3.fill = GridBagConstraints.BOTH;
+		gbc_button_3.insets = new Insets(0, 0, 5, 5);
+		gbc_button_3.gridx = 0;
+		gbc_button_3.gridy = 2;
+		panel.add(button_3, gbc_button_3);
+		
+		JButton btnLevelLightning_1 = new JButton("Level 5: LOCKED");
+		btnLevelLightning_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		JPanel panel_3 = new JPanel();
+		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
+		gbc_panel_3.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_3.fill = GridBagConstraints.BOTH;
+		gbc_panel_3.gridx = 1;
+		gbc_panel_3.gridy = 2;
+		panel.add(panel_3, gbc_panel_3);
+		panel_3.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JLabel label_6 = new JLabel("");
+		label_6.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_3.add(label_6);
+		
+		JLabel label_7 = new JLabel("");
+		label_7.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_3.add(label_7);
+		
+		JLabel label_8 = new JLabel("");
+		label_8.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_3.add(label_8);
+		
+		JButton btnLevelPuzzle_1 = new JButton("Level 4: Puzzle");
+		btnLevelPuzzle_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelPuzzle_1.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelPuzzle_1 = new GridBagConstraints();
+		gbc_btnLevelPuzzle_1.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelPuzzle_1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelPuzzle_1.gridx = 0;
+		gbc_btnLevelPuzzle_1.gridy = 3;
+		panel.add(btnLevelPuzzle_1, gbc_btnLevelPuzzle_1);
+		
+		JPanel panel_4 = new JPanel();
+		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
+		gbc_panel_4.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_4.fill = GridBagConstraints.BOTH;
+		gbc_panel_4.gridx = 1;
+		gbc_panel_4.gridy = 3;
+		panel.add(panel_4, gbc_panel_4);
+		panel_4.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JLabel label_9 = new JLabel("");
+		label_9.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(label_9);
+		
+		JLabel label_10 = new JLabel("");
+		label_10.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(label_10);
+		
+		JLabel label_11 = new JLabel("");
+		label_11.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(label_11);
+		btnLevelLightning_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelLightning_1.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelLightning_1 = new GridBagConstraints();
+		gbc_btnLevelLightning_1.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelLightning_1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelLightning_1.gridx = 0;
+		gbc_btnLevelLightning_1.gridy = 4;
+		panel.add(btnLevelLightning_1, gbc_btnLevelLightning_1);
+		
+		JPanel panel_5 = new JPanel();
+		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
+		gbc_panel_5.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_5.fill = GridBagConstraints.BOTH;
+		gbc_panel_5.gridx = 1;
+		gbc_panel_5.gridy = 4;
+		panel.add(panel_5, gbc_panel_5);
+		panel_5.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JLabel label_12 = new JLabel("");
+		label_12.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_5.add(label_12);
+		
+		JLabel label_13 = new JLabel("");
+		label_13.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_5.add(label_13);
+		
+		JLabel label_14 = new JLabel("");
+		label_14.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_5.add(label_14);
+		
+		JButton btnLevelTheme = new JButton("Level 6: Theme");
+		btnLevelTheme.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelTheme.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelTheme = new GridBagConstraints();
+		gbc_btnLevelTheme.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelTheme.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelTheme.gridx = 0;
+		gbc_btnLevelTheme.gridy = 5;
+		panel.add(btnLevelTheme, gbc_btnLevelTheme);
+		
+		JProgressBar progressBar_5 = new JProgressBar();
+		progressBar_5.setValue(1);
+		progressBar_5.setMaximum(3);
+		progressBar_5.setForeground(Color.YELLOW);
+		progressBar_5.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_5 = new GridBagConstraints();
+		gbc_progressBar_5.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_5.gridx = 1;
+		gbc_progressBar_5.gridy = 5;
+		panel.add(progressBar_5, gbc_progressBar_5);
+		
+		JButton btnLevelPuzzle_2 = new JButton("Level 7: Puzzle");
+		btnLevelPuzzle_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelPuzzle_2.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelPuzzle_2 = new GridBagConstraints();
+		gbc_btnLevelPuzzle_2.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelPuzzle_2.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelPuzzle_2.gridx = 0;
+		gbc_btnLevelPuzzle_2.gridy = 6;
+		panel.add(btnLevelPuzzle_2, gbc_btnLevelPuzzle_2);
+		
+		JProgressBar progressBar_6 = new JProgressBar();
+		progressBar_6.setValue(1);
+		progressBar_6.setMaximum(3);
+		progressBar_6.setForeground(Color.YELLOW);
+		progressBar_6.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_6 = new GridBagConstraints();
+		gbc_progressBar_6.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_6.gridx = 1;
+		gbc_progressBar_6.gridy = 6;
+		panel.add(progressBar_6, gbc_progressBar_6);
+		
+		JButton btnLevelLightning_2 = new JButton("Level 8: Lightning");
+		btnLevelLightning_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelLightning_2.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelLightning_2 = new GridBagConstraints();
+		gbc_btnLevelLightning_2.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelLightning_2.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelLightning_2.gridx = 0;
+		gbc_btnLevelLightning_2.gridy = 7;
+		panel.add(btnLevelLightning_2, gbc_btnLevelLightning_2);
+		
+		JProgressBar progressBar_7 = new JProgressBar();
+		progressBar_7.setValue(1);
+		progressBar_7.setMaximum(3);
+		progressBar_7.setForeground(Color.YELLOW);
+		progressBar_7.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_7 = new GridBagConstraints();
+		gbc_progressBar_7.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_7.gridx = 1;
+		gbc_progressBar_7.gridy = 7;
+		panel.add(progressBar_7, gbc_progressBar_7);
+		
+		JButton btnLevelTheme_1 = new JButton("Level 9: Theme");
+		btnLevelTheme_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelTheme_1.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelTheme_1 = new GridBagConstraints();
+		gbc_btnLevelTheme_1.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelTheme_1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelTheme_1.gridx = 0;
+		gbc_btnLevelTheme_1.gridy = 8;
+		panel.add(btnLevelTheme_1, gbc_btnLevelTheme_1);
+		
+		JProgressBar progressBar_8 = new JProgressBar();
+		progressBar_8.setValue(1);
+		progressBar_8.setMaximum(3);
+		progressBar_8.setForeground(Color.YELLOW);
+		progressBar_8.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_8 = new GridBagConstraints();
+		gbc_progressBar_8.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_8.gridx = 1;
+		gbc_progressBar_8.gridy = 8;
+		panel.add(progressBar_8, gbc_progressBar_8);
+		
+		JButton btnLevelPuzzle_3 = new JButton("Level 10: Puzzle");
+		btnLevelPuzzle_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelPuzzle_3.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelPuzzle_3 = new GridBagConstraints();
+		gbc_btnLevelPuzzle_3.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelPuzzle_3.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelPuzzle_3.gridx = 0;
+		gbc_btnLevelPuzzle_3.gridy = 9;
+		panel.add(btnLevelPuzzle_3, gbc_btnLevelPuzzle_3);
+		
+		JProgressBar progressBar_9 = new JProgressBar();
+		progressBar_9.setValue(1);
+		progressBar_9.setMaximum(3);
+		progressBar_9.setForeground(Color.YELLOW);
+		progressBar_9.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_9 = new GridBagConstraints();
+		gbc_progressBar_9.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_9.gridx = 1;
+		gbc_progressBar_9.gridy = 9;
+		panel.add(progressBar_9, gbc_progressBar_9);
+		
+		JButton button_1 = new JButton("Level 11: Lightning");
+		button_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		button_1.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_button_1 = new GridBagConstraints();
+		gbc_button_1.fill = GridBagConstraints.BOTH;
+		gbc_button_1.insets = new Insets(0, 0, 5, 5);
+		gbc_button_1.gridx = 0;
+		gbc_button_1.gridy = 10;
+		panel.add(button_1, gbc_button_1);
+		
+		JProgressBar progressBar_10 = new JProgressBar();
+		progressBar_10.setValue(1);
+		progressBar_10.setMaximum(3);
+		progressBar_10.setForeground(Color.YELLOW);
+		progressBar_10.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_10 = new GridBagConstraints();
+		gbc_progressBar_10.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_10.gridx = 1;
+		gbc_progressBar_10.gridy = 10;
+		panel.add(progressBar_10, gbc_progressBar_10);
+		
+		JButton button_2 = new JButton("Level 12: Theme");
+		button_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		button_2.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_button_2 = new GridBagConstraints();
+		gbc_button_2.fill = GridBagConstraints.BOTH;
+		gbc_button_2.insets = new Insets(0, 0, 5, 5);
+		gbc_button_2.gridx = 0;
+		gbc_button_2.gridy = 11;
+		panel.add(button_2, gbc_button_2);
+		
+		JProgressBar progressBar_11 = new JProgressBar();
+		progressBar_11.setValue(1);
+		progressBar_11.setMaximum(3);
+		progressBar_11.setForeground(Color.YELLOW);
+		progressBar_11.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_11 = new GridBagConstraints();
+		gbc_progressBar_11.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_11.gridx = 1;
+		gbc_progressBar_11.gridy = 11;
+		panel.add(progressBar_11, gbc_progressBar_11);
+		
+		JButton btnLevelPuzzle_4 = new JButton("Level 13: Puzzle");
+		btnLevelPuzzle_4.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelPuzzle_4.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelPuzzle_4 = new GridBagConstraints();
+		gbc_btnLevelPuzzle_4.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelPuzzle_4.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelPuzzle_4.gridx = 0;
+		gbc_btnLevelPuzzle_4.gridy = 12;
+		panel.add(btnLevelPuzzle_4, gbc_btnLevelPuzzle_4);
+		btnLevelPuzzle_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		JProgressBar progressBar_12 = new JProgressBar();
+		progressBar_12.setValue(1);
+		progressBar_12.setMaximum(3);
+		progressBar_12.setForeground(Color.YELLOW);
+		progressBar_12.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_12 = new GridBagConstraints();
+		gbc_progressBar_12.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_12.gridx = 1;
+		gbc_progressBar_12.gridy = 12;
+		panel.add(progressBar_12, gbc_progressBar_12);
+		
+		JButton btnLevelLightning_4 = new JButton("Level 14: Lightning");
+		btnLevelLightning_4.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelLightning_4.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelLightning_4 = new GridBagConstraints();
+		gbc_btnLevelLightning_4.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelLightning_4.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLevelLightning_4.gridx = 0;
+		gbc_btnLevelLightning_4.gridy = 13;
+		panel.add(btnLevelLightning_4, gbc_btnLevelLightning_4);
+		
+		JProgressBar progressBar_13 = new JProgressBar();
+		progressBar_13.setValue(1);
+		progressBar_13.setMaximum(3);
+		progressBar_13.setForeground(Color.YELLOW);
+		progressBar_13.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_13 = new GridBagConstraints();
+		gbc_progressBar_13.insets = new Insets(0, 0, 5, 0);
+		gbc_progressBar_13.gridx = 1;
+		gbc_progressBar_13.gridy = 13;
+		panel.add(progressBar_13, gbc_progressBar_13);
+		
+		JButton btnLevelTheme_3 = new JButton("Level 15: Theme");
+		btnLevelTheme_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnLevelTheme_3.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_btnLevelTheme_3 = new GridBagConstraints();
+		gbc_btnLevelTheme_3.fill = GridBagConstraints.BOTH;
+		gbc_btnLevelTheme_3.insets = new Insets(0, 0, 0, 5);
+		gbc_btnLevelTheme_3.gridx = 0;
+		gbc_btnLevelTheme_3.gridy = 14;
+		panel.add(btnLevelTheme_3, gbc_btnLevelTheme_3);
+		
+		JProgressBar progressBar_14 = new JProgressBar();
+		progressBar_14.setValue(1);
+		progressBar_14.setMaximum(3);
+		progressBar_14.setForeground(Color.YELLOW);
+		progressBar_14.setBackground(Color.GRAY);
+		GridBagConstraints gbc_progressBar_14 = new GridBagConstraints();
+		gbc_progressBar_14.gridx = 1;
+		gbc_progressBar_14.gridy = 14;
+		panel.add(progressBar_14, gbc_progressBar_14);
+		btnLevelTheme_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+	}
+}
