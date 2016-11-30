@@ -2,6 +2,9 @@ package boundary;
 import javax.swing.JPanel;
 
 import javax.swing.border.EmptyBorder;
+
+import controller.ToMainMenuController;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
