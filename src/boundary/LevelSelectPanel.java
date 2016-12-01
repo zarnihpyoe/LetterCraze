@@ -1,6 +1,11 @@
 package boundary;
 import javax.swing.JPanel;
+
 import javax.swing.border.EmptyBorder;
+
+import controllers.SelectPuzzleLevelController;
+import model.Model;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JScrollPane;
@@ -13,11 +18,29 @@ import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 
 public class LevelSelectPanel extends JPanel {
+	
+	private JButton button;
+	
+	private Application a;
+	private Model m;
+	
+	public LevelSelectPanel(Application a, Model m) {
+		initialize(a, m);
+	}
 
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize(Application a, Model m) {
+		this.a = a;
+		this.m = m;
+		initializeViews();
+		initializeControllers();
+	}
 	/**
 	 * Create the panel.
 	 */
-	public LevelSelectPanel() {
+	public void initializeViews() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -44,7 +67,7 @@ public class LevelSelectPanel extends JPanel {
 		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
-		JButton button = new JButton("Level 1: Puzzle");
+		button = new JButton("Level 1: Puzzle");
 		button.setHorizontalAlignment(SwingConstants.LEFT);
 		button.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button = new GridBagConstraints();
@@ -106,7 +129,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_3.gridy = 0;
 		panel_2.add(label_3, gbc_label_3);
 		
-		JButton button_1 = new JButton("Level 2: Lightning");
+		JButton button_1 = new JButton("Level 2: LOCKED");
 		button_1.setHorizontalAlignment(SwingConstants.LEFT);
 		button_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_1 = new GridBagConstraints();
@@ -168,7 +191,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_6.gridy = 0;
 		panel_3.add(label_6, gbc_label_6);
 		
-		JButton button_2 = new JButton("Level 3: Theme");
+		JButton button_2 = new JButton("Level 3: LOCKED");
 		button_2.setHorizontalAlignment(SwingConstants.LEFT);
 		button_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_2 = new GridBagConstraints();
@@ -230,7 +253,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_9.gridy = 0;
 		panel_4.add(label_9, gbc_label_9);
 		
-		JButton button_3 = new JButton("Level 4: Puzzle");
+		JButton button_3 = new JButton("Level 4: LOCKED");
 		button_3.setHorizontalAlignment(SwingConstants.LEFT);
 		button_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_3 = new GridBagConstraints();
@@ -354,7 +377,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_15.gridy = 0;
 		panel_6.add(label_15, gbc_label_15);
 		
-		JButton button_5 = new JButton("Level 6: Theme");
+		JButton button_5 = new JButton("Level 6: LOCKED");
 		button_5.setHorizontalAlignment(SwingConstants.LEFT);
 		button_5.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_5 = new GridBagConstraints();
@@ -416,7 +439,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_18.gridy = 0;
 		panel_7.add(label_18, gbc_label_18);
 		
-		JButton button_6 = new JButton("Level 7: Puzzle");
+		JButton button_6 = new JButton("Level 7: LOCKED");
 		button_6.setHorizontalAlignment(SwingConstants.LEFT);
 		button_6.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_6 = new GridBagConstraints();
@@ -478,7 +501,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_21.gridy = 0;
 		panel_8.add(label_21, gbc_label_21);
 		
-		JButton button_7 = new JButton("Level 8: Lightning");
+		JButton button_7 = new JButton("Level 8: LOCKED");
 		button_7.setHorizontalAlignment(SwingConstants.LEFT);
 		button_7.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_7 = new GridBagConstraints();
@@ -540,7 +563,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_24.gridy = 0;
 		panel_9.add(label_24, gbc_label_24);
 		
-		JButton button_8 = new JButton("Level 9: Theme");
+		JButton button_8 = new JButton("Level 9: LOCKED");
 		button_8.setHorizontalAlignment(SwingConstants.LEFT);
 		button_8.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_8 = new GridBagConstraints();
@@ -602,7 +625,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_27.gridy = 0;
 		panel_10.add(label_27, gbc_label_27);
 		
-		JButton button_9 = new JButton("Level 10: Puzzle");
+		JButton button_9 = new JButton("Level 10: LOCKED");
 		button_9.setHorizontalAlignment(SwingConstants.LEFT);
 		button_9.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_9 = new GridBagConstraints();
@@ -664,7 +687,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_30.gridy = 0;
 		panel_11.add(label_30, gbc_label_30);
 		
-		JButton button_10 = new JButton("Level 11: Lightning");
+		JButton button_10 = new JButton("Level 11: LOCKED");
 		button_10.setHorizontalAlignment(SwingConstants.LEFT);
 		button_10.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_10 = new GridBagConstraints();
@@ -726,7 +749,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_33.gridy = 0;
 		panel_12.add(label_33, gbc_label_33);
 		
-		JButton button_11 = new JButton("Level 12: Theme");
+		JButton button_11 = new JButton("Level 12: LOCKED");
 		button_11.setHorizontalAlignment(SwingConstants.LEFT);
 		button_11.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_11 = new GridBagConstraints();
@@ -788,7 +811,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_36.gridy = 0;
 		panel_13.add(label_36, gbc_label_36);
 		
-		JButton button_12 = new JButton("Level 13: Puzzle");
+		JButton button_12 = new JButton("Level 13: LOCKED");
 		button_12.setHorizontalAlignment(SwingConstants.LEFT);
 		button_12.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_12 = new GridBagConstraints();
@@ -850,7 +873,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_39.gridy = 0;
 		panel_14.add(label_39, gbc_label_39);
 		
-		JButton button_13 = new JButton("Level 14: Lightning");
+		JButton button_13 = new JButton("Level 14: LOCKED");
 		button_13.setHorizontalAlignment(SwingConstants.LEFT);
 		button_13.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_13 = new GridBagConstraints();
@@ -912,7 +935,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_42.gridy = 0;
 		panel_15.add(label_42, gbc_label_42);
 		
-		JButton button_14 = new JButton("Level 15: Theme");
+		JButton button_14 = new JButton("Level 15: LOCKED");
 		button_14.setHorizontalAlignment(SwingConstants.LEFT);
 		button_14.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
 		GridBagConstraints gbc_button_14 = new GridBagConstraints();
@@ -989,5 +1012,8 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_48.gridy = 15;
 		panel_1.add(label_48, gbc_label_48);
 
+	}
+	private void initializeControllers(){
+		button.addMouseListener(new SelectPuzzleLevelController(this.a, this.m));
 	}
 }

@@ -41,9 +41,9 @@ public class Application {
 	
 	
 	public void displayMainMenu() {
-		LevelSelectPanel menuView = new LevelSelectPanel();
+		LevelSelectPanel menuView = new LevelSelectPanel(this, m);
 		switchPanel(menuView);
-		modifyFrameSize(100, 100, 600, 500);
+		modifyFrameSize(100, 100, 600, 550);
 		frame.setVisible(true);
 		
 	}

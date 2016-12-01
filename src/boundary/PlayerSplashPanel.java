@@ -86,7 +86,7 @@ public class PlayerSplashPanel extends JPanel {
 
             // Wait a little while, maybe while loading resources
             try {
-                Thread.sleep(3000);
+                Thread.sleep(5000);
             } catch (Exception e) {
             }
 

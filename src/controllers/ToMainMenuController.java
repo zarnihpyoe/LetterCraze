@@ -21,7 +21,7 @@ public class ToMainMenuController extends MouseAdapter {
 	}
 	
 	public void mousePressed(MouseEvent me){
-		LevelSelectPanel menuView = new LevelSelectPanel();
+		LevelSelectPanel menuView = new LevelSelectPanel(this.app, this.model);
 		model.resetLevel();
 		
 		app.modifyFrameSize(100, 100, 600, 500);
