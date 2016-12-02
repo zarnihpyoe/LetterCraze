@@ -6,6 +6,7 @@ public abstract class Level {
 	protected boolean isLocked;
 	protected Board board;
 	protected ScoreBoard scoreBoard;
+	protected int numRemovedWords;
 	
 	
 	public Level(int lvl, Board board, ScoreBoard scoreBoard) {
@@ -24,6 +25,10 @@ public abstract class Level {
 	public int updateStar() {
 		return scoreBoard.updateStar();
 	}
+	
+	public int updateNumRemovedWords(int delta) {
+		return numRemovedWords += delta;
+	}
 
 	public int getLvl() {
 		return lvl;
@@ -39,6 +44,10 @@ public abstract class Level {
 
 	public ScoreBoard getScoreBoard() {
 		return scoreBoard;
+	}
+
+	public int getNumRemovedWords() {
+		return numRemovedWords;
 	}
 	
 }
