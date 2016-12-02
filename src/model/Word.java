@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import dictionary.EngDictionary;
+
 public class Word {
 	private ArrayList<Tile> selectedTiles;
 	
@@ -66,8 +68,7 @@ public class Word {
 
 	private boolean isValidWord() {
 		String theWord = getString();
-		// TODO : Check word with the dictionary
-		return true;
+		return EngDictionary.isWord(theWord);
 	}
 
 	private boolean isInWordList(ArrayList<String> wordList) {
