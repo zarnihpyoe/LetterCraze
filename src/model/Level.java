@@ -22,6 +22,8 @@ public abstract class Level {
 	
 	public abstract int updateScore();
 	
+	public abstract boolean iscomplete(int constraint);
+	
 	public int updateStar() {
 		return scoreBoard.updateStar();
 	}

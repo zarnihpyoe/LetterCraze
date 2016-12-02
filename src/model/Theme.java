@@ -25,5 +25,10 @@ public class Theme extends Level {
 	public ArrayList<String> getWordList() {
 		return wordList;
 	}
+
+	@Override
+	public boolean iscomplete(int numWords) {
+		return numWords == 3;
+	}
 	
 }

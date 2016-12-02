@@ -13,5 +13,10 @@ public class Lightning extends Level {
 	public int updateScore() {
 		return scoreBoard.updateScore(+1);
 	}
+
+	@Override
+	public boolean iscomplete(int timeLeft) {
+		return timeLeft == 0;
+	}
 	
 }
