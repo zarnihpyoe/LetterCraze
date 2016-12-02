@@ -4,8 +4,8 @@ public class Lightning extends Level {
 
 	int time;
 	
-	public Lightning(Board board, ScoreBoard scoreBoard, int time) {
-		super(board, scoreBoard);
+	public Lightning(int lvl, Board board, ScoreBoard scoreBoard, int time) {
+		super(lvl, board, scoreBoard);
 		this.time = time;
 	}
 

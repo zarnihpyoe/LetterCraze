@@ -2,8 +2,8 @@ package model;
 
 public class Puzzle extends Level {
 
-	public Puzzle(Board board, ScoreBoard scoreBoard) {
-		super(board, scoreBoard);
+	public Puzzle(int lvl, Board board, ScoreBoard scoreBoard) {
+		super(lvl, board, scoreBoard);
 	}
 
 	@Override

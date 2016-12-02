@@ -7,9 +7,8 @@ public class Theme extends Level {
 	private final String theme;
 	private final ArrayList<String> wordList;
 	
-	public Theme(Board board, ScoreBoard scoreBoard, 
-			String theme, ArrayList<String> wordList) {
-		super(board, scoreBoard);
+	public Theme(int lvl, Board b, ScoreBoard sb, String theme, ArrayList<String> wordList) {
+		super(lvl, b, sb);
 		this.theme = theme;
 		this.wordList = wordList;
 	}
