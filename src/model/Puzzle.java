@@ -20,8 +20,6 @@ public class Puzzle extends Level {
 		return numWords == wordLimit;
 	}
 
-	public int getWordLimit() {
-		return wordLimit;
-	}
+	public int getWordLimit() { return wordLimit; }
 
 }

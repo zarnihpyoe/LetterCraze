@@ -21,7 +21,6 @@ public abstract class Level {
 	}
 	
 	public abstract int updateScore();
-	
 	public abstract boolean iscomplete(int constraint);
 	
 	public int updateStar() {
@@ -32,24 +31,14 @@ public abstract class Level {
 		return numRemovedWords += delta;
 	}
 
-	public int getLvl() {
-		return lvl;
-	}
+	public int getLvl() { return lvl; }
 
-	public boolean isLocked() {
-		return isLocked;
-	}
+	public boolean isLocked() { return isLocked; }
 
-	public Board getBoard() {
-		return board;
-	}
+	public Board getBoard() { return board; }
 
-	public ScoreBoard getScoreBoard() {
-		return scoreBoard;
-	}
+	public ScoreBoard getScoreBoard() { return scoreBoard; }
 
-	public int getNumRemovedWords() {
-		return numRemovedWords;
-	}
+	public int getNumRemovedWords() { return numRemovedWords; }
 	
 }

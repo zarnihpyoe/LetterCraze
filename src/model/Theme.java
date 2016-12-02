@@ -17,18 +17,16 @@ public class Theme extends Level {
 	public int updateScore() {
 		return scoreBoard.updateScore(+1);
 	}
-
-	public String getTheme() {
-		return theme;
-	}
-
-	public ArrayList<String> getWordList() {
-		return wordList;
-	}
-
+	
 	@Override
 	public boolean iscomplete(int numWords) {
 		return numWords == 3;
 	}
+
+	public String getTheme() { return theme; }
+
+	public ArrayList<String> getWordList() { return wordList; }
+
+
 	
 }

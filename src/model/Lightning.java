@@ -2,7 +2,7 @@ package model;
 
 public class Lightning extends Level {
 
-	int time;
+	private final int time;		// not sure about the implementation of time yet
 	
 	public Lightning(int lvl, Board board, ScoreBoard scoreBoard, int time) {
 		super(lvl, board, scoreBoard);
