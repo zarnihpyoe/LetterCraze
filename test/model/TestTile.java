@@ -8,16 +8,49 @@ public class TestTile extends TestCase {
 	
 	@Override
 	protected void setUp() {
-		t1 = new Tile(0, 0, t2, null);
-		tDiag = new Tile(1, 1, null, null);
-		t2 = new Tile(1, 0, t3, t1);
-		t3 = new Tile(2, 0, null, t2);
-		//t4 = new Tile(2, 0, null, null);
+		t1 = new Tile(0, 0);
+		tDiag = new Tile(1, 1);
+		t2 = new Tile(1, 0);
+		t3 = new Tile(2, 0);
+		t4 = new Tile(3, 0);
+		
+		t1.setTileConnection(t2, null);
+		t2.setTileConnection(t3, t1);
+		t3.setTileConnection(t4, t2);
+		t4.setTileConnection(null, t3);
 	}
 
 	@Override
 	protected void tearDown() {
 		
+	}
+	
+	private void setUp1() {
+		t1.setLetter("A");
+		t2.setLetter("B");
+		t3.setLetter("C");
+		t4.setLetter("D");
+	}
+	
+	private void setUp2() {
+		t1.setLetter("A");
+		t2.setLetter("B");
+		t3.setLetter("C");
+		t4.setLetter(LetterBank.EMPTY);		
+	}
+	
+	private void setUp3() {
+		t1.setLetter(LetterBank.EMPTY);
+		t2.setLetter("A");
+		t3.setLetter("B");
+		t4.setLetter("C");
+	}
+	
+	private void setUp4() {
+		t1.setLetter(LetterBank.EMPTY);
+		t2.setLetter("A");
+		t3.setLetter(LetterBank.EMPTY);
+		t4.setLetter("B");
 	}
 	
 	public void testSetLetter() {
@@ -43,19 +76,19 @@ public class TestTile extends TestCase {
 		assertTrue(t1.isAdjacent(t2));
 		assertTrue(t1.isAdjacent(tDiag));
 		assertFalse(t1.isAdjacent(t3));
-		
 	}
 	
-	public void testFloatUpLetter() {
+	/*public void testFloatUpLetter() {
 		t1.setLetter(LetterBank.EMPTY);
 		t2.setLetter("A");
 		t3.setLetter(LetterBank.EMPTY);
+		t4.setLetter("D");
 		
 		assertFalse(t1.floatUpLetter());
-		assertTrue(t1.isEmpty());
+		assertEquals("A", t1.getCharacter());
 		
 		t2.floatUpLetter();
-		assertEquals("A", t1.getCharacter());
+		assertEquals("D", t1.getCharacter());
 		assertTrue(t2.isEmpty());
 		
 		assertFalse(t3.floatUpLetter());
@@ -78,7 +111,82 @@ public class TestTile extends TestCase {
 		assertEquals("A", t2.getCharacter());
 		
 		t1.receiveFloatUpLetter();
-		//assertEquals("A", t1.getCharacter());
+		assertEquals("A", t1.getCharacter());
+		
+		
+	}*/
+	
+/*	
+	public void testFloatUp() {
+		setUp1();
+		
+		if(t1.isEmpty()) {t2.floatUp();}
+		if(t2.isEmpty()) {t3.floatUp();}
+		if(t3.isEmpty()) {t4.floatUp();}
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertEquals("C", t3.getCharacter());
+		assertEquals("D", t4.getCharacter());
+		
+		setUp2();
+		if(t1.isEmpty()) {t2.floatUp();}
+		if(t2.isEmpty()) {t3.floatUp();}
+		if(t3.isEmpty()) {t4.floatUp();}
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertEquals("C", t3.getCharacter());
+		assertTrue(t4.isEmpty());
+		
+		setUp3();
+		if(t1.isEmpty()) {t2.floatUp();}
+		if(t2.isEmpty()) {t3.floatUp();}
+		if(t3.isEmpty()) {t4.floatUp();}
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertEquals("C", t3.getCharacter());
+		assertTrue(t4.isEmpty());
+		
+		setUp4();
+		if(t1.isEmpty()) {t2.floatUp();}
+		if(t2.isEmpty()) {t3.floatUp();}
+		if(t3.isEmpty()) {t4.floatUp();}
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertTrue(t3.isEmpty());
+		assertTrue(t4.isEmpty());
 	}
+*/
+	
+	public void testColGravity() {
+		setUp1();
+		t1.colGravity();
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertEquals("C", t3.getCharacter());
+		assertEquals("D", t4.getCharacter());
+		
+		setUp2();
+		t1.colGravity();
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertEquals("C", t3.getCharacter());
+		assertTrue(t4.isEmpty());
+		
+		setUp3();
+		t1.colGravity();
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertEquals("C", t3.getCharacter());
+		assertTrue(t4.isEmpty());
+
+		setUp4();
+		t1.colGravity();
+		assertEquals("A", t1.getCharacter());
+		assertEquals("B", t2.getCharacter());
+		assertTrue(t3.isEmpty());
+		assertTrue(t4.isEmpty());
+		
+	}
+	
 	
 }

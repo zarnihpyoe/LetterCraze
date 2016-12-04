@@ -31,7 +31,8 @@ public class Board {
 	protected Board applyGravity() {
 		// Float up tiles
 		for(int i=0; i<6; i++) {
-			tiles[i][0].receiveFloatUpLetter();
+			//tiles[i][0].receiveFloatUpLetter();
+			tiles[i][0].colGravity();
 		}
 		return this;
 	}
