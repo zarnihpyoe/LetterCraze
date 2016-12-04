@@ -38,7 +38,7 @@ public class Word {
 	}
 
 	public boolean isValidInTheme(ArrayList<String> wordList) {
-		return isValidLen() && isInWordList(wordList);
+		return isValidLen() && isValidPos() && isInWordList(wordList);
 	}
 
 	public int getPoints() {
@@ -77,6 +77,10 @@ public class Word {
 			if(theWord.equalsIgnoreCase(word)) { return true; }
 		}
 		return false;
+	}
+	
+	public void clear() {
+		selectedTiles = new ArrayList<>();
 	}
 
 }
