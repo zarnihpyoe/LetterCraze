@@ -63,6 +63,7 @@ public class Tile {
 			if(predecessor == null) { return false; }							// no predecessor anymore
 			if(!predecessor.floatUpLetter()) { return false; }		// no non-empty Tiles below
 		}
+		if(successor == null) { return false; }			// nothing above.. No such case but still..
 		successor.setLetter(extractLetter());
 		return true;
 	}
