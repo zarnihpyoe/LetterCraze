@@ -31,6 +31,9 @@ public class TileReleaseController extends MouseAdapter {
 			
 		}
 		
+		
+		TileDragController.clearCurrentTile();
+		
 		//INSERT ENTITY CONTROL HERE
 	}
 
