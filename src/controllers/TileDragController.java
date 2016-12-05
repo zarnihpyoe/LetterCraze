@@ -1,5 +1,6 @@
 package controllers;
 import java.awt.event.MouseEvent;
+
 import java.awt.event.MouseMotionListener;
 
 import javax.swing.ImageIcon;
@@ -7,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
+
+import model.*;
 
 public class TileDragController implements MouseMotionListener {
 
@@ -27,6 +30,8 @@ public class TileDragController implements MouseMotionListener {
 	@Override
 	public void mouseDragged(MouseEvent e) {
 
+		Word newWord = new Word();
+		
 		int x_rel = e.getX();
 		int y_rel = e.getY();
 		int i = this.getTile(x_rel, y_rel);	
@@ -44,6 +49,8 @@ public class TileDragController implements MouseMotionListener {
 		}
 		
 		
+		// T is the tile you want to add to the word 
+		//newWord.add(T);
 		//insert entity control here
 		/*
 		try {
@@ -51,6 +58,7 @@ public class TileDragController implements MouseMotionListener {
 		} catch (Exception exc){
 		}
 		*/	
+		
 	}
 	
 	private void activateLabel(int i, int c){
