@@ -1011,6 +1011,53 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_48.gridx = 1;
 		gbc_label_48.gridy = 15;
 		panel_1.add(label_48, gbc_label_48);
+		
+		label_1.setVisible(false);
+		label_2.setVisible(false);
+		label_3.setVisible(false);
+		label_4.setVisible(false);
+		label_5.setVisible(false);
+		label_6.setVisible(false);
+		label_7.setVisible(false);
+		label_8.setVisible(false);
+		label_9.setVisible(false);
+		label_10.setVisible(false);
+		label_11.setVisible(false);
+		label_12.setVisible(false);
+		label_13.setVisible(false);
+		label_14.setVisible(false);
+		label_15.setVisible(false);
+		label_16.setVisible(false);
+		label_17.setVisible(false);
+		label_18.setVisible(false);
+		label_19.setVisible(false);
+		label_20.setVisible(false);
+		label_21.setVisible(false);
+		label_22.setVisible(false);
+		label_23.setVisible(false);
+		label_24.setVisible(false);
+		label_25.setVisible(false);
+		label_26.setVisible(false);
+		label_27.setVisible(false);
+		label_28.setVisible(false);
+		label_29.setVisible(false);
+		label_30.setVisible(false);
+		label_31.setVisible(false);
+		label_32.setVisible(false);
+		label_33.setVisible(false);
+		label_34.setVisible(false);
+		label_35.setVisible(false);
+		label_36.setVisible(false);
+		label_37.setVisible(false);
+		label_38.setVisible(false);
+		label_39.setVisible(false);
+		label_40.setVisible(false);
+		label_41.setVisible(false);
+		label_42.setVisible(false);
+		label_43.setVisible(false);
+		label_44.setVisible(false);
+		label_45.setVisible(false);
+		//lol this is the worst
 
 	}
 	private void initializeControllers(){
