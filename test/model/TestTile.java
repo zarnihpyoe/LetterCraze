@@ -14,10 +14,9 @@ public class TestTile extends TestCase {
 		t3 = new Tile(2, 0);
 		t4 = new Tile(3, 0);
 		
-		t1.setTileConnection(t2, null);
-		t2.setTileConnection(t3, t1);
-		t3.setTileConnection(t4, t2);
-		t4.setTileConnection(null, t3);
+		t1.linkWith(t2);
+		t2.linkWith(t3);
+		t3.linkWith(t4);
 	}
 
 	@Override

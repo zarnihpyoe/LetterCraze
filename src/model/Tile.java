@@ -5,17 +5,17 @@ public class Tile {
 	private final int x;
 	private final int y;
 
-	private Tile predecessor;
-	private Tile successor;
+	private Tile predecessor = null;
+	private Tile successor = null;
 
 	public Tile(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	public void setTileConnection(Tile predecessor, Tile successor) {
+	public void linkWith(Tile predecessor) {
 		this.predecessor = predecessor;
-		this.successor = successor;
+	  predecessor.successor = this;
 	}
 	
 	public Letter getLetter() { return letter; }
