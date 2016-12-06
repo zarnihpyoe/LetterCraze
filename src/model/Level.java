@@ -2,19 +2,43 @@ package model;
 
 public abstract class Level {
 	
-	Board board;
-	ScoreBoard scoreBoard;
+	protected final int lvl;
+	protected boolean isLocked;
+	protected Board board;
+	protected ScoreBoard scoreBoard;
+	protected int numRemovedWords;
 	
 	
-	public Level(Board board, ScoreBoard scoreBoard) {
+	public Level(int lvl, Board board, ScoreBoard scoreBoard) {
+		this.lvl = lvl;
+		this.isLocked = lvl > 3;
 		this.board = board;
 		this.scoreBoard = scoreBoard;
 	}
 	
-	public abstract int updateScore();
+	public void unlock() {
+		this.isLocked = false;
+	}
 	
-	public int updateStar() {
+	public abstract int updateScore();
+	public abstract boolean iscomplete(int constraint);
+	
+/*	public int updateStar() {
 		return scoreBoard.updateStar();
+	}*/
+	
+	public int updateNumRemovedWords(int delta) {
+		return numRemovedWords += delta;
 	}
 
+	public int getLvl() { return lvl; }
+
+	public boolean isLocked() { return isLocked; }
+
+	public Board getBoard() { return board; }
+
+	public ScoreBoard getScoreBoard() { return scoreBoard; }
+
+	public int getNumRemovedWords() { return numRemovedWords; }
+	
 }
