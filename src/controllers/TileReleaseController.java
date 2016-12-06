@@ -35,7 +35,18 @@ public class TileReleaseController extends MouseAdapter {
 		TileDragController.clearCurrentTile();
 		
 		//INSERT ENTITY CONTROL HERE
+			//CALL REMOVE SELECTED WORD
+		
+		//MY BOUNDARY REPRESENTATION CODE HERE
+		
+		//add animations here
+		//print out new values
+		
+		
+
 	}
+	
+	public void animateMove(int i, int d){}
 
 
 }

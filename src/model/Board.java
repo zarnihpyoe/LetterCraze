@@ -6,9 +6,6 @@ public class Board {
 	Tile[][] tiles = new Tile[6][6];
 	Word selectedTiles; //MAKE SURE THIS STAYS AND YOU USE IT IN THE CONTROLLER
 	
-	//have a nice day
-	heyheyhey
-	
 	public Board(Tile[][] tiles) {
 		this.tiles = tiles;
 		selectedTiles = new Word();

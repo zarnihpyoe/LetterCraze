@@ -1,17 +1,12 @@
 package boundary;
 
-
-import java.awt.EventQueue;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
-
 import controllers.TileDragController;
 import controllers.TileReleaseController;
 import controllers.TileToggleController;
-
 import java.awt.Color;
 
 public class TraceableBoardPanel extends JPanel {
@@ -44,7 +39,6 @@ public class TraceableBoardPanel extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		*/
-		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.MAGENTA);
 		panel.setBounds(0, 0, 800, 800);
@@ -53,6 +47,7 @@ public class TraceableBoardPanel extends JPanel {
 		layeredPane.add(panel);
 		
 		buttons = new JToggleButton[36];
+		//run a fill up for first time controller (could return array of chars)
 		for (int i = 0; i < 36; i++){
 			buttons[i] = new JToggleButton("");
 			int x_pos = 100 + 100 * (i % 6);

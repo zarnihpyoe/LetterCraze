@@ -36,29 +36,20 @@ public class TileDragController implements MouseMotionListener {
 		int i = this.getTile(x_rel, y_rel);	
 
 		//valid placement needs extensive testing
-		if (i != 0 && i != current_check){ 
+		if (i != 0 && i != current_check && isValidDrag(i, current_check)){ 
 			JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
-
 			selectedButton.setEnabled(false);
 
-			System.out.println(current_check);
 			if (current_check != 0){
 				beenTo.add(current_check);
 				if(!beenTo.contains(i)){
 					activateLabel(i -1, current_check);
+					
+					//// ADD ENTITY CODE RIGHT HERE
 				}
 			}
 			current_check = i;			
 		}
-
-
-		//insert entity control here
-		/*
-		try {
-			m.addElt(i)
-		} catch (Exception exc){
-		}
-		 */	
 	}
 
 	public static void clearCurrentTile(){
@@ -126,7 +117,7 @@ public class TileDragController implements MouseMotionListener {
 	}
 
 	//WARNING: MAY PRODUCE DEFECTS
-	private boolean isValidPlacement(int i, int c) {
+	private boolean isValidDrag(int i, int c) {
 
 		int[] neighbors = {c-7, c-5, c+5, c+7, c-6, c-1, c+1, c+6};
 
@@ -135,11 +126,9 @@ public class TileDragController implements MouseMotionListener {
 		}
 		for (int j = 0; j < 8; j++){
 			if (i == neighbors[j]){
-				System.out.println("true");
 				return true;
 			}
 		}
-
 		return false;
 	}
 
