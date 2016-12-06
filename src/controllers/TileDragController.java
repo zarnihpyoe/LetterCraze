@@ -1,6 +1,7 @@
 package controllers;
 import java.awt.event.MouseEvent;
 
+
 import java.awt.event.MouseMotionListener;
 
 import javax.swing.ImageIcon;
@@ -10,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 import model.*;
+import boundary.*;
 
 public class TileDragController implements MouseMotionListener {
 
@@ -17,11 +19,15 @@ public class TileDragController implements MouseMotionListener {
 	JLayeredPane layeredPane;
 	JLabel[] arrows;
 	int current_check = 0;
+	Model model;
+	Application app;
 	
-	public TileDragController(JPanel p, JLayeredPane lp, JLabel[] a) {
+	public TileDragController(JPanel p, JLayeredPane lp, JLabel[] a, Application app, Model model) {
 		this.panel = p;
 		this.layeredPane = lp;
 		this.arrows = a;
+		this.model = model;
+		this.app = app;
 	}
 	
 	public void mouseMoved(MouseEvent arg0) {
@@ -40,24 +46,14 @@ public class TileDragController implements MouseMotionListener {
 		if (i != 0 && i != current_check){ 
 			JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
 			selectedButton.setEnabled(false);
+			newWord.add(this.model.currentLevel.board.tile(x_rel, y_rel));
 			
 			if (current_check != 0){
 				System.out.println("hi");
 				activateLabel(i -1, current_check);
 			}
 			current_check = i;			
-		}
-		
-		
-		// T is the tile you want to add to the word 
-		//newWord.add(T);
-		//insert entity control here
-		/*
-		try {
-			m.addElt(i)
-		} catch (Exception exc){
-		}
-		*/	
+		}	
 		
 	}
 	

@@ -2,7 +2,7 @@ package model;
 
 public abstract class Level {
 	
-	Board board;
+	public Board board;
 	ScoreBoard scoreBoard;
 	
 	
