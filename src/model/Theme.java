@@ -7,9 +7,8 @@ public class Theme extends Level {
 	private final String theme;
 	private final ArrayList<String> wordList;
 	
-	public Theme(Board board, ScoreBoard scoreBoard, 
-			String theme, ArrayList<String> wordList) {
-		super(board, scoreBoard);
+	public Theme(int lvl, Board b, ScoreBoard sb, String theme, ArrayList<String> wordList) {
+		super(lvl, b, sb);
 		this.theme = theme;
 		this.wordList = wordList;
 	}
@@ -18,13 +17,16 @@ public class Theme extends Level {
 	public int updateScore() {
 		return scoreBoard.updateScore(+1);
 	}
-
-	public String getTheme() {
-		return theme;
+	
+	@Override
+	public boolean iscomplete(int numWords) {
+		return numWords == 3;
 	}
 
-	public ArrayList<String> getWordList() {
-		return wordList;
-	}
+	public String getTheme() { return theme; }
+
+	public ArrayList<String> getWordList() { return wordList; }
+
+
 	
 }

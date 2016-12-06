@@ -2,8 +2,11 @@ package model;
 
 public class Puzzle extends Level {
 
-	public Puzzle(Board board, ScoreBoard scoreBoard) {
-		super(board, scoreBoard);
+	private final int wordLimit;
+	
+	public Puzzle(int lvl, Board board, ScoreBoard scoreBoard, int wordLimit) {
+		super(lvl, board, scoreBoard);
+		this.wordLimit = wordLimit;
 	}
 
 	@Override
@@ -11,5 +14,12 @@ public class Puzzle extends Level {
 		return scoreBoard.updateScore(
 				board.selectedTiles.getPoints());
 	}
+
+	@Override
+	public boolean iscomplete(int numWords) {
+		return numWords == wordLimit;
+	}
+
+	public int getWordLimit() { return wordLimit; }
 
 }

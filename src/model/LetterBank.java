@@ -50,7 +50,7 @@ public class LetterBank {
 	}
 	
 	public Letter getLetter(String str) {
-		return letters.getOrDefault(str, null);
+		return letters.get(str);
 	}
 	
 	public Letter genRandLetter() {

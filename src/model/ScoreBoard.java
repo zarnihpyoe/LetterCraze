@@ -16,7 +16,11 @@ public class ScoreBoard {
 		this.scoreForThirdStar = scoreForThirdStar;
 	}
 	
-	public int updateScore(int delta) { return score +=delta; }
+	public int updateScore(int delta) {
+		score +=delta;
+		updateStar();
+		return score;
+	}
 	
 	public int updateStar() {
 		if(score >= scoreForThirdStar) { stars = 3; }
@@ -25,4 +29,16 @@ public class ScoreBoard {
 		else { stars = 0; }
 		return stars;
 	}
+
+	public int getStars() { return stars; }
+
+	public int getScore() { return score; }
+
+	public int getScoreForFirstStar() { return scoreForFirstStar; }
+
+	public int getScoreForSecondStar() { return scoreForSecondStar; }
+
+	public int getScoreForThirdStar() { return scoreForThirdStar; }
+	
+	
 }

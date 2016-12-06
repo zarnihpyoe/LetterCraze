@@ -38,6 +38,7 @@ public class TileDragController implements MouseMotionListener {
 		//valid placement needs extensive testing
 		if (i != 0 && i != current_check && isValidDrag(i, current_check)){ 
 			JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
+
 			selectedButton.setEnabled(false);
 
 			if (current_check != 0){

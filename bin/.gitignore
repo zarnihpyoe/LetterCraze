@@ -1,6 +1,7 @@
-/controllers/
-/resources/
 /boundary/
+<<<<<<< HEAD
 /Model.class
 /controller/
+=======
+>>>>>>> master
 /model/

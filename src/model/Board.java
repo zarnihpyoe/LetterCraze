@@ -3,27 +3,29 @@ package model;
 import java.util.ArrayList;
 
 public class Board {
-	Tile[][] tiles = new Tile[6][6];
-	Word selectedTiles; //MAKE SURE THIS STAYS AND YOU USE IT IN THE CONTROLLER
+	protected Tile[][] tiles = new Tile[6][6];
+	protected Word selectedTiles;
 	
 	public Board(Tile[][] tiles) {
 		this.tiles = tiles;
-		selectedTiles = new Word();
+		this.selectedTiles = new Word();
 	}
 	
-	public Word selectTile(Tile tile) {
-		return selectedTiles.add(tile);
+	public Board selectTile(Tile tile) {
+		selectedTiles.add(tile);
+		return this;
 	}
 	
-	public Word selectTiles(ArrayList<Tile> tiles) {
-		return selectedTiles.addAll(tiles);
+	public Board selectTiles(ArrayList<Tile> tiles) {
+		selectedTiles.addAll(tiles);
+		return this;
 	}
 	
 	public Board removeSelectedWord() {
 		for(Tile tile : selectedTiles.getSelectedTiles()) {
 			tiles[tile.getX()] [tile.getY()].removeLetter();
 		}
-		selectedTiles = new Word();
+		selectedTiles.clear();
 		applyGravity();
 		return this;
 	}
@@ -31,7 +33,8 @@ public class Board {
 	protected Board applyGravity() {
 		// Float up tiles
 		for(int i=0; i<6; i++) {
-			tiles[i][0].receiveFloatUpLetter();
+			//tiles[i][0].receiveFloatUpLetter();
+			tiles[i][0].colGravity();
 		}
 		return this;
 	}
@@ -45,6 +48,14 @@ public class Board {
 			}
 		}
 		return this;
+	}
+
+	public Tile[][] getTiles() {
+		return tiles;
+	}
+
+	public Word getSelectedTiles() {
+		return selectedTiles;
 	}
 	
 	
