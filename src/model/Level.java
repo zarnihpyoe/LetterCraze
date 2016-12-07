@@ -24,6 +24,7 @@ public abstract class Level {
 	public abstract int updateScore();
 	public abstract boolean isComplete(int constraint);
 
+	
 	/** Call this for removing a word and updating everything. */
 	public boolean removeWordAndUpdate() {
 		boolean isValid = removeWord();

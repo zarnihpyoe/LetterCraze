@@ -1,9 +1,10 @@
 package boundary;
 import javax.swing.JPanel;
 
+
 import javax.swing.border.EmptyBorder;
 
-import controllers.SelectPuzzleLevelController;
+import controllers.*;
 import model.Model;
 
 import javax.swing.JLabel;
@@ -1061,6 +1062,24 @@ public class LevelSelectPanel extends JPanel {
 
 	}
 	private void initializeControllers(){
-		button.addMouseListener(new SelectPuzzleLevelController(this.a, this.m));
+		button.addMouseListener(new SelectPuzzleLevelController(this.a, this.m, 1));
+		button.addMouseListener(new SelectLightningLevelController(this.a, this.m, 2));
+		button.addMouseListener(new SelectThemeLevelController(this.a, this.m, 3));
+		
+		button.addMouseListener(new SelectPuzzleLevelController(this.a, this.m, 4));
+		button.addMouseListener(new SelectLightningLevelController(this.a, this.m, 5));
+		button.addMouseListener(new SelectThemeLevelController(this.a, this.m, 6));
+		
+		button.addMouseListener(new SelectPuzzleLevelController(this.a, this.m, 7));
+		button.addMouseListener(new SelectLightningLevelController(this.a, this.m, 8));
+		button.addMouseListener(new SelectThemeLevelController(this.a, this.m, 9));
+		
+		button.addMouseListener(new SelectPuzzleLevelController(this.a, this.m, 10));
+		button.addMouseListener(new SelectLightningLevelController(this.a, this.m, 11));
+		button.addMouseListener(new SelectThemeLevelController(this.a, this.m, 12));
+		
+		button.addMouseListener(new SelectPuzzleLevelController(this.a, this.m, 13));
+		button.addMouseListener(new SelectLightningLevelController(this.a, this.m, 14));
+		button.addMouseListener(new SelectThemeLevelController(this.a, this.m, 15));
 	}
 }

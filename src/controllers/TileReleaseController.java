@@ -35,7 +35,8 @@ public class TileReleaseController extends MouseAdapter {
 			button.setEnabled(true);
 		}
 		
-		for (int i = 0; i < 85; i++){
+		int i;
+		for (i = 0; i < 85; i++){
 			layerPane.setLayer(arrows[i], 0);	
 		}
 		
