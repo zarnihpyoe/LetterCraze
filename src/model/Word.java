@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import dictionary.EngDictionary;
+
 public class Word {
 	private ArrayList<Tile> selectedTiles;
 	
@@ -36,7 +38,7 @@ public class Word {
 	}
 
 	public boolean isValidInTheme(ArrayList<String> wordList) {
-		return isValidLen() && isInWordList(wordList);
+		return isValidLen() && isValidPos() && isInWordList(wordList);
 	}
 
 	public int getPoints() {
@@ -66,8 +68,7 @@ public class Word {
 
 	private boolean isValidWord() {
 		String theWord = getString();
-		// TODO : Check word with the dictionary
-		return true;
+		return EngDictionary.isWord(theWord);
 	}
 
 	private boolean isInWordList(ArrayList<String> wordList) {
@@ -76,6 +77,10 @@ public class Word {
 			if(theWord.equalsIgnoreCase(word)) { return true; }
 		}
 		return false;
+	}
+	
+	public void clear() {
+		selectedTiles = new ArrayList<>();
 	}
 
 }

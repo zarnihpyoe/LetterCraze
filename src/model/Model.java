@@ -4,9 +4,7 @@ public class Model {
 
 	public Level currentLevel;
 	
-	public Model() {
-		this.currentLevel = null;
-	}
+	public Model() {}
 	
 	// To assign new level to the field
 	public void assignLevel(Level newLevel) {
@@ -17,6 +15,7 @@ public class Model {
 	public void resetLevel() {
 		this.currentLevel = null;
 	}
-	
+
+	public Level getCurrentLevel() { return currentLevel; }
 	
 }

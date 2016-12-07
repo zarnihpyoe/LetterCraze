@@ -5,16 +5,19 @@ public class Tile {
 	private final int x;
 	private final int y;
 
-	private final Tile predecessor;
-	private final Tile successor;
+	private Tile predecessor = null;
+	private Tile successor = null;
 
-	public Tile(int x, int y, Tile predecessor, Tile successor) {
+	public Tile(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.predecessor = predecessor;
-		this.successor = successor;
 	}
 
+	public void linkWith(Tile predecessor) {
+		this.predecessor = predecessor;
+	  predecessor.successor = this;
+	}
+	
 	public Letter getLetter() { return letter; }
 
 	public int getX() { return x; }
@@ -57,23 +60,50 @@ public class Tile {
 				Math.abs(y-otherTile.getY()) == 1 && x-otherTile.getX() == 0 ||	// top bottom cells
 				(Math.abs(x-otherTile.getX()) == 1 && Math.abs(y-otherTile.getY()) == 1);	// diagonal cells
 	}
+	
+	private void floatUp() {
+		if(isEmpty()) {
+			if(predecessor == null) { return;	}		// if at the bottom tile
+			predecessor.floatUp();
+		}
+		successor.setLetter(extractLetter());
+	}
 
+	public void colGravity() {
+		if(predecessor == null) {
+			return;
+		}
+		// now we know that this is not the last tile
+		if(isEmpty()) {
+			predecessor.floatUp();
+		}
+		predecessor.colGravity();
+	}
+	
+
+/*
 	public boolean floatUpLetter() {
 		if (isEmpty()) {
 			if(predecessor == null) { return false; }							// no predecessor anymore
 			if(!predecessor.floatUpLetter()) { return false; }		// no non-empty Tiles below
 		}
+		if(successor == null) { return false; }			// nothing above.. 
 		successor.setLetter(extractLetter());
+		if(predecessor !=null) {
+			predecessor.floatUpLetter();		// recursive call (tentative)
+		}
 		return true;
 	}
 
+/*
 	public void receiveFloatUpLetter() {
 		if(predecessor == null) { return; }							// nothing we can do if there is no predecessor
-		
+
 		if (isEmpty()) { 
 			if(!predecessor.floatUpLetter()) {return; }		// no non-empty Tiles below, so won't waste time to float up for its predecessors
 		}
 		predecessor.receiveFloatUpLetter();
 	}
+*/
 
 }

@@ -1,4 +1,9 @@
 /boundary/
+<<<<<<< HEAD
 /controllers/
 /model/
 /resources/
+=======
+/model/
+>>>>>>> master
+/dictionary/
