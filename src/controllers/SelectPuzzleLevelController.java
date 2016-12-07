@@ -24,16 +24,14 @@ public class SelectPuzzleLevelController extends MouseAdapter {
 		ScoreBoard scoreBoard = new ScoreBoard(5, 7, 10);
 		Tile[][] tiles = new Tile[6][6];
 		Board board = new Board(tiles);
-		
-		System.out.println("lol");
-		
-		Puzzle puzzleLevel = new Puzzle(board, scoreBoard);
+				
+		Puzzle puzzleLevel = new Puzzle(1, board, scoreBoard, 1);
 		
 		this.model.assignLevel(puzzleLevel);
 		
 		PuzzlePlayerPanel puzzleView = new PuzzlePlayerPanel(app, model);
 		
-		app.modifyFrameSize(100, 100, 750, 575);
+		app.modifyFrameSize(100, 100, 550, 500);
 		app.switchPanel(puzzleView);
 		
 		

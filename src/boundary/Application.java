@@ -55,33 +55,22 @@ public class Application {
 				Model m = new Model();	
 				Application window = new Application(m);
 				
-				// controller that pulls the level you want and reads info
-				/*
-				 * The things stored on disk will be level elements
-				 * assign entity the level you pulled out
-				 */
-				//new PullLevelFromDiskController
-				//PullLevelFromDiskController.startGame();
-				
-								//switch panel based on level
-				
-				//run a fill up for first time controller (could return array of chars)
 
-				
 				///// THE NORMAL LAUNCH /////
-				/*
+				
 				PlayerSplashPanel splashView = new PlayerSplashPanel(window);
 				window.frame.setLocationRelativeTo(null);
 				window.switchPanel(splashView);
 				window.modifyFrameSize(100, 100, 718, 445);
-				*/
+				
 				
 				//// TO TEST THE TRACEABLE BOARD ////
-				
+				/*
 				TraceableBoardPanel boardView = new TraceableBoardPanel();
 				window.switchPanel(boardView);
 				window.modifyFrameSize(100, 100, 850, 850);
 				window.frame.setVisible(true);
+				*/
 			}
 		});
 	}

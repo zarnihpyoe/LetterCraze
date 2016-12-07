@@ -135,10 +135,10 @@ public class TileDragController implements MouseMotionListener {
 
 	public int getTile(int x, int y){
 		for (int i = 0; i < 36; i++){
-			int x_len = 100 + 100*(i % 6);
-			int y_len = 100 + 100*(i / 6);
+			int x_len = 70*(i % 6); //100
+			int y_len = 70*(i / 6); //100
 
-			if (x < (x_len + 80) && x > (x_len+20) && y < (y_len + 80) && y > (y_len + 20)){
+			if (x < (x_len + 60) && x > (x_len+10) && y < (y_len + 60) && y > (y_len + 10)){// 80 20
 				return i + 1;
 			}
 		}		

@@ -26,7 +26,7 @@ public class SelectLightningLevelController extends MouseAdapter {
 		Board board = new Board(tiles);
 		
 		// Initiate new Lightning builder and lightning view
-		Lightning lightningLevel = new Lightning(board, scoreBoard, 100);
+		Lightning lightningLevel = new Lightning(1, board, scoreBoard, 100);
 		
 		// Assign lightning builder status to model
 		this.model.assignLevel(lightningLevel);

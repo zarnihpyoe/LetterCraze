@@ -26,7 +26,7 @@ public class SelectThemeLevelController extends MouseAdapter {
 		Tile[][] tiles = new Tile[6][6];
 		Board board = new Board(tiles);
 		ArrayList<String> wordList = new ArrayList<String>(3);
-		Theme themeLevel = new Theme(board, scoreBoard, "Colors", wordList);
+		Theme themeLevel = new Theme(1, board, scoreBoard, "Colors", wordList);
 		
 		this.model.assignLevel(themeLevel);
 		
