@@ -12,10 +12,12 @@ import model.*;
 public class SelectLightningLevelController extends MouseAdapter {
 	Application app;
     Model model;
+    int level;
 	
-	public SelectLightningLevelController(Application a, Model m) {
+	public SelectLightningLevelController(Application a, Model m, int lvl) {
 		this.app = a;
 		this.model = m;
+		this.level = lvl;
 	}
 	
 	@Override
@@ -26,7 +28,7 @@ public class SelectLightningLevelController extends MouseAdapter {
 		Board board = new Board(tiles);
 		
 		// Initiate new Lightning builder and lightning view
-		Lightning lightningLevel = new Lightning(board, scoreBoard, 100);
+		Lightning lightningLevel = new Lightning(this.level, board, scoreBoard, 100);
 		
 		// Assign lightning builder status to model
 		this.model.assignLevel(lightningLevel);

@@ -33,17 +33,16 @@ public class TileReleaseController extends MouseAdapter {
 		for (int i = 0; i < 36; i++){
 			JToggleButton button = (JToggleButton) panel.getComponents()[i];
 			button.setEnabled(true);
-			Model.board.tile()
 		}
 		
 		for (int i = 0; i < 85; i++){
-			layerPane.setLayer(arrows[i], 0);
-			
+			layerPane.setLayer(arrows[i], 0);	
 		}
 		
-		//INSERT ENTITY CONTROL HERE
+		this.model.currentLevel.getBoard().removeSelectedWord();
 		
 	}
+	
 
 
 }

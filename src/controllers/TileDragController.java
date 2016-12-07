@@ -30,13 +30,9 @@ public class TileDragController implements MouseMotionListener {
 		this.app = app;
 	}
 	
-	public void mouseMoved(MouseEvent arg0) {
-	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-
-		Word newWord = new Word();
 		
 		int x_rel = e.getX();
 		int y_rel = e.getY();
@@ -46,7 +42,12 @@ public class TileDragController implements MouseMotionListener {
 		if (i != 0 && i != current_check){ 
 			JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
 			selectedButton.setEnabled(false);
-			newWord.add(this.model.currentLevel.board.tile(x_rel, y_rel));
+			
+			// the tile to be added to selected tiles once the mouse touches this tile
+			Tile newTile = new Tile(this.xPos(i), this.yPos(i));
+			
+			// the tile is selected to create a word to be removed later 
+			this.model.currentLevel.getBoard().selectTile(newTile);
 			
 			if (current_check != 0){
 				System.out.println("hi");
@@ -134,7 +135,7 @@ public class TileDragController implements MouseMotionListener {
 		return false;
 	}
 
-	public int getTile(int x, int y){
+	private int getTile(int x, int y){
 		for (int i = 0; i < 36; i++){
 			int x_len = 100 + 100*(i % 6);
 			int y_len = 100 + 100*(i / 6);
@@ -145,6 +146,38 @@ public class TileDragController implements MouseMotionListener {
 		}		
 		return 0;
 	}
+	
+	// The method to calculate the x position of the tile on the board(6x6 board),
+	// given the index of the button on the panel(panel is assumed to be an array of buttons)
+	private int xPos(int index) {
+		// The remainder 
+		int rem = index%6;
+		// The quotient
+		int quot = index/6;
+		// Check if remainder is 0, then decrement the quotient part
+		if (rem == 0) {
+			quot = quot - 1;
+		}
+		return quot;
+	}
+	
+	// The method to calculate the y position of the tile on the board(6x6 board),
+	// given the index of the button on the panel(panel is assumed to be an array of buttons)
+	private int yPos(int index) {
+		// The remainder 
+		int rem = index%6;
+		// Check if remainder is 0, then set the remainder to 6
+		if (rem == 0) {
+			rem = 6;
+		}
+		return rem;
+	}
 
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
