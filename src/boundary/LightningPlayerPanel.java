@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controllers.ToMainMenuController;
+import model.Model;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -15,10 +16,23 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 public class LightningPlayerPanel extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	public LightningPlayerPanel() {
+	private Application a;
+	private Model m;
+	
+	private JButton btnMainMenu;
+	
+	public LightningPlayerPanel(Application a, Model m){
+		this.a = a;
+		this.m = m;
+		initialize();
+	}
+	
+	public void initialize(){
+		initializeView();
+		initializeControllers();
+	}
+	
+	public void initializeView() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -192,10 +206,10 @@ public class LightningPlayerPanel extends JPanel {
 		label_2.setBounds(313, 256, 82, 26);
 		panel.add(label_2);
 		
-		JButton button_2 = new JButton("MAIN MENU");
-		button_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-		button_2.setBounds(231, 11, 193, 35);
-		panel.add(button_2);
+		btnMainMenu = new JButton("MAIN MENU");
+		btnMainMenu.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnMainMenu.setBounds(231, 11, 193, 35);
+		panel.add(btnMainMenu);
 		
 		JLabel label_3 = new JLabel("13:37");
 		label_3.setForeground(Color.RED);
@@ -239,6 +253,10 @@ public class LightningPlayerPanel extends JPanel {
 		panel.add(button);
 		button.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 
+	}
+
+	private void initializeControllers(){
+		btnMainMenu.addMouseListener(new ToMainMenuController(this.a, this.m));
 	}
 
 }

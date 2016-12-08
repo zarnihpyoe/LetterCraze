@@ -61,19 +61,20 @@ public class Application {
 				Application window = new Application(m);
 				
 				///// THE NORMAL LAUNCH /////
-				/*
+				
 				PlayerSplashPanel splashView = new PlayerSplashPanel(window);
 				window.frame.setLocationRelativeTo(null);
 				window.switchPanel(splashView);
 				window.modifyFrameSize(100, 100, 718, 445);
-				*/
+				
 				
 				//// TO TEST THE TRACEABLE BOARD ////
-				
+				/*
 				TraceableBoardPanel boardView = new TraceableBoardPanel();
 				window.switchPanel(boardView);
 				window.modifyFrameSize(100, 100, 850, 850);
 				window.frame.setVisible(true);
+				*/
 				
 			}
 		});

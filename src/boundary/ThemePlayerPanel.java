@@ -1,6 +1,10 @@
 package boundary;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controllers.ToMainMenuController;
+import model.Model;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -12,10 +16,23 @@ import javax.swing.ImageIcon;
 
 public class ThemePlayerPanel extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	public ThemePlayerPanel() {
+	private Application a;
+	private Model m;
+	
+	private JButton btnMainMenu;
+	
+	public ThemePlayerPanel(Application a, Model m){
+		this.a = a;
+		this.m = m;
+		initialize();
+	}
+	
+	public void initialize(){
+		initializeView();
+		initializeControllers();
+	}
+	
+	public void initializeView() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -189,10 +206,10 @@ public class ThemePlayerPanel extends JPanel {
 		toggleButton_35.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 		panel_1.add(toggleButton_35);
 		
-		JButton button_2 = new JButton("MAIN MENU");
-		button_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-		button_2.setBounds(231, 11, 193, 35);
-		panel.add(button_2);
+		btnMainMenu = new JButton("MAIN MENU");
+		btnMainMenu.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnMainMenu.setBounds(231, 11, 193, 35);
+		panel.add(btnMainMenu);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(313, 57, 111, 35);
@@ -253,6 +270,10 @@ public class ThemePlayerPanel extends JPanel {
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(label_5);
 
+	}
+	
+	private void initializeControllers(){
+		btnMainMenu.addMouseListener(new ToMainMenuController(this.a, this.m));
 	}
 
 }

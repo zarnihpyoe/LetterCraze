@@ -34,7 +34,7 @@ public class SelectLightningLevelController extends MouseAdapter {
 		this.model.assignLevel(lightningLevel);
 		
 		// Initiate new lightning view
-		LightningPlayerPanel lightningView = new LightningPlayerPanel();
+		LightningPlayerPanel lightningView = new LightningPlayerPanel(app, model);
 		
 		// We want to call some method on current application that will switch to just created 
 		// lightning view
