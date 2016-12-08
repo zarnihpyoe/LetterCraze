@@ -23,8 +23,7 @@ public abstract class Level {
 	public abstract boolean removeWord();
 	public abstract int updateScore();
 	public abstract boolean isComplete(int constraint);
-
-	
+    
 	/** Call this for removing a word and updating everything. */
 	public boolean removeWordAndUpdate() {
 		boolean isValid = removeWord();
@@ -42,6 +41,11 @@ public abstract class Level {
 	public int updateNumRemovedWords(int delta) {
 		return numRemovedWords += delta;
 	}
+	
+	public void reset() {
+		numRemovedWords = 0;
+	}
+	
 
 	public int getLvl() { return lvl; }
 

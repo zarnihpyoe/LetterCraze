@@ -58,6 +58,15 @@ public class Board {
 		return selectedTiles;
 	}
 	
+	public void cleanUp() {
+		for (int i=0; i < 6; i++) {
+			for (int j=0; j < 6; j++) {
+				tiles[i][j].removeLetter();;
+			}
+		}
+		selectedTiles = new Word();
+	}
+	
 	
 	
 	
