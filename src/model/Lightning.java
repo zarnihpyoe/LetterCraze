@@ -10,13 +10,31 @@ public class Lightning extends Level {
 	}
 
 	@Override
+	public boolean removeWord() {
+		boolean isValidWord = board.getSelectedTiles().isValid();
+		if(isValidWord) {
+			board.removeSelectedWord();
+			board.populateEmptyTiles();
+		}
+		return isValidWord;
+	}
+
+	@Override
 	public int updateScore() {
 		return scoreBoard.updateScore(+1);
 	}
 
 	@Override
-	public boolean iscomplete(int timeLeft) {
+	public boolean isComplete(int timeLeft) {
 		return timeLeft == 0;
+	}
+	
+	@Override
+	public void reset() {
+		super.reset();
+		this.board.cleanUp();
+		this.board.populateEmptyTiles();
+		this.scoreBoard.resetScore();
 	}
 	
 }

@@ -3,7 +3,11 @@ package boundary;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import model.Board;
 import model.Model;
+import model.Tile;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -38,6 +42,7 @@ public class Application {
 	public JPanel getCurrentPanel(){
 		return (JPanel) this.frame.getContentPane();
 	}
+	
 	
 	
 	public void displayMainMenu() {

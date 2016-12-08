@@ -85,6 +85,7 @@ public class TraceableBoardPanel extends JPanel {
 		for (int i = 0; i < 36; i++){
 			buttons[i].addMouseMotionListener(new TileToggleController(panel));
 			buttons[i].addMouseListener(new TileReleaseController(panel, layeredPane, arrows));
-		}	
+		}
+		
 	}
 }
