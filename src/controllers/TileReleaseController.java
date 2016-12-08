@@ -15,16 +15,13 @@ public class TileReleaseController extends MouseAdapter {
 	JLayeredPane layerPane;
 	JLabel[] arrows;
 	Model model;
-	Application app;
 	
 	
-	public TileReleaseController(JPanel p, JLayeredPane lp, JLabel[] a, Model m, Application app){
+	public TileReleaseController(JPanel p, JLayeredPane lp, JLabel[] a, Model m){
 		this.panel = p;
 		this.layerPane = lp;
 		this.arrows = a;
-		this.model = m;
-		this.app = app;
-		
+		this.model = m;		
 	}
 
 	@Override
@@ -42,7 +39,7 @@ public class TileReleaseController extends MouseAdapter {
 		
 		TileDragController.clearCurrentTile();
 		
-		this.model.currentLevel.getBoard().removeSelectedWord();
+		//this.model.currentLevel.getBoard().removeSelectedWord();
 		
 	}
 	

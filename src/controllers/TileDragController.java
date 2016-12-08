@@ -22,24 +22,19 @@ public class TileDragController implements MouseMotionListener {
 	public static int current_check = 0;
 	static ArrayList<Integer> beenTo;
 	Model model;
-	Application app;
-	public TileDragController(JPanel p, JLayeredPane lp, JLabel[] a, Application app, Model model) {
+
+	public TileDragController(JPanel p, JLayeredPane lp, JLabel[] a, Model model) {
 	
 		this.panel = p;
 		this.layeredPane = lp;
 		this.arrows = a;
 		this.model = model;
-		this.app = app;
 		this.beenTo = new ArrayList<Integer>();
 	}
-<<<<<<<
-
+	
+	@Override
 	public void mouseMoved(MouseEvent arg0) {
 	}
-=======
-	
->>>>>>>
-
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
@@ -58,7 +53,7 @@ public class TileDragController implements MouseMotionListener {
 			Tile newTile = new Tile(this.xPos(i), this.yPos(i));
 			
 			// the tile is selected to create a word to be removed later 
-			this.model.currentLevel.getBoard().selectTile(newTile);
+			//this.model.currentLevel.getBoard().selectTile(newTile);
 			
 			if (current_check != 0){
 				beenTo.add(current_check);
@@ -191,15 +186,4 @@ public class TileDragController implements MouseMotionListener {
 		return rem;
 	}
 
-<<<<<<<
-
-=======
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
->>>>>>>
 }

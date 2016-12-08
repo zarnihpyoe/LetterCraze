@@ -8,6 +8,7 @@ import javax.swing.JToggleButton;
 import controllers.TileDragController;
 import controllers.TileReleaseController;
 import controllers.TileToggleController;
+import model.Model;
 
 import java.awt.Color;
 
@@ -18,6 +19,7 @@ public class TraceableBoardPanel extends JPanel {
 
 	JToggleButton[] buttons;
 	JLabel[] arrows;
+	Model m = new Model();
 
 	/**
 	 * Create the application.
@@ -34,7 +36,7 @@ public class TraceableBoardPanel extends JPanel {
 		setLayout(null);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(0, 0, 350, 350);
+		layeredPane.setBounds(0, 0, 420, 420);
 		add(layeredPane);
 		
 		/*
@@ -77,14 +79,14 @@ public class TraceableBoardPanel extends JPanel {
 			arrows[30 + i].setBounds(x_pos, y_pos, 32, 30);
 			layeredPane.setLayer(arrows[30 + i], 0);
 			layeredPane.add(arrows[30 + i]);
-		}
+			}
 		
-		panel.addMouseMotionListener(new TileDragController(panel, layeredPane, arrows));
-		panel.addMouseListener(new TileReleaseController(panel, layeredPane, arrows));
+		panel.addMouseMotionListener(new TileDragController(panel, layeredPane, arrows, m));
+		panel.addMouseListener(new TileReleaseController(panel, layeredPane, arrows, m));
 		
 		for (int i = 0; i < 36; i++){
 			buttons[i].addMouseMotionListener(new TileToggleController(panel));
-			buttons[i].addMouseListener(new TileReleaseController(panel, layeredPane, arrows));
+			buttons[i].addMouseListener(new TileReleaseController(panel, layeredPane, arrows, m));
 		}
 		
 	}
