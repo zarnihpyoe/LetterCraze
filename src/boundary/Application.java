@@ -3,7 +3,11 @@ package boundary;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import model.Board;
 import model.Model;
+import model.Tile;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,6 +44,7 @@ public class Application {
 	}
 	
 	
+	
 	public void displayMainMenu() {
 		LevelSelectPanel menuView = new LevelSelectPanel(this, m);
 		switchPanel(menuView);
@@ -69,6 +74,7 @@ public class Application {
 				window.switchPanel(boardView);
 				window.modifyFrameSize(100, 100, 850, 850);
 				window.frame.setVisible(true);
+				
 			}
 		});
 	}

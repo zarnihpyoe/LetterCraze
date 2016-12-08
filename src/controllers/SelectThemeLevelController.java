@@ -13,10 +13,12 @@ import model.*;
 public class SelectThemeLevelController extends MouseAdapter {
 	Application app;
     Model model;
+    int level;
 	
-	public SelectThemeLevelController(Application a, Model m) {
+	public SelectThemeLevelController(Application a, Model m, int level) {
 		this.app = a;
 		this.model = m;
+		this.level = level;
 	}
 	
 	@Override
@@ -26,7 +28,7 @@ public class SelectThemeLevelController extends MouseAdapter {
 		Tile[][] tiles = new Tile[6][6];
 		Board board = new Board(tiles);
 		ArrayList<String> wordList = new ArrayList<String>(3);
-		Theme themeLevel = new Theme(board, scoreBoard, "Colors", wordList);
+		Theme themeLevel = new Theme(this.level, board, scoreBoard, "Colors", wordList);
 		
 		this.model.assignLevel(themeLevel);
 		

@@ -12,6 +12,15 @@ public class Theme extends Level {
 		this.theme = theme;
 		this.wordList = wordList;
 	}
+	
+	@Override
+	public boolean removeWord() {
+		boolean isValidWord = board.getSelectedTiles().isValidInTheme(wordList);
+		if(isValidWord) {
+			board.removeSelectedWord();
+		}
+		return isValidWord;
+	}
 
 	@Override
 	public int updateScore() {
@@ -19,7 +28,7 @@ public class Theme extends Level {
 	}
 	
 	@Override
-	public boolean iscomplete(int numWords) {
+	public boolean isComplete(int numWords) {
 		return numWords == 3;
 	}
 
@@ -27,6 +36,4 @@ public class Theme extends Level {
 
 	public ArrayList<String> getWordList() { return wordList; }
 
-
-	
 }

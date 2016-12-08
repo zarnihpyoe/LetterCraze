@@ -1,2 +1,13 @@
 /boundary/
+<<<<<<< HEAD
 /model/
+=======
+<<<<<<< HEAD
+/controllers/
+/model/
+/resources/
+=======
+/model/
+>>>>>>> master
+/dictionary/
+>>>>>>> master

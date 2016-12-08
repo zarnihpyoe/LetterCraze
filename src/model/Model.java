@@ -2,7 +2,7 @@ package model;
 
 public class Model {
 
-	private Level currentLevel;
+	public Level currentLevel;
 	
 	public Model() {}
 	
