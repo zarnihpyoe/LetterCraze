@@ -32,14 +32,5 @@ public class Puzzle extends Level {
 	}
 
 	public int getWordLimit() { return wordLimit; }
-	
-	@Override
-	public void reset() {
-		super.reset();
-		this.board.cleanUp();
-		this.board.populateEmptyTiles();
-		this.scoreBoard.resetScore();
-		this.removedWordPts = 0;
-	}
 
 }

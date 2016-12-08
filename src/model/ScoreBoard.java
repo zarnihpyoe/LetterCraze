@@ -29,11 +29,6 @@ public class ScoreBoard {
 		else { stars = 0; }
 		return stars;
 	}
-	
-	public void resetScore() {
-		stars = 0;
-		score = 0;
-	}
 
 	public int getStars() { return stars; }
 
@@ -44,8 +39,6 @@ public class ScoreBoard {
 	public int getScoreForSecondStar() { return scoreForSecondStar; }
 
 	public int getScoreForThirdStar() { return scoreForThirdStar; }
-	
-	
 	
 	
 }

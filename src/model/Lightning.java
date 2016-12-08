@@ -29,12 +29,4 @@ public class Lightning extends Level {
 		return timeLeft == 0;
 	}
 	
-	@Override
-	public void reset() {
-		super.reset();
-		this.board.cleanUp();
-		this.board.populateEmptyTiles();
-		this.scoreBoard.resetScore();
-	}
-	
 }
