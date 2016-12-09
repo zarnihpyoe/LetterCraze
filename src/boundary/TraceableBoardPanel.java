@@ -72,6 +72,7 @@ public class TraceableBoardPanel extends JPanel {
 			layeredPane.setLayer(arrows[i], 0);
 			layeredPane.add(arrows[i]);
 		}
+		
 		for (int i = 0; i < 55; i++){
 			arrows[30 + i] = new JLabel("O");
 			int x_pos = 25 + 35 * (i % 11); //

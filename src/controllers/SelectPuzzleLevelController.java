@@ -1,13 +1,9 @@
 package controllers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import boundary.*;
 import model.*;
-
 
 public class SelectPuzzleLevelController extends MouseAdapter {
 	Application app;
@@ -29,17 +25,14 @@ public class SelectPuzzleLevelController extends MouseAdapter {
 		// Temporary number, to be removed after memento class will be added and substituted 
 		// with word limit from memento class
 		int wordLimit = 20;
-		
-		
-		System.out.println("lol");
-		
+				
 		Puzzle puzzleLevel = new Puzzle(this.level, board, scoreBoard, wordLimit);
 		
 		this.model.assignLevel(puzzleLevel);
 		
-		PuzzlePlayerPanel puzzleView = new PuzzlePlayerPanel(app, model);
+		PuzzlePlayerPanel puzzleView = new PuzzlePlayerPanel(app, model, level);
 		
-		app.modifyFrameSize(100, 100, 550, 500);
+		app.modifyFrameSize(100, 100, 605, 555);
 		app.switchPanel(puzzleView);
 		
 		

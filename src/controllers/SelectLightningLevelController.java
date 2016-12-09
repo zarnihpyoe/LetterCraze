@@ -1,7 +1,5 @@
 package controllers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -34,11 +32,11 @@ public class SelectLightningLevelController extends MouseAdapter {
 		this.model.assignLevel(lightningLevel);
 		
 		// Initiate new lightning view
-		LightningPlayerPanel lightningView = new LightningPlayerPanel(app, model);
+		LightningPlayerPanel lightningView = new LightningPlayerPanel(app, model, level);
 		
 		// We want to call some method on current application that will switch to just created 
 		// lightning view
-		app.modifyFrameSize(100, 100, 750, 575);
+		app.modifyFrameSize(100, 100, 680, 555);
 		app.switchPanel(lightningView);
 		
 		
