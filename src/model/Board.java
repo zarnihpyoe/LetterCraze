@@ -67,7 +67,27 @@ public class Board {
 		selectedTiles = new Word();
 	}
 	
-	
+	// doesn't work with custom boards.. need to fix!
+	public boolean populateTilesForTheme(ArrayList<String> wordList) {
+		int lettCnt = 0;
+		for(String word : wordList) {
+			lettCnt+=word.length();
+		}
+		if(lettCnt > 36) {return false;}			
+		
+		for(String word : wordList) {
+			char[] charArray = word.toCharArray();
+			int i = 0;
+			int j = 0;
+			for(char c : charArray) {
+				tiles[i][j].setLetter(String.valueOf(c));
+				if(j==5 && i%2 == 0 || j==0 && i%2 != 0) i++;		// if at the either end of the row, go to next tile below
+				else if(i%2 == 0) j++;													// if at the even index row, go to next tile to the right
+				else if(i%2 != 0) j--;													// if at the odd index row, go to next tile to the left
+			}
+		}
+		return true;
+	}
 	
 	
 }
