@@ -76,6 +76,7 @@ public class Application {
 				window.modifyFrameSize(100, 100, 850, 850);
 				window.frame.setVisible(true);
 				*/
+				
 			}
 		});
 	}

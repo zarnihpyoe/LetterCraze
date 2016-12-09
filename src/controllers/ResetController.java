@@ -17,6 +17,6 @@ public class ResetController extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent me) {
-		this.model.currentLevel.reset();		
+		
 	}
 }

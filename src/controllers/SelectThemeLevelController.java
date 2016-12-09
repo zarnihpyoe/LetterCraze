@@ -33,7 +33,7 @@ public class SelectThemeLevelController extends MouseAdapter {
 		
 		this.model.assignLevel(themeLevel);
 		
-		ThemePlayerPanel puzzleView = new ThemePlayerPanel();
+		ThemePlayerPanel puzzleView = new ThemePlayerPanel(app, model);
 		
 		app.modifyFrameSize(100, 100, 750, 575);
 		app.switchPanel(puzzleView);
