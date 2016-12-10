@@ -2,15 +2,10 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.SwingWorker;
 import javax.swing.Timer;
-
 import boundary.Application;
 import boundary.LightningPlayerPanel;
-import boundary.PlayerSplashPanel.ResourceLoader;
 import model.Lightning;
-import model.Model;
 
 public class TimerController {
 	Application a;
@@ -41,7 +36,6 @@ public class TimerController {
 		    	}	    
 		    }
 	}
-		
 	
 		class TimerListener implements ActionListener {
 			
