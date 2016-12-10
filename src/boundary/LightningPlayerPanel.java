@@ -1,7 +1,10 @@
 package boundary;
 
 import javax.swing.JPanel;
+
+import controllers.TimerController;
 import controllers.ToMainMenuController;
+import model.Lightning;
 import model.Model;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -16,6 +19,7 @@ public class LightningPlayerPanel extends JPanel {
 	private Application a;
 	private Model m;
 	private int lvl;
+	private JLabel timer;
 	
 	private JButton btnMainMenu;
 	
@@ -60,12 +64,12 @@ public class LightningPlayerPanel extends JPanel {
 		btnMainMenu.setBounds(x_align, 11, 193, 35);
 		add(btnMainMenu);
 		
-		JLabel label_3 = new JLabel("13:37");
-		label_3.setForeground(Color.RED);
-		label_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
-		label_3.setBackground(Color.WHITE);
-		label_3.setBounds(x_align, 324, 94, 26);
-		add(label_3);
+		timer = new JLabel();
+		timer.setForeground(Color.RED);
+		timer.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
+		timer.setBackground(Color.WHITE);
+		timer.setBounds(x_align, 324, 94, 26);
+		add(timer);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(x_align, 57, 111, 35);
@@ -106,6 +110,14 @@ public class LightningPlayerPanel extends JPanel {
 
 	private void initializeControllers(){
 		btnMainMenu.addMouseListener(new ToMainMenuController(this.a, this.m));
+		
+		TimerController timer = new TimerController(this.a, this, (Lightning) this.m.currentLevel);
+		timer.runTimer();
+	}
+	
+	public void setTime(int time_val){
+		String string_time = Integer.toString(time_val);
+		this.timer.setText(string_time);
 	}
 
 }

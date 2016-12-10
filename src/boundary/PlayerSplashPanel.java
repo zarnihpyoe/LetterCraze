@@ -45,40 +45,6 @@ public class PlayerSplashPanel extends JPanel {
         //toFront();
 		new ResourceLoader().execute();
 	}
-	
-	
-	/*
-	public PlayerSplashPanel(Application a) {
-		this.a = a;
-		setLayout(null);
-		
-		String soundName = "/resourses/yay.wav";    
-		
-		
-		try {
-			AudioInputStream audioInputStream = 
-					AudioSystem.getAudioInputStream(PlayerSplashPanel.class.getResource("/resources/yay.wmv"));
-			Clip clip;
-			clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-		}
-		catch (Exception e){
-			System.out.println(e);
-		}
-		
-		
-		JLabel lblNewLabel = new JLabel("test");
-		lblNewLabel.setIcon(new ImageIcon(PlayerSplashPanel.class.getResource("/resources/player splash.png")));
-		lblNewLabel.setBounds(0, 0, 700, 400);
-		add(lblNewLabel);
-		
-		a.frame.setVisible(true);
-        //toFront();
-		new ResourceLoader().execute();
-		
-    }
-    */
 
     public class ResourceLoader extends SwingWorker<Object, Object> {
 
