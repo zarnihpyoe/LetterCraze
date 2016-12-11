@@ -75,10 +75,11 @@ public class RebuildBoardController {
 		b.printBoard();
 		System.out.println();
 		
-		AnimationPanel aPanel = new AnimationPanel(animations);
+		AnimationPanel aPanel = new AnimationPanel(	);
 		for (BoardAnimation a: animations){
 			a.printAnimation();
 			a.buildAnimation(aPanel);
+			aPanel.runAnimations();
 		}
 	}
 }
