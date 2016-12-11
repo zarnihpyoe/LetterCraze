@@ -39,7 +39,8 @@ public class TileReleaseController extends MouseAdapter {
 		
 		TileDragController.clearCurrentTile();
 		
-		//this.model.currentLevel.getBoard().removeSelectedWord();
+		RebuildBoardController rc = new RebuildBoardController(model);
+		rc.rebuildBoardEntity();
 		
 	}
 	

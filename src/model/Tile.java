@@ -15,7 +15,8 @@ public class Tile {
 
 	public void linkWith(Tile predecessor) {
 		this.predecessor = predecessor;
-	  predecessor.successor = this;
+		predecessor.successor = this;
+
 	}
 	
 	public Letter getLetter() { return letter; }
@@ -61,24 +62,46 @@ public class Tile {
 				(Math.abs(x-otherTile.getX()) == 1 && Math.abs(y-otherTile.getY()) == 1);	// diagonal cells
 	}
 	
-	private void floatUp() {
+	public int floatUp() throws Exception{
+		int first = this.getX();
+		
 		if(isEmpty()) {
-			if(predecessor == null) { return;	}		// if at the bottom tile
-			predecessor.floatUp();
+			if(predecessor == null) { throw new Exception(); }		// if at the bottom tile
+			first = predecessor.floatUp();
 		}
-		successor.setLetter(extractLetter());
-	}
+		successor.setLetter(extractLetter()); //extractLetter()
+		this.setLetter(LetterBank.EMPTY);
 
-	public void colGravity() {
+		//return the int coordinate of the earliest one to move
+		return first;
+	}
+	
+	public int applyGravity() throws Exception{
+		
+		
+		if (this != null && this.isEmpty()){
+			//System.out.println(this.getX() + " " + predecessor.getX());
+			return predecessor.floatUp();
+		}
+		
+		
+		throw new Exception();
+	}
+	
+	/*
+	public void colGravity() throws TraceException{
 		if(predecessor == null) {
 			return;
 		}
 		// now we know that this is not the last tile
 		if(isEmpty()) {
-			predecessor.floatUp();
+			//throw some kind of update expression
+			int first = predecessor.floatUp();
+			throw new TraceException(first, this.getY(), this.getX());
 		}
 		predecessor.colGravity();
 	}
+	*/
 	
 
 /*

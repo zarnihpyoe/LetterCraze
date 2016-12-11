@@ -26,18 +26,19 @@ public class Board {
 			tiles[tile.getX()] [tile.getY()].removeLetter();
 		}
 		selectedTiles.clear();
-		applyGravity();
+		//applyGravity();
 		return this;
 	}
-	
-	protected Board applyGravity() {
-		// Float up tiles
-		for(int i=0; i<6; i++) {
-			//tiles[i][0].receiveFloatUpLetter();
-			tiles[i][0].colGravity();
+	/*
+	public int applyGravity(int row, int column) throws Exception{
+				
+		if (tiles[row][column].predecessor != null && tiles[row][column].isEmpty()){
+			return tiles[row][column].floatUp();
 		}
-		return this;
+		
+		throw new Exception();
 	}
+	*/
 	
 	/** Usually call after <code>removeSelectedWord()</code> */
 	public Board populateEmptyTiles() {
@@ -65,6 +66,21 @@ public class Board {
 			}
 		}
 		selectedTiles = new Word();
+	}
+	
+	//TEMPORARY
+	
+	public void printBoard(){
+		for (int i = 0; i < 6; i++){
+			System.out.println();
+			for (int j = 0; j < 6; j++){
+				if(getTiles()[i][j] != null && !getTiles()[i][j].isEmpty()){
+					System.out.print(getTiles()[i][j].getCharacter());
+				}else{
+					System.out.print("#");
+				}
+			}
+		}
 	}
 	
 	

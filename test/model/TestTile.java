@@ -155,7 +155,7 @@ public class TestTile extends TestCase {
 		assertTrue(t4.isEmpty());
 	}
 */
-	
+	/*
 	public void testColGravity() {
 		setUp1();
 		t1.colGravity();
@@ -186,6 +186,8 @@ public class TestTile extends TestCase {
 		assertTrue(t4.isEmpty());
 		
 	}
+	*/
+	
 	
 	
 }
