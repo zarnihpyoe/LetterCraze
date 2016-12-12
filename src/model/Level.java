@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public abstract class Level {
 
 	protected final int lvl;
@@ -7,6 +9,7 @@ public abstract class Level {
 	protected Board board;
 	protected ScoreBoard scoreBoard;
 	protected int numRemovedWords;
+	protected ArrayList<Level> states;
 
 
 	public Level(int lvl, Board board, ScoreBoard scoreBoard) {
@@ -14,6 +17,7 @@ public abstract class Level {
 		this.isLocked = lvl > 3;
 		this.board = board;
 		this.scoreBoard = scoreBoard;
+		this.states = new ArrayList<Level>();
 	}
 
 	public void unlock() {
@@ -56,5 +60,7 @@ public abstract class Level {
 	public ScoreBoard getScoreBoard() { return scoreBoard; }
 
 	public int getNumRemovedWords() { return numRemovedWords; }
+	
+	public ArrayList<Level> getPreviousStates() { return states; }
 
 }
