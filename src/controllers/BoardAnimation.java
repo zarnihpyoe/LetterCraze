@@ -36,4 +36,9 @@ public class BoardAnimation {
 		
 	}
 
+	public void adjustAnimation(int current_lowest) {
+		start_tile = 6 + finish_tile - current_lowest;
+		
+	}
+
 }

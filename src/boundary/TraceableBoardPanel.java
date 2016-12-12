@@ -54,7 +54,7 @@ public class TraceableBoardPanel extends JPanel {
 		animPanel = new AnimationPanel();
 		animPanel.setOpaque(false);
 		animPanel.setBounds(0, 0, 420, 420);
-		layeredPane.setLayer(animPanel, 0);
+		layeredPane.setLayer(animPanel, 3);
 		layeredPane.add(animPanel);
 		
 		

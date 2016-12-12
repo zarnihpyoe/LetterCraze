@@ -41,6 +41,7 @@ public class Board {
 	*/
 	
 	/** Usually call after <code>removeSelectedWord()</code> */
+	
 	public Board populateEmptyTiles() {
 		for(int i=0; i<6; i++) {
 			for(int j=0; j<6; j++) {
@@ -49,6 +50,7 @@ public class Board {
 			}
 		}
 		return this;
+		
 	}
 
 	public Tile[][] getTiles() {

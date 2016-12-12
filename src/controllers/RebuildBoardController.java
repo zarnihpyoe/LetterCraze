@@ -64,6 +64,7 @@ public class RebuildBoardController {
 		
 		
 		ArrayList<BoardAnimation> animations = new ArrayList<BoardAnimation>();
+		ArrayList<BoardAnimation> refill_animations = new ArrayList<BoardAnimation>();
 		
 		b.printBoard();
 		
@@ -80,14 +81,37 @@ public class RebuildBoardController {
 				//create new animation with i and j;
 			}
 		}
+		
+		for(int i=0; i<6; i++){
+			for(int j=0; j<6; j++){
+				if (b.getTiles()[i][j].populateEmptyTile()){
+					refill_animations.add(new BoardAnimation(-1, i, j, b));
+				}
+			}
+		}
 
 		b.printBoard();
+		
+		int current_lowest = 5;
+		for (BoardAnimation a: refill_animations){
+			if (a.finish_tile < current_lowest){
+				current_lowest = a.finish_tile;
+			}
+		}
+		
+		for (BoardAnimation a: refill_animations){
+			a.adjustAnimation(current_lowest);
+			animations.add(a);
+		}
 		
 		AnimationPanel aPanel = animationPanel;
 		for (BoardAnimation a: animations){
 			a.printAnimation();
 			a.buildAnimation(aPanel);
 		}
+		
+		
+		
 		
 		//aPanel.revalidate();
 		
