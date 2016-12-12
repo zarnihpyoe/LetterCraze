@@ -11,6 +11,8 @@ import controllers.TileToggleController;
 import model.Model;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
 
 //check for when we are over a disabled tile
 //check for doubled arrows
@@ -20,6 +22,8 @@ public class TraceableBoardPanel extends JPanel {
 	JToggleButton[] buttons;
 	JLabel[] arrows;
 	Model m = new Model();
+	JLayeredPane layeredPane;
+	AnimationPanel animPanel;
 
 	/**
 	 * Create the application.
@@ -35,7 +39,7 @@ public class TraceableBoardPanel extends JPanel {
 		
 		setLayout(null);
 		
-		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 420, 420);
 		add(layeredPane);
 		
@@ -46,6 +50,14 @@ public class TraceableBoardPanel extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		*/
+		
+		animPanel = new AnimationPanel();
+		animPanel.setOpaque(false);
+		animPanel.setBounds(0, 0, 420, 420);
+		layeredPane.setLayer(animPanel, 0);
+		layeredPane.add(animPanel);
+		
+		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.MAGENTA);
 		panel.setBounds(0, 0, 800, 800);
@@ -83,12 +95,29 @@ public class TraceableBoardPanel extends JPanel {
 			}
 		
 		panel.addMouseMotionListener(new TileDragController(panel, layeredPane, arrows, m));
-		panel.addMouseListener(new TileReleaseController(panel, layeredPane, arrows, m));
+		panel.addMouseListener(new TileReleaseController(panel, layeredPane, animPanel, arrows, m, this));
 		
 		for (int i = 0; i < 36; i++){
 			buttons[i].addMouseMotionListener(new TileToggleController(panel));
-			buttons[i].addMouseListener(new TileReleaseController(panel, layeredPane, arrows, m));
+			buttons[i].addMouseListener(new TileReleaseController(panel, layeredPane, animPanel, arrows, m, this));
 		}
 		
 	}
+	
+	public AnimationPanel getAnimPanel(){
+		return this.animPanel;
+	}
+	
+
+	/*
+	public void setLevel(Component c, int layer){
+		layeredPane.setLayer(c, 3);
+	}
+	
+	public void paintComponent(Graphics g) {
+		this.animPanel.repaint();
+		//layeredPane.setLayer(animPanel, 3);
+	}
+	*/
+		
 }

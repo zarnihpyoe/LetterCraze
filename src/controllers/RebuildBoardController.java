@@ -2,8 +2,12 @@ package controllers;
 
 import java.util.ArrayList;
 
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+
 import boundary.AnimationPanel;
 import boundary.Application;
+import boundary.TraceableBoardPanel;
 import model.Board;
 import model.LetterBank;
 import model.Model;
@@ -13,11 +17,16 @@ import model.Word;
 public class RebuildBoardController {
 	
 	Model m;
+	JLayeredPane layeredPane;
+	AnimationPanel animationPanel;
+	TraceableBoardPanel tb;
 	//Application a;
 	
-	RebuildBoardController(Model m){
+	RebuildBoardController(Model m, JLayeredPane lp, AnimationPanel ap, TraceableBoardPanel tb){
 		this.m = m;
-		//this.a = a;
+		this.layeredPane = lp;
+		this.animationPanel = ap;
+		this.tb = tb;
 	}
 	
 	public void rebuildBoardEntity(){
@@ -33,14 +42,14 @@ public class RebuildBoardController {
 			}
 		}
 		
-		for (int k = 3; k < 6; k++){
+		for (int k = 0; k < 6; k++){
 			//tiles[4][k] = new Tile(0, k); 
 			tiles[4][k].setLetter(LetterBank.EMPTY);
 		}
 		
-		for (int k = 0; k < 4; k++){
+		for (int k = 0; k < 6; k++){
 			//tiles[4][k] = new Tile(0, k); 
-			tiles[3][k].setLetter(LetterBank.EMPTY);
+			tiles[2][k].setLetter(LetterBank.EMPTY);
 		}
 		
 		
@@ -73,14 +82,18 @@ public class RebuildBoardController {
 		}
 
 		b.printBoard();
-		System.out.println();
 		
-		AnimationPanel aPanel = new AnimationPanel(	);
+		AnimationPanel aPanel = animationPanel;
 		for (BoardAnimation a: animations){
 			a.printAnimation();
 			a.buildAnimation(aPanel);
-			aPanel.runAnimations();
 		}
+		
+		//aPanel.revalidate();
+		
+		//layeredPane.setLayer(aPanel, 3);
+		aPanel.runAnimations();
+		//layeredPane.setLayer(aPanel, 0);
 	}
 }
 

@@ -13,15 +13,19 @@ public class TileReleaseController extends MouseAdapter {
 	
 	JPanel panel;
 	JLayeredPane layerPane;
+	AnimationPanel animationPanel;
 	JLabel[] arrows;
 	Model model;
+	TraceableBoardPanel tb;
 	
 	
-	public TileReleaseController(JPanel p, JLayeredPane lp, JLabel[] a, Model m){
+	public TileReleaseController(JPanel p, JLayeredPane lp, AnimationPanel ap, JLabel[] a, Model m, TraceableBoardPanel tb){
 		this.panel = p;
 		this.layerPane = lp;
+		this.animationPanel = ap;
 		this.arrows = a;
 		this.model = m;		
+		this.tb = tb;
 	}
 
 	@Override
@@ -39,7 +43,7 @@ public class TileReleaseController extends MouseAdapter {
 		
 		TileDragController.clearCurrentTile();
 		
-		RebuildBoardController rc = new RebuildBoardController(model);
+		RebuildBoardController rc = new RebuildBoardController(model, layerPane, animationPanel, tb);
 		rc.rebuildBoardEntity();
 		
 	}

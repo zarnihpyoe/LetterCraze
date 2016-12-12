@@ -12,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Application {
-	JFrame frame;
+	static JFrame frame;
 	Model m;
 	
 	
@@ -22,6 +22,10 @@ public class Application {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.m = m;
+	}
+	
+	public static void refreshFrame(){
+		frame.repaint();
 	}
 	
 	public void switchPanel (JPanel panel){
