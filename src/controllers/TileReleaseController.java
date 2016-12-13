@@ -43,8 +43,9 @@ public class TileReleaseController extends MouseAdapter {
 		
 		TileDragController.clearCurrentTile();
 		
-		RebuildBoardController rc = new RebuildBoardController(model, layerPane, animationPanel, tb);
-		rc.rebuildBoardEntity();
+		RebuildBoardController rc = new RebuildBoardController(model, tb);
+		rc.rebuildBoard();
+		//layerPane.setLayer(animationPanel, 0);
 		
 	}
 	

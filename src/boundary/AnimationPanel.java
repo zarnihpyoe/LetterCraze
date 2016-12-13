@@ -24,20 +24,24 @@ public class AnimationPanel extends JPanel {
 
 	public void initialize() {
 		setLayout(null);
-		JLabel label2 = new JLabel("jeffe");
-		label2.setBounds(100, 100, 40, 40);
-		add(label2);
 		animations = new ArrayList<AnimationLabel>();
 	}
 
-	public void addAnimation(int col, int start_row, int end_row) {
+	public void addAnimation(int col, int start_row, int end_row, String letter) {
 		AnimationLabel a = new AnimationLabel();
-		a.setText("B");
+		a.setText(letter);
 		a.setValues(col, start_row, end_row);
 		a.setBounds(col, start_row, 30, 30);
 
 		animations.add(a);
 		add(a);
+	}
+	
+	public void clearAnimations(){
+		for (AnimationLabel a : animations) {
+			remove(a);
+		}
+		repaint();
 	}
 
 	public void shiftComponents() {
@@ -60,11 +64,8 @@ public class AnimationPanel extends JPanel {
 	public void runAnimations() {
 		Timer timer = new Timer(10 , new MyTimerActionListener(this, check));
 		
-		if (!check) { timer.stop(); }
 		timer.start();
-		System.out.println("reached!");
-
-
+		return;
 	}
 
 	class MyTimerActionListener implements ActionListener {
@@ -79,9 +80,8 @@ public class AnimationPanel extends JPanel {
 			ap.shiftComponents();
 			if (checkIfFinished()){
 				myTimer.stop();
-			}
-			System.out.println("going!");
-			
+				ap.clearAnimations();
+			}			
 		}
 		
 	}

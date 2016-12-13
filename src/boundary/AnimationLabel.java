@@ -40,7 +40,6 @@ public class AnimationLabel extends JLabel{
 		System.out.println("row: " + final_x + " target pos: " + final_y + " starting pos: " + current_y);
 	}
 	
-	
 	public void decrementCurrent(){
 		this.current_y--;
 	}
@@ -48,6 +47,5 @@ public class AnimationLabel extends JLabel{
 	public boolean reachedDestination(){
 		return this.current_y == this.final_y;
 	}
-
 
 }

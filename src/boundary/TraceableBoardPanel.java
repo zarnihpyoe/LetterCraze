@@ -104,20 +104,16 @@ public class TraceableBoardPanel extends JPanel {
 		
 	}
 	
-	public AnimationPanel getAnimPanel(){
+	public AnimationPanel getAnimationPanel(){
 		return this.animPanel;
 	}
 	
-
-	/*
+	public JLayeredPane getLayeredPane(){
+		return this.layeredPane;
+	}
+	
 	public void setLevel(Component c, int layer){
 		layeredPane.setLayer(c, 3);
 	}
-	
-	public void paintComponent(Graphics g) {
-		this.animPanel.repaint();
-		//layeredPane.setLayer(animPanel, 3);
-	}
-	*/
 		
 }

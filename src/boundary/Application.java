@@ -12,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Application {
-	static JFrame frame;
+	JFrame frame;
 	Model m;
 	
 	
@@ -22,10 +22,6 @@ public class Application {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.m = m;
-	}
-	
-	public static void refreshFrame(){
-		frame.repaint();
 	}
 	
 	public void switchPanel (JPanel panel){
@@ -46,8 +42,6 @@ public class Application {
 	public JPanel getCurrentPanel(){
 		return (JPanel) this.frame.getContentPane();
 	}
-	
-	
 	
 	public void displayMainMenu() {
 		LevelSelectPanel menuView = new LevelSelectPanel(this, m);
