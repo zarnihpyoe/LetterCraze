@@ -11,21 +11,20 @@ import boundary.*;
 
 public class TileReleaseController extends MouseAdapter {
 	
+	Model model;
+	TraceableBoardPanel tb;
 	JPanel panel;
 	JLayeredPane layerPane;
 	AnimationPanel animationPanel;
 	JLabel[] arrows;
-	Model model;
-	TraceableBoardPanel tb;
 	
-	
-	public TileReleaseController(JPanel p, JLayeredPane lp, AnimationPanel ap, JLabel[] a, Model m, TraceableBoardPanel tb){
-		this.panel = p;
-		this.layerPane = lp;
-		this.animationPanel = ap;
-		this.arrows = a;
+	public TileReleaseController(Model m, TraceableBoardPanel tb){
 		this.model = m;		
 		this.tb = tb;
+		this.panel = tb.getBackPanel();
+		this.layerPane = tb.getLayeredPane();
+		this.animationPanel = tb.getAnimationPanel();
+		this.arrows = tb.getArrows();
 	}
 
 	@Override

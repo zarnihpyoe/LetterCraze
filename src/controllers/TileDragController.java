@@ -15,20 +15,24 @@ import model.*;
 import boundary.*;
 
 public class TileDragController implements MouseMotionListener {
-
+	
+	Model model;
+	TraceableBoardPanel tb;
+	
 	JPanel panel;
 	JLayeredPane layeredPane;
 	JLabel[] arrows;
 	public static int current_check = 0;
 	static ArrayList<Integer> beenTo;
-	Model model;
-
-	public TileDragController(JPanel p, JLayeredPane lp, JLabel[] a, Model model) {
 	
-		this.panel = p;
-		this.layeredPane = lp;
-		this.arrows = a;
+
+	public TileDragController(Model model, TraceableBoardPanel tb) {
+		
 		this.model = model;
+		this.tb = tb;
+		this.panel = tb.getBackPanel();
+		this.layeredPane = tb.getLayeredPane();
+		this.arrows = tb.getArrows();
 		this.beenTo = new ArrayList<Integer>();
 	}
 	

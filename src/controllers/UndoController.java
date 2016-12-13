@@ -22,6 +22,7 @@ public class UndoController extends MouseAdapter{
 		ArrayList<Level> states = model.getCurrentLevel().getPreviousStates();
 		if (states.size() == 0){ return; }
 		model.assignLevel(states.get(states.size() - 1));
+		states.remove(states.size() -1);
 		
 		//refresh the boundaries
 	}

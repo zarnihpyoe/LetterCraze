@@ -20,10 +20,11 @@ import java.awt.Graphics;
 //check for doubled arrows
 
 public class TraceableBoardPanel extends JPanel {
-
+	
+	Model m = new Model();
+	JPanel backPanel;
 	JToggleButton[] buttons;
 	JLabel[] arrows;
-	Model m = new Model();
 	JLayeredPane layeredPane;
 	AnimationPanel animPanel;
 
@@ -60,12 +61,12 @@ public class TraceableBoardPanel extends JPanel {
 		layeredPane.add(animPanel);
 		
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.MAGENTA);
-		panel.setBounds(0, 0, 800, 800);
-		panel.setLayout(null);
-		layeredPane.setLayer(panel, 1);
-		layeredPane.add(panel);
+		backPanel = new JPanel();
+		backPanel.setBackground(Color.MAGENTA);
+		backPanel.setBounds(0, 0, 800, 800);
+		backPanel.setLayout(null);
+		layeredPane.setLayer(backPanel, 1);
+		layeredPane.add(backPanel);
 		
 		buttons = new JToggleButton[36];
 		//run a fill up for first time controller (could return array of chars)
@@ -74,7 +75,7 @@ public class TraceableBoardPanel extends JPanel {
 			int x_pos = 70 * (i % 6); //slice 100
 			int y_pos = 70 * (i / 6); //slice 100
 			buttons[i].setBounds(x_pos, y_pos, 70, 70); //
-			panel.add(buttons[i]);
+			backPanel.add(buttons[i]);
 		}
 		
 		buttons[7].setText("T");
@@ -98,12 +99,12 @@ public class TraceableBoardPanel extends JPanel {
 			layeredPane.add(arrows[30 + i]);
 			}
 		
-		panel.addMouseMotionListener(new TileDragController(panel, layeredPane, arrows, m));
-		panel.addMouseListener(new TileReleaseController(panel, layeredPane, animPanel, arrows, m, this));
+		backPanel.addMouseMotionListener(new TileDragController(m, this));
+		backPanel.addMouseListener(new TileReleaseController(m, this));
 		
 		for (int i = 0; i < 36; i++){
-			buttons[i].addMouseMotionListener(new TileToggleController(panel));
-			buttons[i].addMouseListener(new TileReleaseController(panel, layeredPane, animPanel, arrows, m, this));
+			buttons[i].addMouseMotionListener(new TileToggleController(backPanel));
+			buttons[i].addMouseListener(new TileReleaseController(m, this));
 		}
 		
 	}
@@ -131,6 +132,14 @@ public class TraceableBoardPanel extends JPanel {
 	
 	public JLayeredPane getLayeredPane(){
 		return this.layeredPane;
+	}
+	
+	public JPanel getBackPanel(){
+		return this.backPanel;
+	}
+	
+	public JLabel[] getArrows(){
+		return this.arrows;
 	}
 	
 	public void setLevel(Component c, int layer){
