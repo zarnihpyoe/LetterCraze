@@ -40,7 +40,7 @@ public class Tile {
 	}
 
 	public void setRandLetter() {
-		letter = LetterBank.getInstance().genRandLetter();
+		letter = LetterBank.genRandLetter();
 	}
 
 	public void removeLetter() {
