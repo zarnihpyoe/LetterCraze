@@ -67,6 +67,7 @@ public class Application {
 				window.switchPanel(splashView);
 				window.modifyFrameSize(100, 100, 718, 445);
 				
+				System.out.println(LetterBank.genRandLetter().getCharacter());
 				
 				//// TO TEST THE TRACEABLE BOARD ////
 				/*

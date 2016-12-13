@@ -49,25 +49,21 @@ public class TileDragController implements MouseMotionListener {
 
 		//valid placement needs extensive testing
 		if (i != 0 && i != current_check && isValidDrag(i, current_check)){ 
-			JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
-
-			selectedButton.setEnabled(false);
-			
-			// the tile to be added to selected tiles once the mouse touches this tile
-			Tile newTile = new Tile(this.xPos(i), this.yPos(i));
-			
-			// the tile is selected to create a word to be removed later 
-			//this.model.currentLevel.getBoard().selectTile(newTile);
-			
+			beenTo.add(current_check);
 			if (current_check != 0){
-				beenTo.add(current_check);
 				if(!beenTo.contains(i)){
+					System.out.println("current check: " + current_check + "i: " + i);
+					JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
+					selectedButton.setEnabled(false);
 					activateLabel(i -1, current_check);
-					
+					current_check = i;		
+
 					//// ADD ENTITY CODE RIGHT HERE
 				}
 			}
-			current_check = i;			
+			else{
+				current_check = i;		
+			}
 		}	
 		
 	}
