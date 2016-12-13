@@ -8,7 +8,9 @@ import javax.swing.JToggleButton;
 import controllers.TileDragController;
 import controllers.TileReleaseController;
 import controllers.TileToggleController;
+import model.Board;
 import model.Model;
+import model.Tile;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -75,6 +77,8 @@ public class TraceableBoardPanel extends JPanel {
 			panel.add(buttons[i]);
 		}
 		
+		buttons[7].setText("T");
+		
 		arrows = new JLabel[85];
 		for (int i = 0; i < 30; i++){
 			arrows[i] = new JLabel("O");
@@ -102,6 +106,23 @@ public class TraceableBoardPanel extends JPanel {
 			buttons[i].addMouseListener(new TileReleaseController(panel, layeredPane, animPanel, arrows, m, this));
 		}
 		
+	}
+	
+	public void updateBoard(Board b){
+		//Tile[][] t = m.getCurrentLevel().getBoard().getTiles();
+		Tile[][] t = b.getTiles();
+		
+		for (int i = 0; i < 6; i++){
+			for (int j = 0; j < 6; j++){
+				int but = j + 6 * i;
+				buttons[but].setText(t[i][j].getCharacter());				
+			}
+		}
+	}
+	
+	public void clearButton(int x, int y){
+		int but = 6 * y + x;
+		buttons[but].setText("");
 	}
 	
 	public AnimationPanel getAnimationPanel(){

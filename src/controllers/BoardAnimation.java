@@ -37,7 +37,6 @@ public class BoardAnimation {
 		int finish_pos = 20 + (finish_tile * 70);
 
 		panel.addAnimation(x_pos, start_pos, finish_pos, letter);
-		
 	}
 
 	public void adjustAnimation(int current_lowest) {

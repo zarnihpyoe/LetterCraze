@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import controllers.BoardAnimation;
+import model.Board;
 
 public class AnimationPanel extends JPanel {
 
@@ -61,8 +62,8 @@ public class AnimationPanel extends JPanel {
 		return check;
 	}
 
-	public void runAnimations() {
-		Timer timer = new Timer(10 , new MyTimerActionListener(this, check));
+	public void runAnimations(TraceableBoardPanel tb, Board b) {
+		Timer timer = new Timer(10 , new MyTimerActionListener(this, check, b, tb));
 		
 		timer.start();
 		return;
@@ -70,17 +71,22 @@ public class AnimationPanel extends JPanel {
 
 	class MyTimerActionListener implements ActionListener {
 		AnimationPanel ap;
+		Board b;
+		TraceableBoardPanel tb;
 		
-		MyTimerActionListener(AnimationPanel ap, boolean check){
+		MyTimerActionListener(AnimationPanel ap, boolean check, Board b, TraceableBoardPanel tb){
 			this.ap = ap;
+			this.b = b;
+			this.tb = tb;
 		}
 		
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e){
 			Timer myTimer = (Timer) e.getSource();
 			ap.shiftComponents();
 			if (checkIfFinished()){
 				myTimer.stop();
 				ap.clearAnimations();
+				tb.updateBoard(b);
 			}			
 		}
 		

@@ -19,6 +19,7 @@ public class RebuildBoardController {
 	JLayeredPane layeredPane;
 	AnimationPanel animationPanel;
 	TraceableBoardPanel tb;
+	Board b;
 	//Application a;
 	
 	RebuildBoardController(Model m, TraceableBoardPanel tb){
@@ -30,8 +31,6 @@ public class RebuildBoardController {
 	}
 	
 	public void rebuildBoard(){
-		
-		
 		Tile[][] tiles;
 		tiles = new Tile[6][6];
 		// initialize 
@@ -42,10 +41,9 @@ public class RebuildBoardController {
 			}
 		}
 		for (int k = 0; k < 6; k++){
-			//tiles[4][k] = new Tile(0, k); 
-			tiles[k][1].setLetter(LetterBank.EMPTY);
+			//tiles[k][1].setLetter(LetterBank.EMPTY);
 			tiles[4][k].setLetter(LetterBank.EMPTY);
-			tiles[2][k].setLetter(LetterBank.EMPTY);
+			//tiles[2][k].setLetter(LetterBank.EMPTY);
 
 		}
 		for (int k = 0; k < 6; k++){
@@ -58,7 +56,7 @@ public class RebuildBoardController {
 				tiles[i][j].linkWith(tiles[i+1][j]);
 			}
 		}
-		Board b = new Board(tiles);
+		b = new Board(tiles);
 		
 		/*
 		Board b = m.getCurrentLevel().getBoard();
@@ -67,25 +65,26 @@ public class RebuildBoardController {
 		*/
 		
 		//UPDATE THE BOARD
-		//b.update();
 		
 		ArrayList<BoardAnimation> animations = new ArrayList<BoardAnimation>();
 		ArrayList<BoardAnimation> refill_animations = new ArrayList<BoardAnimation>();
 		
 		b.printBoard();
-		
 		System.out.println();
-
+		tb.updateBoard(b);
+		
 		for(int i=0; i<6; i++) {
 			for(int j=0; j<6; j++){
 				try{
 					int source = b.getTiles()[i][j].applyGravity();
 					animations.add(new BoardAnimation(source, i, j, b));
 				}
-				catch (Exception e){	
+				catch (Exception e){}
 				}
-				//create new animation with i and j;
 			}
+		
+		for (BoardAnimation a: animations){
+			tb.clearButton(a.row, a.start_tile);
 		}
 		
 		for(int i=0; i<6; i++){
@@ -97,6 +96,8 @@ public class RebuildBoardController {
 		}
 
 		b.printBoard();
+		System.out.println();
+
 		
 		int current_lowest = 5;
 		for (BoardAnimation a: refill_animations){
@@ -115,11 +116,8 @@ public class RebuildBoardController {
 			a.buildAnimation(aPanel);
 		}
 
-		aPanel.runAnimations();
-		//aPanel.clearAnimations();
-		
-		//UPDATE THE BOARD
-		//b.update();
+		aPanel.runAnimations(tb, b);
 	}
+	
 }
 
