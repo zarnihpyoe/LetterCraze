@@ -11,7 +11,9 @@ public class Letter {
 
 	public String getCharacter() { return character; }
 
-	public int getWeight() { return weight; }
+	public int getWeight() {
+		return weight;
+	}
 
 	public boolean isEqual(Letter letter) {
 		return character.equalsIgnoreCase(letter.getCharacter());

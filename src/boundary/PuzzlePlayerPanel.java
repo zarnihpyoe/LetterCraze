@@ -19,7 +19,8 @@ public class PuzzlePlayerPanel extends JPanel {
 	private Application a;
 	private Model m;
 	private int lvl;
-	
+	private JLabel moves;
+	private JLabel score;
 	private JButton btnMainMenu;
 	
 	public PuzzlePlayerPanel(Application a, Model m, int lvl){
@@ -56,7 +57,7 @@ public class PuzzlePlayerPanel extends JPanel {
 		label.setBounds(10, 11, 114, 35);
 		add(label);
 		
-		TraceableBoardPanel board = new TraceableBoardPanel();
+		TraceableBoardPanel board = new TraceableBoardPanel(m, a);
 		board.setBounds(10, 60, 420, 420);
 		add(board);
 
@@ -102,26 +103,31 @@ public class PuzzlePlayerPanel extends JPanel {
 		add(btnRemoveWord);
 		*/
 		
-		JLabel label_2 = new JLabel("1337");
-		label_2.setBounds(455, 365, 111, 35);
-		add(label_2);
-		label_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
+		score = new JLabel("0");
+		score.setBounds(455, 365, 111, 35);
+		add(score);
+		score.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
 
 		JLabel lblMovesLeft = new JLabel("MOVES LEFT:");
 		lblMovesLeft.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		lblMovesLeft.setBounds(455, 271, 111, 26);
 		add(lblMovesLeft);
 
-		JLabel label_6 = new JLabel("52");
-		label_6.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		label_6.setBounds(455, 290, 82, 26);
-		add(label_6);
+		moves = new JLabel("52");
+		moves.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		moves.setBounds(455, 290, 82, 26);
+		add(moves);
 		
 	}
 	
 	
 	private void initializeControllers(){
 		btnMainMenu.addMouseListener(new ToMainMenuController(this.a, this.m));
+	}
+	
+	public void update(){
+		score.setText(Integer.toString(m.getCurrentLevel().getScoreBoard().getScore()));
+		moves.setText(Integer.toString(52 - m.getCurrentLevel().getNumRemovedWords()));
 	}
 	
 

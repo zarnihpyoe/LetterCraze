@@ -21,7 +21,8 @@ import java.awt.Graphics;
 
 public class TraceableBoardPanel extends JPanel {
 	
-	Model m = new Model();
+	Model m;
+	Application a;
 	JPanel backPanel;
 	JToggleButton[] buttons;
 	JLabel[] arrows;
@@ -31,7 +32,9 @@ public class TraceableBoardPanel extends JPanel {
 	/**
 	 * Create the application.
 	 */
-	public TraceableBoardPanel() {
+	public TraceableBoardPanel(Model m, Application a) {
+		this.m = m;
+		this.a = a;
 		initialize();
 	}
 
@@ -70,16 +73,15 @@ public class TraceableBoardPanel extends JPanel {
 		
 		buttons = new JToggleButton[36];
 		//run a fill up for first time controller (could return array of chars)
+		Tile[][] start_tiles = m.getCurrentLevel().getBoard().getTiles();
 		for (int i = 0; i < 36; i++){
-			buttons[i] = new JToggleButton("");
+			buttons[i] = new JToggleButton(start_tiles[i/6][i%6].getCharacter());
 			int x_pos = 70 * (i % 6); //slice 100
 			int y_pos = 70 * (i / 6); //slice 100
 			buttons[i].setBounds(x_pos, y_pos, 70, 70); //
 			backPanel.add(buttons[i]);
 		}
-		
-		buttons[7].setText("T");
-		
+				
 		arrows = new JLabel[85];
 		for (int i = 0; i < 30; i++){
 			arrows[i] = new JLabel("O");
@@ -100,11 +102,11 @@ public class TraceableBoardPanel extends JPanel {
 			}
 		
 		backPanel.addMouseMotionListener(new TileDragController(m, this));
-		backPanel.addMouseListener(new TileReleaseController(m, this));
+		backPanel.addMouseListener(new TileReleaseController(m, a, this));
 		
 		for (int i = 0; i < 36; i++){
 			buttons[i].addMouseMotionListener(new TileToggleController(backPanel));
-			buttons[i].addMouseListener(new TileReleaseController(m, this));
+			buttons[i].addMouseListener(new TileReleaseController(m, a, this));
 		}
 		
 	}

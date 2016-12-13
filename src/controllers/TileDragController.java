@@ -50,15 +50,21 @@ public class TileDragController implements MouseMotionListener {
 		//valid placement needs extensive testing
 		if (i != 0 && i != current_check && isValidDrag(i, current_check)){ 
 			beenTo.add(current_check);
-			//Tile findTile = model.getCurrentLevel().getBoard().getTiles()[(i - 1)/6][(i - 1) % 6];
-			if (current_check != 0 && !beenTo.contains(i)){ // && findTile !=null
+			Tile findTile = model.getCurrentLevel().getBoard().getTiles()[(i - 1)/6][(i - 1) % 6];
+			if (beenTo.size() == 1 && findTile != null){
+				JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
+				selectedButton.setEnabled(false);
+				model.getCurrentLevel().getBoard().selectTile(findTile);
+				System.out.println("test");
+			}
+			if (current_check != 0 && !beenTo.contains(i) && findTile !=null){ // && findTile !=null
 					//System.out.println("current check: " + current_check + "i: " + i);
 					JToggleButton selectedButton = (JToggleButton) panel.getComponent(i-1);
 					selectedButton.setEnabled(false);
 					activateLabel(i -1, current_check);
 					current_check = i;		
 
-					//// ADD ENTITY CODE RIGHT HERE (build up the word)```````````````````````````````````````````	
+					model.getCurrentLevel().getBoard().selectTile(findTile);
 				}
 			else{
 				current_check = i;		

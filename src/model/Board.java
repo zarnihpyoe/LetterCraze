@@ -13,6 +13,7 @@ public class Board {
 	
 	public Board selectTile(Tile tile) {
 		selectedTiles.add(tile);
+		System.out.println("HEY: " + tile.getCharacter());
 		return this;
 	}
 	
@@ -22,23 +23,13 @@ public class Board {
 	}
 	
 	public Board removeSelectedWord() {
-		for(Tile tile : selectedTiles.getSelectedTiles()) {
-			tiles[tile.getX()] [tile.getY()].removeLetter();
+		if (selectedTiles.isValid()){
+			for(Tile tile : selectedTiles.getSelectedTiles()) {
+				tiles[tile.getX()] [tile.getY()].removeLetter();
+			}
 		}
-		selectedTiles.clear();
-		//applyGravity();
 		return this;
 	}
-	/*
-	public int applyGravity(int row, int column) throws Exception{
-				
-		if (tiles[row][column].predecessor != null && tiles[row][column].isEmpty()){
-			return tiles[row][column].floatUp();
-		}
-		
-		throw new Exception();
-	}
-	*/
 	
 	/** Usually call after <code>removeSelectedWord()</code> */
 	

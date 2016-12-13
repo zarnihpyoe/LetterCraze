@@ -44,7 +44,7 @@ public class ThemePlayerPanel extends JPanel {
 		label.setBounds(10, 11, 114, 35);
 		add(label);
 		
-		TraceableBoardPanel board = new TraceableBoardPanel();
+		TraceableBoardPanel board = new TraceableBoardPanel(m, a);
 		board.setBounds(10, 60, 420, 420);
 		add(board);
 		

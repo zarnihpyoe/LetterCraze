@@ -12,14 +12,16 @@ import boundary.*;
 public class TileReleaseController extends MouseAdapter {
 	
 	Model model;
+	Application app;
 	TraceableBoardPanel tb;
 	JPanel panel;
 	JLayeredPane layerPane;
 	AnimationPanel animationPanel;
 	JLabel[] arrows;
 	
-	public TileReleaseController(Model m, TraceableBoardPanel tb){
+	public TileReleaseController(Model m, Application a, TraceableBoardPanel tb){
 		this.model = m;		
+		this.app = a;
 		this.tb = tb;
 		this.panel = tb.getBackPanel();
 		this.layerPane = tb.getLayeredPane();
@@ -42,7 +44,7 @@ public class TileReleaseController extends MouseAdapter {
 		
 		TileDragController.clearCurrentTile();
 		
-		RebuildBoardController rc = new RebuildBoardController(model, tb);
+		RebuildController rc = new RebuildController(model, app, tb);
 		rc.rebuildBoard();		
 	}
 	

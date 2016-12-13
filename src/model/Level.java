@@ -17,6 +17,7 @@ public abstract class Level {
 		this.isLocked = lvl > 3;
 		this.board = board;
 		this.scoreBoard = scoreBoard;
+		this.numRemovedWords = 0;
 		this.states = new ArrayList<Level>();
 	}
 

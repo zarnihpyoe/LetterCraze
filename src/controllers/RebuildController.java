@@ -6,24 +6,31 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import boundary.AnimationPanel;
 import boundary.Application;
+import boundary.PuzzlePlayerPanel;
 import boundary.TraceableBoardPanel;
 import model.Board;
 import model.LetterBank;
+import model.Level;
+import model.Lightning;
 import model.Model;
+import model.Puzzle;
+import model.Theme;
 import model.Tile;
 import model.Word;
 
-public class RebuildBoardController {
+public class RebuildController {
 	
 	Model m;
+	Application a;
 	JLayeredPane layeredPane;
 	AnimationPanel animationPanel;
 	TraceableBoardPanel tb;
 	Board b;
 	//Application a;
 	
-	RebuildBoardController(Model m, TraceableBoardPanel tb){
+	RebuildController(Model m, Application a, TraceableBoardPanel tb){
 		this.m = m;
+		this.a = a;
 		this.tb = tb;
 		this.layeredPane = tb.getLayeredPane();
 		this.animationPanel = tb.getAnimationPanel();
@@ -31,40 +38,13 @@ public class RebuildBoardController {
 	}
 	
 	public void rebuildBoard(){
-		Tile[][] tiles;
-		tiles = new Tile[6][6];
-		// initialize 
-		for(int i=0; i<6; i++) {
-			for (int j=0; j<6; j++) {
-				tiles[i][j] = new Tile(i, j);
-				tiles[i][j].setLetter("B");
-			}
-		}
-		for (int k = 0; k < 6; k++){
-			//tiles[k][1].setLetter(LetterBank.EMPTY);
-			tiles[4][k].setLetter(LetterBank.EMPTY);
-			//tiles[2][k].setLetter(LetterBank.EMPTY);
-
-		}
-		for (int k = 0; k < 6; k++){
-			//tiles[4][k] = new Tile(0, k); 
-			
-		}
-		// link the tiles
-		for(int i=0; i<5; i++) {		// a little hack here
-			for (int j=0; j<6; j++) {
-				tiles[i][j].linkWith(tiles[i+1][j]);
-			}
-		}
-		b = new Board(tiles);
-		
-		/*
 		Board b = m.getCurrentLevel().getBoard();
-		b.removeSelectedWord();
-		//CHECK IF THE WORD IS VALID???
-		*/
 		
-		//UPDATE THE BOARD
+		if (b.getSelectedTiles().isValid()){
+			rebuildLevel();
+			b.removeSelectedWord();
+		}
+		b.getSelectedTiles().clear();
 		
 		ArrayList<BoardAnimation> animations = new ArrayList<BoardAnimation>();
 		ArrayList<BoardAnimation> refill_animations = new ArrayList<BoardAnimation>();
@@ -117,6 +97,17 @@ public class RebuildBoardController {
 		}
 
 		aPanel.runAnimations(tb, b);
+	}
+	
+	public void rebuildLevel(){
+		Level l = m.getCurrentLevel();
+		l.updateNumRemovedWords(1);
+		l.updateScore();
+		
+		if (a.getCurrentPanel() instanceof PuzzlePlayerPanel){
+			((PuzzlePlayerPanel) a.getCurrentPanel()).update();
+		}
+			
 	}
 	
 }
