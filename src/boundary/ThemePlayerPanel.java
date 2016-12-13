@@ -1,21 +1,49 @@
 package boundary;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controllers.ToMainMenuController;
+import model.Board;
+import model.Model;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+
 import javax.swing.JToggleButton;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
 
 public class ThemePlayerPanel extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
-	public ThemePlayerPanel() {
+	private Application a;
+	private Model m;
+	Board board;
+	String theme;
+	ArrayList<String> wordList;
+	int level;
+	
+	private JButton btnMainMenu;
+	
+	public ThemePlayerPanel(Application a, Model m, Board board, String theme, ArrayList<String> wordList, int level){
+		this.a = a;
+		this.m = m;
+		this.board = board;
+		this.theme = theme;
+		this.wordList = wordList;
+		this.level = level;
+		initialize();
+	}
+	
+	public void initialize(){
+		initializeView();
+		initializeControllers();
+	}
+	
+	public void initializeView() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -24,7 +52,7 @@ public class ThemePlayerPanel extends JPanel {
 		panel.setBounds(10, 11, 434, 361);
 		add(panel);
 		
-		JLabel label = new JLabel("LEVEL 1");
+		JLabel label = new JLabel("LEVEL " + level);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
 		label.setBounds(10, 11, 114, 35);
@@ -189,10 +217,10 @@ public class ThemePlayerPanel extends JPanel {
 		toggleButton_35.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 		panel_1.add(toggleButton_35);
 		
-		JButton button_2 = new JButton("MAIN MENU");
-		button_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-		button_2.setBounds(231, 11, 193, 35);
-		panel.add(button_2);
+		btnMainMenu = new JButton("MAIN MENU");
+		btnMainMenu.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+		btnMainMenu.setBounds(231, 11, 193, 35);
+		panel.add(btnMainMenu);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(313, 57, 111, 35);
@@ -227,7 +255,7 @@ public class ThemePlayerPanel extends JPanel {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(313, 306, 111, 55);
 		panel.add(textArea);
-		textArea.setText("SCREAM      NOISES");
+		textArea.setText(theme);
 		textArea.setRows(2);
 		textArea.setLineWrap(true);
 		textArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
@@ -241,18 +269,22 @@ public class ThemePlayerPanel extends JPanel {
 		add(panel_2);
 		panel_2.setLayout(new GridLayout(3, 0, 0, 0));
 		
-		JLabel label_3 = new JLabel("AAAAAA");
+		JLabel label_3 = new JLabel(wordList.get(0));
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(label_3);
 		
-		JLabel label_4 = new JLabel("AAAAAAAAA");
+		JLabel label_4 = new JLabel(wordList.get(1));
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(label_4);
 		
-		JLabel label_5 = new JLabel("AAAAAAAAA");
+		JLabel label_5 = new JLabel(wordList.get(2));
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(label_5);
 
+	}
+	
+	private void initializeControllers(){
+		btnMainMenu.addMouseListener(new ToMainMenuController(this.a, this.m));
 	}
 
 }

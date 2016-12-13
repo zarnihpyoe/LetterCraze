@@ -41,5 +41,4 @@ public class Puzzle extends Level {
 		this.scoreBoard.resetScore();
 		this.removedWordPts = 0;
 	}
-
 }

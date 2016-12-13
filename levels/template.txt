@@ -1,0 +1,11 @@
+level type (1-3)
+board line 1 (*,*,*,*,*,*)
+board line 2 (*,*,*,*,*,*)
+board line 3 (*,*,*,*,*,*)
+board line 4 (*,*,*,*,*,*)
+board line 5 (*,*,*,*,*,*)
+board line 6 (*,*,*,*,*,*)
+Move Limit, timer value, theme
+score thresh 1 star, word thresh 1 star, first word
+score thresh 2 star, word thresh 2 star, second word
+score thresh 3 star, word thresh 3 star, third word

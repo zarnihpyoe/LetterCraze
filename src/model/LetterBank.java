@@ -68,7 +68,7 @@ public class LetterBank {
 		addToTree(0.77, "K");
 		addToTree(0.15, "J");
 		addToTree(0.15, "X");
-		addToTree(0.10, "Q");
+		addToTree(0.10, "Qu");
 		addToTree(0.07, "Z");
 		//chars = letters.keySet().toArray(new String[letters.size()]);
 	}

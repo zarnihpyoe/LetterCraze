@@ -68,6 +68,7 @@ public class Application {
 				window.switchPanel(splashView);
 				window.modifyFrameSize(100, 100, 718, 445);
 				
+				/*
 				//this just prints some random letters
 				int i = 0; 
 				while(i < 100) {
@@ -76,7 +77,6 @@ public class Application {
 				}
 
 				//// TO TEST THE TRACEABLE BOARD ////
-				/*
 				TraceableBoardPanel boardView = new TraceableBoardPanel();
 				window.switchPanel(boardView);
 				window.modifyFrameSize(100, 100, 850, 850);
@@ -85,10 +85,4 @@ public class Application {
 			}
 		});
 	}
-
-
-
-
-
-
 }

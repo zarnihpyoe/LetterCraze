@@ -3,7 +3,10 @@ import javax.swing.JPanel;
 
 import javax.swing.border.EmptyBorder;
 
+import controllers.ResetController;
 import controllers.ToMainMenuController;
+import model.Board;
+import model.LetterBank;
 import model.Model;
 
 import javax.swing.JButton;
@@ -11,27 +14,51 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
 import javax.swing.JToggleButton;
 import javax.swing.ImageIcon;
 
 public class PuzzlePlayerPanel extends JPanel {
-	
+
 	private Application a;
 	private Model m;
-	
+	private Board b;
+	private int wordLimit;
+	int level;
+	int score = 0;
+
 	private JButton btnMainMenu;
-	
-	public PuzzlePlayerPanel(Application a, Model m){
+	private JButton btnReset;
+	private ArrayList<JToggleButton> btnList = new ArrayList<JToggleButton>();
+
+	public PuzzlePlayerPanel(Application a, Model m, Board b, int wordLimit, int level){
 		this.a = a;
 		this.m = m;
+		this.b = b;
+		this.wordLimit = wordLimit;
+		this.level = level;
 		initialize();
 	}
-	
+
 	public void initialize() {
 		initializeViews();
 		initializeControllers();
 	}
 	
+	//===================================================
+
 	public void initializeViews() {
 		setLayout(null);
 
@@ -46,7 +73,7 @@ public class PuzzlePlayerPanel extends JPanel {
 		btnMainMenu.setBounds(231, 11, 193, 35);
 		panel.add(btnMainMenu);
 
-		JLabel label = new JLabel("LEVEL 1");
+		JLabel label = new JLabel("LEVEL " + level);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
 		label.setBounds(10, 11, 114, 35);
@@ -57,149 +84,15 @@ public class PuzzlePlayerPanel extends JPanel {
 		panel.add(panel_1);
 		panel_1.setLayout(new GridLayout(6, 6, 0, 0));
 
-		JToggleButton toggleButton = new JToggleButton("A");
-		toggleButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton);
-
-		JToggleButton toggleButton_1 = new JToggleButton("A");
-		toggleButton_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_1);
-
-		JToggleButton toggleButton_2 = new JToggleButton("A");
-		toggleButton_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_2);
-
-		JToggleButton toggleButton_3 = new JToggleButton("A");
-		toggleButton_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_3);
-
-		JToggleButton toggleButton_4 = new JToggleButton("A");
-		toggleButton_4.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_4);
-
-		JToggleButton toggleButton_5 = new JToggleButton("A");
-		toggleButton_5.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_5);
-
-		JToggleButton toggleButton_6 = new JToggleButton("A");
-		toggleButton_6.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_6);
-
-		JToggleButton toggleButton_7 = new JToggleButton("A");
-		toggleButton_7.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_7);
-
-		JToggleButton toggleButton_8 = new JToggleButton("A");
-		toggleButton_8.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_8);
-
-		JToggleButton toggleButton_9 = new JToggleButton("A");
-		toggleButton_9.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_9);
-
-		JToggleButton toggleButton_10 = new JToggleButton("A");
-		toggleButton_10.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_10);
-
-		JToggleButton toggleButton_11 = new JToggleButton("A");
-		toggleButton_11.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_11);
-
-		JToggleButton toggleButton_12 = new JToggleButton("A");
-		toggleButton_12.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_12);
-
-		JToggleButton toggleButton_13 = new JToggleButton("A");
-		toggleButton_13.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_13);
-
-		JToggleButton toggleButton_14 = new JToggleButton("A");
-		toggleButton_14.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_14);
-
-		JToggleButton toggleButton_15 = new JToggleButton("A");
-		toggleButton_15.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_15);
-
-		JToggleButton toggleButton_16 = new JToggleButton("A");
-		toggleButton_16.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_16);
-
-		JToggleButton toggleButton_17 = new JToggleButton("A");
-		toggleButton_17.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_17);
-
-		JToggleButton toggleButton_18 = new JToggleButton("A");
-		toggleButton_18.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_18);
-
-		JToggleButton toggleButton_19 = new JToggleButton("A");
-		toggleButton_19.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_19);
-
-		JToggleButton toggleButton_20 = new JToggleButton("A");
-		toggleButton_20.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_20);
-
-		JToggleButton toggleButton_21 = new JToggleButton("A");
-		toggleButton_21.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_21);
-
-		JToggleButton toggleButton_22 = new JToggleButton("A");
-		toggleButton_22.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_22);
-
-		JToggleButton toggleButton_23 = new JToggleButton("A");
-		toggleButton_23.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_23);
-
-		JToggleButton toggleButton_24 = new JToggleButton("A");
-		toggleButton_24.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_24);
-
-		JToggleButton toggleButton_25 = new JToggleButton("A");
-		toggleButton_25.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_25);
-
-		JToggleButton toggleButton_26 = new JToggleButton("A");
-		toggleButton_26.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_26);
-
-		JToggleButton toggleButton_27 = new JToggleButton("A");
-		toggleButton_27.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_27);
-
-		JToggleButton toggleButton_28 = new JToggleButton("A");
-		toggleButton_28.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_28);
-
-		JToggleButton toggleButton_29 = new JToggleButton("A");
-		toggleButton_29.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_29);
-
-		JToggleButton toggleButton_30 = new JToggleButton("A");
-		toggleButton_30.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_30);
-
-		JToggleButton toggleButton_31 = new JToggleButton("A");
-		toggleButton_31.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_31);
-
-		JToggleButton toggleButton_32 = new JToggleButton("A");
-		toggleButton_32.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_32);
-
-		JToggleButton toggleButton_33 = new JToggleButton("A");
-		toggleButton_33.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_33);
-
-		JToggleButton toggleButton_34 = new JToggleButton("A");
-		toggleButton_34.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_34);
-
-		JToggleButton toggleButton_35 = new JToggleButton("A");
-		toggleButton_35.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		panel_1.add(toggleButton_35);
+		int q = 0;
+		while(q<36){
+			if(b.tiles != null){
+				btnList.add(new JToggleButton(LetterBank.genRandLetter().getCharacter()));
+				btnList.get(q).setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+				panel_1.add(btnList.get(q));
+				q=q+1;
+			}
+		}
 
 		JLabel label_1 = new JLabel("POINTS:");
 		label_1.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
@@ -211,10 +104,10 @@ public class PuzzlePlayerPanel extends JPanel {
 		button_1.setBounds(313, 149, 111, 35);
 		panel.add(button_1);
 
-		JButton button_2 = new JButton("RESET");
-		button_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-		button_2.setBounds(313, 195, 111, 35);
-		panel.add(button_2);
+		btnReset = new JButton("RESET");
+		btnReset.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+		btnReset.setBounds(313, 195, 111, 35);
+		panel.add(btnReset);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(313, 57, 111, 35);
@@ -241,7 +134,7 @@ public class PuzzlePlayerPanel extends JPanel {
 		btnRemoveWord.setBounds(313, 103, 111, 35);
 		panel.add(btnRemoveWord);
 
-		JLabel label_2 = new JLabel("1337");
+		JLabel label_2 = new JLabel(Integer.toString(score));
 		label_2.setBounds(313, 315, 111, 35);
 		panel.add(label_2);
 		label_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
@@ -251,7 +144,7 @@ public class PuzzlePlayerPanel extends JPanel {
 		lblMovesLeft.setBounds(313, 241, 111, 26);
 		panel.add(lblMovesLeft);
 
-		JLabel label_6 = new JLabel("52");
+		JLabel label_6 = new JLabel(Integer.toString(wordLimit));
 		label_6.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		label_6.setBounds(313, 260, 82, 26);
 		panel.add(label_6);
@@ -259,6 +152,7 @@ public class PuzzlePlayerPanel extends JPanel {
 
 	private void initializeControllers(){
 		btnMainMenu.addMouseListener(new ToMainMenuController(this.a, this.m));
+		btnReset.addMouseListener(new ResetController(this.a, this.m));
 	}
 
 }
