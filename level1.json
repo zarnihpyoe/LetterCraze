@@ -1,0 +1,346 @@
+{
+  "lvl" : 1,
+  "board" : {
+    "tiles" : [ [ {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 0,
+      "y" : 0,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 0,
+      "y" : 1,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 0,
+      "y" : 2,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 0,
+      "y" : 3,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 0,
+      "y" : 4,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 0,
+      "y" : 5,
+      "empty" : true,
+      "character" : ""
+    } ], [ {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 1,
+      "y" : 0,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 1,
+      "y" : 1,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 1,
+      "y" : 2,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 1,
+      "y" : 3,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 1,
+      "y" : 4,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 1,
+      "y" : 5,
+      "empty" : true,
+      "character" : ""
+    } ], [ {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 2,
+      "y" : 0,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 2,
+      "y" : 1,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 2,
+      "y" : 2,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 2,
+      "y" : 3,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 2,
+      "y" : 4,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 2,
+      "y" : 5,
+      "empty" : true,
+      "character" : ""
+    } ], [ {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 3,
+      "y" : 0,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 3,
+      "y" : 1,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 3,
+      "y" : 2,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 3,
+      "y" : 3,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 3,
+      "y" : 4,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 3,
+      "y" : 5,
+      "empty" : true,
+      "character" : ""
+    } ], [ {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 4,
+      "y" : 0,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 4,
+      "y" : 1,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 4,
+      "y" : 2,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 4,
+      "y" : 3,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 4,
+      "y" : 4,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 4,
+      "y" : 5,
+      "empty" : true,
+      "character" : ""
+    } ], [ {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 5,
+      "y" : 0,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 5,
+      "y" : 1,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 5,
+      "y" : 2,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 5,
+      "y" : 3,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 5,
+      "y" : 4,
+      "empty" : true,
+      "character" : ""
+    }, {
+      "letter" : {
+        "character" : "",
+        "weight" : 0
+      },
+      "x" : 5,
+      "y" : 5,
+      "empty" : true,
+      "character" : ""
+    } ] ],
+    "selectedTiles" : {
+      "selectedTiles" : [ ],
+      "valid" : false,
+      "string" : "",
+      "points" : 0
+    }
+  },
+  "scoreBoard" : {
+    "stars" : 0,
+    "score" : 0,
+    "scoreForFirstStar" : 10,
+    "scoreForSecondStar" : 20,
+    "scoreForThirdStar" : 30
+  },
+  "numRemovedWords" : 0,
+  "wordLimit" : 50,
+  "locked" : false
+}
