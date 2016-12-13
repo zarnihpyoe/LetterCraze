@@ -11,6 +11,19 @@ public class Board {
 		this.selectedTiles = new Word();
 	}
 	
+	public Board() {
+		for(int i=0; i<6; i++) {
+			for(int j=0; j<6; j++) {
+				tiles[i][j] = new Tile(i, j);
+			}
+		}
+		this.selectedTiles = new Word();
+	}
+	
+	public void disableTile(int row, int col) {
+		tiles[row][col] = null;
+	}
+	
 	public Board selectTile(Tile tile) {
 		selectedTiles.add(tile);
 		return this;
@@ -87,6 +100,19 @@ public class Board {
 			}
 		}
 		return true;
+	}
+	
+	
+	public void linkTiles() {
+		for(int j=0; j<6; j++) {
+			Tile pre = tiles[0][j];
+			for(int i=1; i<6; i++) {
+				if(tiles[i][j] != null) {
+					tiles[i][j].linkWith(pre);
+					pre = tiles[i][j];
+				}
+			}
+		}
 	}
 	
 	
