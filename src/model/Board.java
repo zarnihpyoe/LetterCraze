@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Board {
-	protected Tile[][] tiles = new Tile[6][6];
+	public Tile[][] tiles = new Tile[6][6];
 	protected Word selectedTiles;
 	
 	public Board(Tile[][] tiles) {
