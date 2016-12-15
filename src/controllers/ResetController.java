@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import boundary.Application;
+import boundary.PuzzlePlayerPanel;
 import model.Model;
 
 public class ResetController extends MouseAdapter {
@@ -17,6 +18,10 @@ public class ResetController extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent me) {
-		this.model.currentLevel.reset();		
+		model.getCurrentLevel().reset();
+		
+		if (app.getCurrentPanel() instanceof PuzzlePlayerPanel){
+			((PuzzlePlayerPanel) app.getCurrentPanel()).update();
+		}
 	}
 }

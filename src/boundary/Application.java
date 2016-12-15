@@ -43,9 +43,7 @@ public class Application {
 	public JPanel getCurrentPanel(){
 		return (JPanel) this.frame.getContentPane();
 	}
-
-
-
+	
 	public void displayMainMenu() {
 		LevelSelectPanel menuView = new LevelSelectPanel(this, m);
 		switchPanel(menuView);
@@ -60,29 +58,30 @@ public class Application {
 			public void run() {
 				Model m = new Model();	
 				Application window = new Application(m);
+				
 
 				///// THE NORMAL LAUNCH /////
-
+				
 				PlayerSplashPanel splashView = new PlayerSplashPanel(window);
 				window.frame.setLocationRelativeTo(null);
 				window.switchPanel(splashView);
 				window.modifyFrameSize(100, 100, 718, 445);
 				
-				/*
-				//this just prints some random letters
-				int i = 0; 
-				while(i < 100) {
-					System.out.println(LetterBank.genRandLetter().getCharacter());
-					i++;
-				}
-
 				//// TO TEST THE TRACEABLE BOARD ////
+				/*
 				TraceableBoardPanel boardView = new TraceableBoardPanel();
 				window.switchPanel(boardView);
 				window.modifyFrameSize(100, 100, 850, 850);
 				window.frame.setVisible(true);
-				 */
+				*/
+				
 			}
 		});
 	}
+
+
+
+
+
+
 }

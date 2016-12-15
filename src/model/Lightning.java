@@ -2,7 +2,7 @@ package model;
 
 public class Lightning extends Level {
 
-	private final int time;		// not sure about the implementation of time yet
+	private int time;		// not sure about the implementation of time yet
 	
 	public Lightning(int lvl, Board board, ScoreBoard scoreBoard, int time) {
 		super(lvl, board, scoreBoard);
@@ -23,6 +23,10 @@ public class Lightning extends Level {
 	public int updateScore() {
 		return scoreBoard.updateScore(+1);
 	}
+	
+	public int getTime() {
+		return this.time;
+	}
 
 	@Override
 	public boolean isComplete(int timeLeft) {
@@ -35,6 +39,11 @@ public class Lightning extends Level {
 		this.board.cleanUp();
 		this.board.populateEmptyTiles();
 		this.scoreBoard.resetScore();
+	}
+
+	public int decrementTimer() {
+		time = time - 1;
+		return time;
 	}
 	
 }

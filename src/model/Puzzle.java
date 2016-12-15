@@ -3,6 +3,7 @@ package model;
 public class Puzzle extends Level {
 
 	private final int wordLimit;
+	private int currentMoveCount;
 	private int removedWordPts;
 	
 	public Puzzle(int lvl, Board board, ScoreBoard scoreBoard, int wordLimit) {
@@ -12,7 +13,7 @@ public class Puzzle extends Level {
 
 	@Override
 	public boolean removeWord() {
-		boolean isValidWord = board.getSelectedTiles().isValid();
+		boolean isValidWord  = board.getSelectedTiles().isValid();
 		if(isValidWord) {
 			removedWordPts = board.getSelectedTiles().getPoints();
 			board.removeSelectedWord();
@@ -23,7 +24,10 @@ public class Puzzle extends Level {
 	
 	@Override
 	public int updateScore() {
+		removedWordPts = board.getSelectedTiles().getPoints();
+		System.out.println(removedWordPts);
 		return scoreBoard.updateScore(removedWordPts);
+		
 	}
 
 	@Override
@@ -32,6 +36,9 @@ public class Puzzle extends Level {
 	}
 
 	public int getWordLimit() { return wordLimit; }
+	public int getCurrentMoveCount() { return currentMoveCount; }
+	public int getRemovedWordPts() { return removedWordPts; }
+
 	
 	@Override
 	public void reset() {
@@ -42,4 +49,13 @@ public class Puzzle extends Level {
 		this.removedWordPts = 0;
 	}
 	
+	public void buildFromMemento(PuzzleMemento pMemento){
+		this.currentMoveCount = pMemento.getCurrentMoveCount();
+		this.removedWordPts = pMemento.getRemovedWordPts();
+		this.board = pMemento.getBoard();
+		this.scoreBoard =  pMemento.getScoreBoard();
+		this.numRemovedWords = pMemento.getNumRemovedWords();
+	}
+
+
 }

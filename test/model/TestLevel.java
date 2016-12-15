@@ -35,7 +35,7 @@ public class TestLevel extends TestCase {
 	
 	public void testPuzzleLevel() {
 		Board b = createBoard();
-		ScoreBoard sb = new ScoreBoard(8, 10, 12);
+		ScoreBoard sb = new ScoreBoard(8, 10, 12, 10);
 		Level puzzle = new Puzzle(1, b, sb, 50);
 		
 		assertEquals(1, puzzle.getLvl());

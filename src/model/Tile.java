@@ -15,14 +15,21 @@ public class Tile {
 
 	public void linkWith(Tile predecessor) {
 		this.predecessor = predecessor;
-	  predecessor.successor = this;
+		predecessor.successor = this;
+
 	}
-	
-	public Letter getLetter() { return letter; }
 
-	public int getX() { return x; }
+	public Letter getLetter() {
+		return letter;
+	}
 
-	public int getY() { return y; }
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
 
 	public void setLetter(Letter letter) {
 		this.letter = letter;
@@ -56,54 +63,46 @@ public class Tile {
 
 	public boolean isAdjacent(Tile otherTile) {
 		// Check if otherTile is within +/- 1 of x and y but not itself
-		return Math.abs(x-otherTile.getX()) == 1 && y-otherTile.getY() == 0 ||	// left right cells
-				Math.abs(y-otherTile.getY()) == 1 && x-otherTile.getX() == 0 ||	// top bottom cells
-				(Math.abs(x-otherTile.getX()) == 1 && Math.abs(y-otherTile.getY()) == 1);	// diagonal cells
-	}
-	
-	private void floatUp() {
-		if(isEmpty()) {
-			if(predecessor == null) { return;	}		// if at the bottom tile
-			predecessor.floatUp();
-		}
-		successor.setLetter(extractLetter());
+		return Math.abs(x - otherTile.getX()) == 1 && y - otherTile.getY() == 0 || // left
+																					// right
+																					// cells
+				Math.abs(y - otherTile.getY()) == 1 && x - otherTile.getX() == 0 || // top
+																					// bottom
+																					// cells
+				(Math.abs(x - otherTile.getX()) == 1 && Math.abs(y - otherTile.getY()) == 1); // diagonal
+																								// cells
 	}
 
-	public void colGravity() {
-		if(predecessor == null) {
-			return;
-		}
-		// now we know that this is not the last tile
-		if(isEmpty()) {
-			predecessor.floatUp();
-		}
-		predecessor.colGravity();
-	}
-	
+	public int floatUp() throws Exception {
+		int first = this.getX();
 
-/*
-	public boolean floatUpLetter() {
 		if (isEmpty()) {
-			if(predecessor == null) { return false; }							// no predecessor anymore
-			if(!predecessor.floatUpLetter()) { return false; }		// no non-empty Tiles below
+			if (predecessor == null) {
+				throw new Exception();
+			} // if at the bottom tile
+			first = predecessor.floatUp();
 		}
-		if(successor == null) { return false; }			// nothing above.. 
-		successor.setLetter(extractLetter());
-		if(predecessor !=null) {
-			predecessor.floatUpLetter();		// recursive call (tentative)
-		}
-		return true;
+		successor.setLetter(extractLetter()); // extractLetter()
+		this.setLetter(LetterBank.EMPTY);
+
+		// return the int coordinate of the earliest one to move
+		return first;
 	}
 
-/*
-	public void receiveFloatUpLetter() {
-		if(predecessor == null) { return; }							// nothing we can do if there is no predecessor
-
-		if (isEmpty()) { 
-			if(!predecessor.floatUpLetter()) {return; }		// no non-empty Tiles below, so won't waste time to float up for its predecessors
+	public int applyGravity() throws Exception {
+		if (this != null && this.isEmpty()) {
+			// System.out.println(this.getX() + " " + predecessor.getX());
+			return predecessor.floatUp();
 		}
-		predecessor.receiveFloatUpLetter();
+		throw new Exception();
 	}
-*/
+
+	public boolean populateEmptyTile() {
+		if (isEmpty()) {
+			setRandLetter();
+			return true;
+		}
+		return false;
+	}
 
 }

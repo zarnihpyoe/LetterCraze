@@ -11,26 +11,29 @@ import boundary.*;
 
 public class TileReleaseController extends MouseAdapter {
 	
-	JPanel panel;
-	JLayeredPane layerPane;
-	JLabel[] arrows;
 	Model model;
 	Application app;
+	TraceableBoardPanel tb;
+	JPanel panel;
+	JLayeredPane layerPane;
+	AnimationPanel animationPanel;
+	JLabel[] arrows;
 	
-	
-	public TileReleaseController(JPanel p, JLayeredPane lp, JLabel[] a, Model m, Application app){
-		this.panel = p;
-		this.layerPane = lp;
-		this.arrows = a;
-		this.model = m;
-		this.app = app;
-		
+	public TileReleaseController(Model m, Application a, TraceableBoardPanel tb){
+		this.model = m;		
+		this.app = a;
+		this.tb = tb;
+		this.panel = tb.getBackPanel();
+		this.layerPane = tb.getLayeredPane();
+		this.animationPanel = tb.getAnimationPanel();
+		this.arrows = tb.getArrows();
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		
 		for (int i = 0; i < 36; i++){
+			
 			JToggleButton button = (JToggleButton) panel.getComponents()[i];
 			button.setEnabled(true);
 		}
@@ -40,10 +43,9 @@ public class TileReleaseController extends MouseAdapter {
 			layerPane.setLayer(arrows[i], 0);	
 		}
 		
-		this.model.currentLevel.getBoard().removeSelectedWord();
+		TileDragController.clearCurrentTile();
 		
+		RebuildController rc = new RebuildController(model, app, tb);
+		rc.rebuildBoard();		
 	}
-	
-
-
 }

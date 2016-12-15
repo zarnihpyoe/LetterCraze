@@ -21,13 +21,59 @@ import javax.swing.ImageIcon;
 public class LevelSelectPanel extends JPanel {
 
 	private JButton button;
-
 	private Application a;
 	private Model m;
 	private ArrayList<JButton> buttonList;
+	private static ArrayList<JLabel> starList;
+	JLabel label_1;
+	JLabel label_2;
+	JLabel label_3;
+	JLabel label_4;
+	JLabel label_5;
+	JLabel label_6;
+	JLabel label_7;
+	JLabel label_8;
+	JLabel label_9;
+	JLabel label_10;
+	JLabel label_11;
+	JLabel label_12;
+	JLabel label_13;
+	JLabel label_14;
+	JLabel label_15;
+	JLabel label_16;
+	JLabel label_17;
+	JLabel label_18;
+	JLabel label_19;
+	JLabel label_20;
+	JLabel label_21;
+	JLabel label_22;
+	JLabel label_23;
+	JLabel label_24;
+	JLabel label_25;
+	JLabel label_26;
+	JLabel label_27;
+	JLabel label_28;
+	JLabel label_29;
+	JLabel label_30;
+	JLabel label_31;
+	JLabel label_32;
+	JLabel label_33;
+	JLabel label_34;
+	JLabel label_35;
+	JLabel label_36;
+	JLabel label_37;
+	JLabel label_38;
+	JLabel label_39;
+	JLabel label_40;
+	JLabel label_41;
+	JLabel label_42;
+	JLabel label_43;
+	JLabel label_44;
+	JLabel label_45;
 
 	public LevelSelectPanel(Application a, Model m) {
 		initialize(a, m);
+		emptyStars();
 	}
 
 	/**
@@ -105,7 +151,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_46.gridy = 0;
 		panel_2.add(label_46, gbc_label_46);
 
-		JLabel label_1 = new JLabel("");
+		label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_1 = new GridBagConstraints();
@@ -115,7 +161,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_1.gridy = 0;
 		panel_2.add(label_1, gbc_label_1);
 
-		JLabel label_2 = new JLabel("");
+		label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_2 = new GridBagConstraints();
@@ -125,7 +171,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_2.gridy = 0;
 		panel_2.add(label_2, gbc_label_2);
 
-		JLabel label_3 = new JLabel("");
+		label_3 = new JLabel("");
 		label_3.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_3 = new GridBagConstraints();
@@ -167,7 +213,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_49.gridy = 0;
 		panel_3.add(label_49, gbc_label_49);
 
-		JLabel label_4 = new JLabel("");
+		label_4 = new JLabel("");
 		label_4.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_4 = new GridBagConstraints();
@@ -177,7 +223,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_4.gridy = 0;
 		panel_3.add(label_4, gbc_label_4);
 
-		JLabel label_5 = new JLabel("");
+		label_5 = new JLabel("");
 		label_5.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_5 = new GridBagConstraints();
@@ -187,7 +233,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_5.gridy = 0;
 		panel_3.add(label_5, gbc_label_5);
 
-		JLabel label_6 = new JLabel("");
+		label_6 = new JLabel("");
 		label_6.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_6.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_6 = new GridBagConstraints();
@@ -229,7 +275,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_58.gridy = 0;
 		panel_4.add(label_58, gbc_label_58);
 
-		JLabel label_7 = new JLabel("");
+		label_7 = new JLabel("");
 		label_7.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_7.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_7 = new GridBagConstraints();
@@ -239,7 +285,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_7.gridy = 0;
 		panel_4.add(label_7, gbc_label_7);
 
-		JLabel label_8 = new JLabel("");
+		label_8 = new JLabel("");
 		label_8.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_8.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_8 = new GridBagConstraints();
@@ -249,7 +295,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_8.gridy = 0;
 		panel_4.add(label_8, gbc_label_8);
 
-		JLabel label_9 = new JLabel("");
+		label_9 = new JLabel("");
 		label_9.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_9.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_9 = new GridBagConstraints();
@@ -291,7 +337,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_50.gridy = 0;
 		panel_5.add(label_50, gbc_label_50);
 
-		JLabel label_10 = new JLabel("");
+		label_10 = new JLabel("");
 		label_10.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_10.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_10 = new GridBagConstraints();
@@ -301,7 +347,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_10.gridy = 0;
 		panel_5.add(label_10, gbc_label_10);
 
-		JLabel label_11 = new JLabel("");
+		label_11 = new JLabel("");
 		label_11.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_11.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_11 = new GridBagConstraints();
@@ -311,7 +357,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_11.gridy = 0;
 		panel_5.add(label_11, gbc_label_11);
 
-		JLabel label_12 = new JLabel("");
+		label_12 = new JLabel("");
 		label_12.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_12.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_12 = new GridBagConstraints();
@@ -353,7 +399,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_51.gridy = 0;
 		panel_6.add(label_51, gbc_label_51);
 
-		JLabel label_13 = new JLabel("");
+		label_13 = new JLabel("");
 		label_13.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_13.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_13 = new GridBagConstraints();
@@ -363,7 +409,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_13.gridy = 0;
 		panel_6.add(label_13, gbc_label_13);
 
-		JLabel label_14 = new JLabel("");
+		label_14 = new JLabel("");
 		label_14.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_14.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_14 = new GridBagConstraints();
@@ -373,7 +419,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_14.gridy = 0;
 		panel_6.add(label_14, gbc_label_14);
 
-		JLabel label_15 = new JLabel("");
+		label_15 = new JLabel("");
 		label_15.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_15.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_15 = new GridBagConstraints();
@@ -415,7 +461,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_59.gridy = 0;
 		panel_7.add(label_59, gbc_label_59);
 
-		JLabel label_16 = new JLabel("");
+		label_16 = new JLabel("");
 		label_16.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_16.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_16 = new GridBagConstraints();
@@ -425,7 +471,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_16.gridy = 0;
 		panel_7.add(label_16, gbc_label_16);
 
-		JLabel label_17 = new JLabel("");
+		label_17 = new JLabel("");
 		label_17.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_17.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_17 = new GridBagConstraints();
@@ -435,7 +481,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_17.gridy = 0;
 		panel_7.add(label_17, gbc_label_17);
 
-		JLabel label_18 = new JLabel("");
+		label_18 = new JLabel("");
 		label_18.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_18.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_18 = new GridBagConstraints();
@@ -477,7 +523,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_52.gridy = 0;
 		panel_8.add(label_52, gbc_label_52);
 
-		JLabel label_19 = new JLabel("");
+		label_19 = new JLabel("");
 		label_19.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_19.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_19 = new GridBagConstraints();
@@ -487,7 +533,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_19.gridy = 0;
 		panel_8.add(label_19, gbc_label_19);
 
-		JLabel label_20 = new JLabel("");
+		label_20 = new JLabel("");
 		label_20.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_20.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_20 = new GridBagConstraints();
@@ -497,7 +543,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_20.gridy = 0;
 		panel_8.add(label_20, gbc_label_20);
 
-		JLabel label_21 = new JLabel("");
+		label_21 = new JLabel("");
 		label_21.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_21.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_21 = new GridBagConstraints();
@@ -539,7 +585,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_53.gridy = 0;
 		panel_9.add(label_53, gbc_label_53);
 
-		JLabel label_22 = new JLabel("");
+		label_22 = new JLabel("");
 		label_22.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_22.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_22 = new GridBagConstraints();
@@ -549,7 +595,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_22.gridy = 0;
 		panel_9.add(label_22, gbc_label_22);
 
-		JLabel label_23 = new JLabel("");
+		label_23 = new JLabel("");
 		label_23.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_23.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_23 = new GridBagConstraints();
@@ -559,7 +605,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_23.gridy = 0;
 		panel_9.add(label_23, gbc_label_23);
 
-		JLabel label_24 = new JLabel("");
+		label_24 = new JLabel("");
 		label_24.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_24.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_24 = new GridBagConstraints();
@@ -601,7 +647,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_62.gridy = 0;
 		panel_10.add(label_62, gbc_label_62);
 
-		JLabel label_25 = new JLabel("");
+		label_25 = new JLabel("");
 		label_25.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_25.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_25 = new GridBagConstraints();
@@ -611,7 +657,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_25.gridy = 0;
 		panel_10.add(label_25, gbc_label_25);
 
-		JLabel label_26 = new JLabel("");
+		label_26 = new JLabel("");
 		label_26.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_26.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_26 = new GridBagConstraints();
@@ -621,7 +667,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_26.gridy = 0;
 		panel_10.add(label_26, gbc_label_26);
 
-		JLabel label_27 = new JLabel("");
+		label_27 = new JLabel("");
 		label_27.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_27.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_27 = new GridBagConstraints();
@@ -663,7 +709,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_54.gridy = 0;
 		panel_11.add(label_54, gbc_label_54);
 
-		JLabel label_28 = new JLabel("");
+		label_28 = new JLabel("");
 		label_28.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_28.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_28 = new GridBagConstraints();
@@ -673,7 +719,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_28.gridy = 0;
 		panel_11.add(label_28, gbc_label_28);
 
-		JLabel label_29 = new JLabel("");
+		label_29 = new JLabel("");
 		label_29.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_29.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_29 = new GridBagConstraints();
@@ -683,7 +729,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_29.gridy = 0;
 		panel_11.add(label_29, gbc_label_29);
 
-		JLabel label_30 = new JLabel("");
+		label_30 = new JLabel("");
 		label_30.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_30.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_30 = new GridBagConstraints();
@@ -725,7 +771,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_55.gridy = 0;
 		panel_12.add(label_55, gbc_label_55);
 
-		JLabel label_31 = new JLabel("");
+		label_31 = new JLabel("");
 		label_31.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_31.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_31 = new GridBagConstraints();
@@ -735,7 +781,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_31.gridy = 0;
 		panel_12.add(label_31, gbc_label_31);
 
-		JLabel label_32 = new JLabel("");
+		label_32 = new JLabel("");
 		label_32.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_32.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_32 = new GridBagConstraints();
@@ -745,7 +791,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_32.gridy = 0;
 		panel_12.add(label_32, gbc_label_32);
 
-		JLabel label_33 = new JLabel("");
+		label_33 = new JLabel("");
 		label_33.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_33.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_33 = new GridBagConstraints();
@@ -787,7 +833,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_61.gridy = 0;
 		panel_13.add(label_61, gbc_label_61);
 
-		JLabel label_34 = new JLabel("");
+		label_34 = new JLabel("");
 		label_34.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_34.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_34 = new GridBagConstraints();
@@ -797,7 +843,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_34.gridy = 0;
 		panel_13.add(label_34, gbc_label_34);
 
-		JLabel label_35 = new JLabel("");
+		label_35 = new JLabel("");
 		label_35.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_35.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_35 = new GridBagConstraints();
@@ -807,7 +853,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_35.gridy = 0;
 		panel_13.add(label_35, gbc_label_35);
 
-		JLabel label_36 = new JLabel("");
+		label_36 = new JLabel("");
 		label_36.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_36.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_36 = new GridBagConstraints();
@@ -849,7 +895,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_56.gridy = 0;
 		panel_14.add(label_56, gbc_label_56);
 
-		JLabel label_37 = new JLabel("");
+		label_37 = new JLabel("");
 		label_37.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_37.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_37 = new GridBagConstraints();
@@ -859,7 +905,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_37.gridy = 0;
 		panel_14.add(label_37, gbc_label_37);
 
-		JLabel label_38 = new JLabel("");
+		label_38 = new JLabel("");
 		label_38.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_38.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_38 = new GridBagConstraints();
@@ -869,7 +915,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_38.gridy = 0;
 		panel_14.add(label_38, gbc_label_38);
 
-		JLabel label_39 = new JLabel("");
+		label_39 = new JLabel("");
 		label_39.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_39.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_39 = new GridBagConstraints();
@@ -911,7 +957,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_57.gridy = 0;
 		panel_15.add(label_57, gbc_label_57);
 
-		JLabel label_40 = new JLabel("");
+		label_40 = new JLabel("");
 		label_40.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_40.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_40 = new GridBagConstraints();
@@ -921,7 +967,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_40.gridy = 0;
 		panel_15.add(label_40, gbc_label_40);
 
-		JLabel label_41 = new JLabel("");
+		label_41 = new JLabel("");
 		label_41.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_41.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_41 = new GridBagConstraints();
@@ -931,7 +977,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_41.gridy = 0;
 		panel_15.add(label_41, gbc_label_41);
 
-		JLabel label_42 = new JLabel("");
+		label_42 = new JLabel("");
 		label_42.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_42.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_42 = new GridBagConstraints();
@@ -973,7 +1019,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_60.gridy = 0;
 		panel_16.add(label_60, gbc_label_60);
 
-		JLabel label_43 = new JLabel("");
+		label_43 = new JLabel("");
 		label_43.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_43.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_43 = new GridBagConstraints();
@@ -983,7 +1029,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_43.gridy = 0;
 		panel_16.add(label_43, gbc_label_43);
 
-		JLabel label_44 = new JLabel("");
+		label_44 = new JLabel("");
 		label_44.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_44.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_44 = new GridBagConstraints();
@@ -993,7 +1039,7 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_44.gridy = 0;
 		panel_16.add(label_44, gbc_label_44);
 
-		JLabel label_45 = new JLabel("");
+		label_45 = new JLabel("");
 		label_45.setIcon(new ImageIcon(LevelSelectPanel.class.getResource("/resources/STAR.png")));
 		label_45.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_label_45 = new GridBagConstraints();
@@ -1017,6 +1063,95 @@ public class LevelSelectPanel extends JPanel {
 		gbc_label_48.gridy = 15;
 		panel_1.add(label_48, gbc_label_48);
 
+		buttonList.add(0, button);
+		buttonList.add(1, button_1);
+		buttonList.add(2, button_2);
+		buttonList.add(3, button_3);
+		buttonList.add(4, button_4);
+		buttonList.add(5, button_5);
+		buttonList.add(6, button_6);
+		buttonList.add(7, button_7);
+		buttonList.add(8, button_8);
+		buttonList.add(9, button_9);
+		buttonList.add(10, button_10);
+		buttonList.add(11, button_11);
+		buttonList.add(12, button_12);
+		buttonList.add(13, button_13);
+		buttonList.add(14, button_14);
+	}
+	private void initializeControllers(){
+		for(int i=0; i<15; i++){
+			int j = i+1;
+			if(j==1||j==4||j==7||j==10||j==13){
+				buttonList.get(i).addMouseListener(new SelectPuzzleLevelController(this.a, this.m, j));
+			} else if(j==2||j==5||j==8||j==11||j==14){
+				buttonList.get(i).addMouseListener(new SelectLightningLevelController(this.a, this.m, j));
+			} else {
+				buttonList.get(i).addMouseListener(new SelectThemeLevelController(this.a, this.m, j));
+			}
+		}
+	}
+
+	public void updateStars(int level, int score){
+		makeList();
+		level = (1+level)*3-2;
+		for(int i=0; i<score; i++){
+			starList.get(level).setVisible(true);
+			level++;
+		}
+	}
+
+	public void makeList(){
+		starList = new ArrayList<JLabel>(); 
+		starList.add(new JLabel("empty"));
+		starList.add(label_1);
+		starList.add(label_2);
+		starList.add(label_3);
+		starList.add(label_4);
+		starList.add(label_5);
+		starList.add(label_6);
+		starList.add(label_7);
+		starList.add(label_8);
+		starList.add(label_9);
+		starList.add(label_10);
+		starList.add(label_11);
+		starList.add(label_12);
+		starList.add(label_13);
+		starList.add(label_14);
+		starList.add(label_15);
+		starList.add(label_16);
+		starList.add(label_17);
+		starList.add(label_18);
+		starList.add(label_19);
+		starList.add(label_20);
+		starList.add(label_21);
+		starList.add(label_22);
+		starList.add(label_23);
+		starList.add(label_24);
+		starList.add(label_25);
+		starList.add(label_26);
+		starList.add(label_27);
+		starList.add(label_28);
+		starList.add(label_29);
+		starList.add(label_30);
+		starList.add(label_31);
+		starList.add(label_32);
+		starList.add(label_33);
+		starList.add(label_34);
+		starList.add(label_35);
+		starList.add(label_36);
+		starList.add(label_37);
+		starList.add(label_38);
+		starList.add(label_39);
+		starList.add(label_40);
+		starList.add(label_41);
+		starList.add(label_42);
+		starList.add(label_43);
+		starList.add(label_44);
+		starList.add(label_45);
+	}
+
+	public void emptyStars(){
 		label_1.setVisible(false);
 		label_2.setVisible(false);
 		label_3.setVisible(false);
@@ -1063,33 +1198,5 @@ public class LevelSelectPanel extends JPanel {
 		label_44.setVisible(false);
 		label_45.setVisible(false);
 		//lol this is the worst
-
-		buttonList.add(0, button);
-		buttonList.add(1, button_1);
-		buttonList.add(2, button_2);
-		buttonList.add(3, button_3);
-		buttonList.add(4, button_4);
-		buttonList.add(5, button_5);
-		buttonList.add(6, button_6);
-		buttonList.add(7, button_7);
-		buttonList.add(8, button_8);
-		buttonList.add(9, button_9);
-		buttonList.add(10, button_10);
-		buttonList.add(11, button_11);
-		buttonList.add(12, button_12);
-		buttonList.add(13, button_13);
-		buttonList.add(14, button_14);
-	}
-	private void initializeControllers(){
-		for(int i=0; i<15; i++){
-			int j = i+1;
-			if(j==1||j==4||j==7||j==10||j==13){
-				buttonList.get(i).addMouseListener(new SelectPuzzleLevelController(this.a, this.m, j));
-			} else if(j==2||j==5||j==8||j==11||j==14){
-				buttonList.get(i).addMouseListener(new SelectLightningLevelController(this.a, this.m, j));
-			} else {
-				buttonList.get(i).addMouseListener(new SelectThemeLevelController(this.a, this.m, j));
-			}
-		}
 	}
 }

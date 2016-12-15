@@ -1,40 +1,40 @@
 package boundary;
+
 import javax.swing.JPanel;
 
-import javax.swing.border.EmptyBorder;
-
+import controllers.TimerController;
 import controllers.ToMainMenuController;
-import model.Board;
-import model.LetterBank;
+import model.Lightning;
 import model.Model;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.GridLayout;
-import java.util.ArrayList;
-
-import javax.swing.JToggleButton;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+
 public class LightningPlayerPanel extends JPanel {
 
 	private Application a;
 	private Model m;
-	private Board b;
-	private int timer;
-	int level;
-	
+	private int lvl;
+	private JLabel timer;
+	private int time;
+	TraceableBoardPanel board;
+	private JLabel score;
 	private JButton btnMainMenu;
-	private ArrayList<JToggleButton> btnList = new ArrayList<JToggleButton>();
+	private JButton resetButton;
+	private JButton undoButton;
+	private JLabel star_1;
+	private JLabel star_2;
+	private JLabel star_3;
 	
-	public LightningPlayerPanel(Application a, Model m, Board b, int timer, int level){
+	public LightningPlayerPanel(Application a, Model m, int lvl, int time){
 		this.a = a;
 		this.m = m;
-		this.b = b;
-		this.timer = timer;
-		this.level = level;
+		this.lvl = lvl;
+		this.time = time;
 		initialize();
 	}
 	
@@ -43,97 +43,137 @@ public class LightningPlayerPanel extends JPanel {
 		initializeControllers();
 	}
 	
+	public int getLevel(){
+		return lvl;
+	}
+	
 	public void initializeView() {
-		setLayout(null);
+		setLayout(null);	
+		int x_align = 455;
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel.setBounds(10, 11, 434, 362);
-		add(panel);
+		board = new TraceableBoardPanel(m, a);
+		board.setBounds(10, 60, 420, 420);
+		add(board);
 		
-		JLabel label = new JLabel("LEVEL " + level);
+		JLabel label = new JLabel("LEVEL " + lvl);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Comic Sans MS", Font.BOLD, 28));
 		label.setBounds(10, 11, 114, 35);
-		panel.add(label);
+		add(label);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 57, 293, 294);
-		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(6, 6, 0, 0));
+		TraceableBoardPanel board = new TraceableBoardPanel(m, a);
+		board.setBounds(10, 60, 420, 420);
+		add(board);
 		
-		int q = 0;
-		while(q<36){
-			if(b.tiles != null){
-				btnList.add(new JToggleButton(LetterBank.genRandLetter().getCharacter()));
-				btnList.get(q).setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-				panel_1.add(btnList.get(q));
-				q=q+1;
-			}
-		}
-		
-		JLabel label_1 = new JLabel("0");
-		label_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
-		label_1.setBounds(313, 278, 111, 35);
-		panel.add(label_1);
+		score = new JLabel("0");
+		score.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
+		score.setBounds(x_align, 278, 111, 35);
+		add(score);
 		
 		JLabel label_2 = new JLabel("POINTS:");
 		label_2.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		label_2.setBounds(313, 256, 82, 26);
-		panel.add(label_2);
+		label_2.setBounds(x_align, 256, 82, 26);
+		add(label_2);
 		
 		btnMainMenu = new JButton("MAIN MENU");
 		btnMainMenu.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
-		btnMainMenu.setBounds(231, 11, 193, 35);
-		panel.add(btnMainMenu);
+		btnMainMenu.setBounds(x_align, 11, 193, 35);
+		add(btnMainMenu);
 		
-		JLabel label_3 = new JLabel(Integer.toString(timer));
-		label_3.setForeground(Color.RED);
-		label_3.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
-		label_3.setBackground(Color.WHITE);
-		label_3.setBounds(313, 324, 94, 26);
-		panel.add(label_3);
+		timer = new JLabel();
+		timer.setForeground(Color.RED);
+		timer.setFont(new Font("Comic Sans MS", Font.PLAIN, 32));
+		timer.setBackground(Color.WHITE);
+		timer.setBounds(x_align, 324, 94, 26);
+		add(timer);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(313, 57, 111, 35);
-		panel.add(panel_2);
+		panel_2.setBounds(x_align, 57, 111, 35);
+		add(panel_2);
 		panel_2.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon(LightningPlayerPanel.class.getResource("/resources/STAR.png")));
-		label_4.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_2.add(label_4);
-		
-		JLabel label_5 = new JLabel("");
-		label_5.setIcon(new ImageIcon(LightningPlayerPanel.class.getResource("/resources/STAR.png")));
-		label_5.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_2.add(label_5);
-		
-		JLabel label_6 = new JLabel("");
-		label_6.setIcon(new ImageIcon(LightningPlayerPanel.class.getResource("/resources/STAR.png")));
-		label_6.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_2.add(label_6);
+		star_1 = new JLabel("");
+		star_1.setIcon(new ImageIcon(PuzzlePlayerPanel.class.getResource("/resources/STAR.png")));
+		star_1.setHorizontalAlignment(SwingConstants.CENTER);
+		star_1.setVisible(false);
+		panel_2.add(star_1);
+
+		star_2 = new JLabel("");
+		star_2.setIcon(new ImageIcon(PuzzlePlayerPanel.class.getResource("/resources/STAR.png")));
+		star_2.setHorizontalAlignment(SwingConstants.CENTER);
+		star_2.setVisible(false);
+		panel_2.add(star_2);
+
+		star_3 = new JLabel("");
+		star_3.setIcon(new ImageIcon(PuzzlePlayerPanel.class.getResource("/resources/STAR.png")));
+		star_3.setHorizontalAlignment(SwingConstants.CENTER);
+		star_3.setVisible(false);
+		panel_2.add(star_3);
 		
 		JButton btnRemoveWord = new JButton("REMOVE WORD");
-		btnRemoveWord.setBounds(313, 103, 111, 35);
-		panel.add(btnRemoveWord);
+		btnRemoveWord.setBounds(x_align, 103, 111, 35);
+		add(btnRemoveWord);
 		btnRemoveWord.setFont(new Font("Comic Sans MS", Font.PLAIN, 10));
 		
 		JButton button_1 = new JButton("UNDO");
-		button_1.setBounds(313, 149, 111, 35);
-		panel.add(button_1);
+		button_1.setBounds(x_align, 149, 111, 35);
+		add(button_1);
 		button_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 		
 		JButton button = new JButton("RESET");
-		button.setBounds(313, 195, 111, 35);
-		panel.add(button);
+		button.setBounds(x_align, 195, 111, 35);
+		add(button);
 		button.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
 
 	}
 
+	public void update(){
+		score.setText(Integer.toString(m.getCurrentLevel().getScoreBoard().getScore()));
+		updateStars();
+		updateBoard();
+	}
+	
 	private void initializeControllers(){
 		btnMainMenu.addMouseListener(new ToMainMenuController(this.a, this.m));
+		TimerController timer = new TimerController(this.a, this, (Lightning) this.m.currentLevel);
+		timer.runTimer();
+	}
+	
+	public void updateStars(){
+		int star_count = m.getCurrentLevel().getScoreBoard().getStars();
+		if (star_count == 1){
+			star_1.setVisible(true);
+			star_2.setVisible(false);
+			star_3.setVisible(false);
+		}
+		else if (star_count == 2){
+			star_1.setVisible(true);
+			star_2.setVisible(true);
+			star_3.setVisible(false);
+		}
+		else if (star_count == 3){
+			star_1.setVisible(true);
+			star_2.setVisible(true);
+			star_3.setVisible(true);
+		}
+		else {
+			star_1.setVisible(false);
+			star_2.setVisible(false);
+			star_3.setVisible(false);
+		}
+	}
+	
+	public TraceableBoardPanel getBoard(){
+		return this.board;
+	}
+	
+	public void updateBoard(){
+		board.updateBoard();
+	}
+	
+	public void setTime(int time_val){
+		String string_time = Integer.toString(time_val);
+		this.timer.setText(string_time);
 	}
 
 }

@@ -38,16 +38,16 @@ public class Word {
 	}
 
 	public boolean isValidInTheme(ArrayList<String> wordList) {
-		return isValidLen() && isValidPos() && isInWordList(wordList);
+		return isValidLen() && isInWordList(wordList);
 	}
 
 	public int getPoints() {
 		// sanity check
-		if(!isValid()) {return 0;}
+		//if(!isValid()) {return 0;}
 		// count them
 		int points = 0;
 		for(Tile tile : selectedTiles) {
-			points += tile.getLetter().getWeight();
+			points += LetterBank.pointValue(tile.getCharacter());
 		}
 		return points;
 	}

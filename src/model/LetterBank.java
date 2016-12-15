@@ -17,32 +17,58 @@ public class LetterBank {
 	public static final Letter EMPTY = new Letter("", 0);
 
 	static {
-		letters.put("E", new Letter("E", 1));
-		letters.put("T", new Letter("T", 1));
-		letters.put("A", new Letter("A", 2));
-		letters.put("O", new Letter("O", 2));
-		letters.put("I", new Letter("I", 2));
-		letters.put("N", new Letter("N", 2));
-		letters.put("S", new Letter("S", 2));
-		letters.put("H", new Letter("H", 2));
-		letters.put("R", new Letter("R", 2));
-		letters.put("D", new Letter("D", 3));
-		letters.put("L", new Letter("L", 3));
-		letters.put("C", new Letter("C", 3));
-		letters.put("U", new Letter("U", 3));
-		letters.put("M", new Letter("M", 3));
-		letters.put("W", new Letter("W", 3));
-		letters.put("F", new Letter("F", 4));
-		letters.put("G", new Letter("G", 4));
-		letters.put("Y", new Letter("Y", 4));
-		letters.put("P", new Letter("P", 4));
-		letters.put("B", new Letter("B", 4));
-		letters.put("V", new Letter("V", 5));
-		letters.put("K", new Letter("K", 5));
-		letters.put("J", new Letter("J", 7));
-		letters.put("X", new Letter("X", 7));
-		letters.put("Qu", new Letter("Qu", 8));
-		letters.put("Z", new Letter("Z", 8));
+		Letter e = new Letter("E", 1);
+		letters.put("E", e);
+		Letter t = new Letter("T", 1);
+		letters.put("T", t);
+		Letter a = new Letter("A", 2);
+		letters.put("A", a);
+		Letter o = new Letter("O", 2);
+		letters.put("O", o);
+		Letter i =  new Letter("I", 2);
+		letters.put("I", i);
+		Letter n =  new Letter("N", 2);
+		letters.put("N", n);
+		Letter s = new Letter("S", 2);
+		letters.put("S", s);
+		Letter h =  new Letter("H", 2);
+		letters.put("H", h);
+		Letter r = new Letter("R", 2);
+		letters.put("R", r);
+		Letter d = new Letter("D", 3);
+		letters.put("D", d);
+		Letter l = new Letter("L", 3);
+		letters.put("L", l);
+		Letter c = new Letter("C", 3);
+		letters.put("C", c);
+		Letter u = new Letter("U", 3);
+		letters.put("U", u);
+		Letter m = new Letter("M", 3);
+		letters.put("M", m);
+		Letter w = new Letter("W", 3);
+		letters.put("W", w);
+		Letter f =  new Letter("F", 4);
+		letters.put("F", f);
+		Letter g =  new Letter("G", 4);
+		letters.put("G", g);
+		Letter y = new Letter("Y", 4);
+		letters.put("Y", y);
+		Letter p = new Letter("P", 4);
+		letters.put("P", p);
+		Letter b =  new Letter("B", 4);
+		letters.put("B", b);
+		Letter v = new Letter("V", 5);
+		letters.put("V", v);
+		Letter k = new Letter("K", 5);
+		letters.put("K", k);
+		Letter j = new Letter("J", 7);
+		letters.put("J", j);
+		Letter x = new Letter("X", 7);
+		letters.put("X", x);
+		Letter qu = new Letter("Qu", 8);
+		letters.put("Qu", qu);
+		Letter z = new Letter("Z", 8);
+		letters.put("Z", z);
 
 		addToTree(12.7, "E");
 		addToTree(9.06, "R");
@@ -68,7 +94,7 @@ public class LetterBank {
 		addToTree(0.77, "K");
 		addToTree(0.15, "J");
 		addToTree(0.15, "X");
-		addToTree(0.10, "Qu");
+		addToTree(0.10, "Q");
 		addToTree(0.07, "Z");
 		//chars = letters.keySet().toArray(new String[letters.size()]);
 	}
@@ -86,7 +112,7 @@ public class LetterBank {
 		return letterBank;
 	}
 
-	public Letter getLetter(String str) {
+	public static Letter getLetter(String str) {
 		return letters.get(str);
 	}
 
@@ -98,7 +124,8 @@ public class LetterBank {
 		} else { return letters.get(1); }
 	}
 
-	public int pointValue(String s){
+	public static int pointValue(String s){
+		System.out.println("The letter is" + s);
 		return letters.get(s).getWeight();
 	}
 }

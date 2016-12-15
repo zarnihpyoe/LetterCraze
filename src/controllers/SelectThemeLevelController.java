@@ -19,18 +19,19 @@ public class SelectThemeLevelController extends MouseAdapter {
     Model model;
     int level;
     public String levelText;
-	Scanner sc;
+    Scanner sc;
+    private static ArrayList<String> words;
 	
 	public SelectThemeLevelController(Application a, Model m, int level) {
 		this.app = a;
 		this.model = m;
 		this.level = level;
 		levelText = "/levels/" + level + ".txt";
+		setWords(new ArrayList<String>());
 	}
 	
 	@Override
 	public void mousePressed(MouseEvent me) {
-		// Initiate new score board and board
 		
 		try {
 			StringFileIterator(new File (".", levelText));
@@ -38,34 +39,68 @@ public class SelectThemeLevelController extends MouseAdapter {
 			System.out.println("This file doesn't exist you fool.");
 		}
 		
-		next();
-		next();
-		next();
-		next();
-		next();
-		next();
-		next();
-		String theme = next();
-		String word1 = next();
-		String word2 = next();
-		String word3 = next();
+		getWords().clear();
 		
-		ScoreBoard scoreBoard = new ScoreBoard(1, 2, 3);
-		Tile[][] tiles = new Tile[6][6];
+		String[][] levelBoard = new String[6][6];
+		
+		next();
+		
+		String row1 = next(); //000000
+		for(int i=0; i<6; i++){levelBoard[0][i] = Character.toString(row1.charAt(i));}
+		String row2 = next(); //******
+		for(int i=0; i<6; i++){levelBoard[1][i] = Character.toString(row2.charAt(i));}
+		String row3 = next();
+		for(int i=0; i<6; i++){levelBoard[2][i] = Character.toString(row3.charAt(i));}
+		String row4 = next();
+		for(int i=0; i<6; i++){levelBoard[3][i] = Character.toString(row4.charAt(i));}
+		String row5 = next();	
+		for(int i=0; i<6; i++){levelBoard[4][i] = Character.toString(row5.charAt(i));}
+		String row6 = next();
+		for(int i=0; i<6; i++){levelBoard[5][i] = Character.toString(row6.charAt(i));}
+		String theme = next();
+		getWords().add(next());
+		getWords().add(next());
+		getWords().add(next());
+		
+		// Initiate new score board and board 
+		ScoreBoard scoreBoard = new ScoreBoard(1, 2, 3, level);
+		
+		System.out.println(levelBoard[3][1]);
+
+		Tile[][] tiles;
+		tiles = new Tile[6][6];
+		// initialize
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				if(!levelBoard[i][j].equals("0")){
+					tiles[i][j] = new Tile(i, j);
+					tiles[i][j].setLetter(LetterBank.getLetter(levelBoard[i][j]).getCharacter());
+				} else {
+					tiles[i][j] = null;
+				}
+			}
+		}
+	
+		// link the tiles
+		for (int i = 0; i < 5; i++) { // a little hack here
+			for (int j = 0; j < 6; j++) {
+				if(tiles[i+1][j] == null || tiles[i][j] == null){
+				} else { 
+					tiles[i][j].linkWith(tiles[i + 1][j]);
+				}
+			}
+		}
+		
 		Board board = new Board(tiles);
-		ArrayList<String> wordList = new ArrayList<String>(3);
-		wordList.add(word1);
-		wordList.add(word2);
-		wordList.add(word3);
-		Theme themeLevel = new Theme(this.level, board, scoreBoard, theme, wordList);
-		populateBoard(board);
+
+		Theme themeLevel = new Theme(this.level, board, scoreBoard, "Colors", getWords());
 		
 		this.model.assignLevel(themeLevel);
 		
-		ThemePlayerPanel puzzleView = new ThemePlayerPanel(app, model, board, theme, wordList, level);
+		ThemePlayerPanel themeView = new ThemePlayerPanel(app, model, level, theme, getWords());
 		
-		app.modifyFrameSize(100, 100, 750, 575);
-		app.switchPanel(puzzleView);
+		app.modifyFrameSize(100, 100, 680, 555);
+		app.switchPanel(themeView);
 	}
 	
 	// The name of the file to open.
@@ -100,5 +135,13 @@ public class SelectThemeLevelController extends MouseAdapter {
 	}
 	
 	public void populateBoard(Board b){
+	}
+
+	public static ArrayList<String> getWords() {
+		return words;
+	}
+
+	public static void setWords(ArrayList<String> words) {
+		SelectThemeLevelController.words = words;
 	}
 }

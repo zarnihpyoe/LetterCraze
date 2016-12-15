@@ -8,9 +8,9 @@ public class TestScoreBoard extends TestCase {
 
 	@Override
 	protected void setUp() {
-		puzzleSB = new ScoreBoard(150, 300, 450);
-		lightningSB = new ScoreBoard(10, 15, 20);
-		themeSB = new ScoreBoard(1, 2, 3);
+		puzzleSB = new ScoreBoard(150, 300, 450, 300);
+		lightningSB = new ScoreBoard(10, 15, 20, 10);
+		themeSB = new ScoreBoard(1, 2, 3, 15);
 	}
 
 	@Override

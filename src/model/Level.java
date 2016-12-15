@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public abstract class Level {
 
 	protected final int lvl;
@@ -7,6 +9,7 @@ public abstract class Level {
 	protected Board board;
 	protected ScoreBoard scoreBoard;
 	protected int numRemovedWords;
+	protected ArrayList<LevelMemento> states;
 
 
 	public Level(int lvl, Board board, ScoreBoard scoreBoard) {
@@ -14,6 +17,8 @@ public abstract class Level {
 		this.isLocked = lvl > 3;
 		this.board = board;
 		this.scoreBoard = scoreBoard;
+		this.numRemovedWords = 0;
+		this.states = new ArrayList<LevelMemento>();
 	}
 
 	public void unlock() {
@@ -44,6 +49,9 @@ public abstract class Level {
 	
 	public void reset() {
 		numRemovedWords = 0;
+		board.cleanUp();
+		board.populateEmptyTiles();
+		scoreBoard.resetScore();
 	}
 	
 
@@ -56,5 +64,7 @@ public abstract class Level {
 	public ScoreBoard getScoreBoard() { return scoreBoard; }
 
 	public int getNumRemovedWords() { return numRemovedWords; }
+	
+	public ArrayList<LevelMemento> getPreviousStates() { return states; }
 
 }
